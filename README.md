@@ -107,7 +107,7 @@ kanso-decks/
     ├── .claude-plugin/plugin.json
     └── skills/kanso-decks/
         ├── SKILL.md                     # workflow and hard rules
-        ├── assets/kanso-logo.svg
+        ├── assets/                      # kanso-logo, o-mark, quote-mark, globe-icon (SVG)
         ├── references/
         │   ├── kanso-facts.md
         │   ├── copy-rules.md

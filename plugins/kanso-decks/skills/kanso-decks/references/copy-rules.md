@@ -23,6 +23,11 @@ adjectives. The studio is named after a principle of removing clutter — the co
 | Captions / meta | Facts separated by " · " | 1 line |
 | Section label (header) | Chapter name, title case, no period | 1–3 words |
 
+**Layout conventions (UI v2).** The left-column `Title` (Lastik 60) carries the slide's main idea in ≤ 6 words;
+headlines, list items and column titles are Lastik 42. Labels, body and list text render **uppercase** through the
+layout's text case — always write them in sentence case in the copy document. Keep uppercase lines short: body
+≤ 30 words, list items ≤ 5 words.
+
 Exceptions to "headline ends with a period": the cover line ("We are Kanso"), section openers, questions
 ("Why should this app ever be opened at all?"), and numbers used as headlines ("2,000+").
 

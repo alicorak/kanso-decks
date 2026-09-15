@@ -75,7 +75,9 @@ Follow `figma-system.md` → Build procedure:
 - Paste `scripts/build-helpers.js` at the top of every script. At most 5–6 slides per call.
 - Screenshot what you built after each call and fix problems before continuing.
 - Theme: dark unless the brief says light (`setTheme`).
-- Proposal and kickoff: `Confidential — prepared for [Client]` on every slide except the cover.
+- Proposal and kickoff: `addConfidential(frame, client)` on every slide except the cover (sets the Footer's Meta to
+  `Confidential — prepared for [Client]`).
+- Body copy renders uppercase through the layout's text case — keep the copy itself in sentence case.
 - Finish with `setPageNumbers`.
 
 ### 6. Review ⏸
@@ -111,6 +113,6 @@ Run `scripts/review-scan.js`. Fix overlaps, overflow, footer-zone hits, and empt
 | `Cannot write to node with unloaded font "Lastik Free"` | Headings already switched to Lastik | User sets `font/heading-family` = Instrument Serif, `font/heading-style` = Regular; rerun; switch back after |
 | `Missing variable …` | File is not a template copy | Ask for a duplicate of the template, or use the bootstrap fallback |
 | A script fails halfway | Scripts are atomic — nothing was applied | Read the error, fix, rerun the same script |
-| Text runs into the next element | Copy longer than the layout | Shorten copy (preferred) or `stackBelow`; never shrink below the type scale |
+| Review scan reports a spill (content taller than its column) | Copy longer than the layout — layouts are auto-layout, so text pushes siblings instead of overlapping | Shorten copy (preferred), remove list items with `removeListItems`, or move the content to a layout with more room; never shrink below the type scale |
 | User says headings are switched, but the scan still reads Instrument Serif | The change isn't saved in the file the MCP reads yet (value not confirmed with Enter, a different copy, or sync delay) | Report the exact variable values you read and the file key; ask the user to confirm the value with Enter in *this* file and to check the headings visibly changed; scan again. Never report a Lastik check as passed while `font/heading-family` reads Instrument Serif |
 | After the Lastik switch a headline leaves one word alone on its last line | Lastik is wider than Instrument Serif | Screenshot every slide in Lastik and list the affected headlines. Then, in one script, set `font/heading-family` / `font/heading-style` to Instrument Serif / Regular via `setValueForMode`, and add a manual line break (`\n`) where the Lastik render shows the first line can end — never change the words. Ask the user to switch back to Lastik, rescan, and `stackBelow` any text the new line counts push into. Don't set the variable to Lastik from the API: the MCP can't lay text out in Lastik |

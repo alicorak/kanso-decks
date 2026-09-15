@@ -75,9 +75,11 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 |---|---|
 | Template | **"Kanso Deck Template"** Figma file, shared by link |
 | Each deck | A separate file duplicated from the template |
-| Default theme | **Dark (#0A0A0A)**; light as an alternative |
-| Header | Logo + section label (Geist Medium 24) + bottom rule, 48 px margin |
-| Typography | Headings: Lastik (via Typography variables) · Body: Geist |
+| Default theme | **Dark**: gradient #000000 → #141414 (top → bottom); light as an alternative |
+| UI version | **v2 (2026-09-15)** — follows the redesigned Client Introduction deck (UI only, copy unchanged) |
+| Header / footer | Full-width bars: header 1920 × 105 (logo + UPPERCASE section label + rule), footer 1920 × 102 (meta + page number) |
+| Grid | Title column 432 + content column 1360, or four 432 columns with rules; all auto-layout |
+| Typography | Headings: Lastik (via Typography variables) 150 / 96 / 60 / 42 / 32 · Body: Geist Medium, UPPERCASE labels and body |
 | Lastik | Variable method: build with Instrument Serif, the user switches the variable to Lastik, the skill then checks for overflow |
 
 ## 7. Research

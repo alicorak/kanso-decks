@@ -1,130 +1,144 @@
-# Figma system
+# Figma system (UI v2)
 
 How Kanso decks are built in Figma: the template, the grid, the layouts, the variables, and the API limits that
 shape the workflow. Read this before the first `use_figma` call of a deck.
+
+UI v2 (2026-09-15) follows the redesigned Client Introduction deck: gradient background, full-width header and
+footer bars, a title column + content column grid, uppercase Geist labels, and auto-layout everywhere.
 
 ## Template
 
 | | |
 |---|---|
 | File | **Kanso Deck Template** — https://www.figma.com/design/Hc5KB8bcdQZHG19ZTI6OIA |
-| Pages | `Slides` (layout library) · `Components` (Header) · `Read me` |
+| Pages | `Slides` (layout library) · `Components` (Header, Footer, decorations) · `Read me` |
 | Rule | Never build a client deck inside the template itself |
 
 **The Figma MCP cannot duplicate files.** Every deck starts with the user duplicating the template in Figma
 (⋯ → Duplicate), renaming it `[Client] — [Deck type] — [YYYY-MM-DD]`, and pasting the link. Build in that copy.
 
-If the user cannot duplicate (no access), fall back to `create_new_file` + the bootstrap section of
-`scripts/build-helpers.js`, which recreates the variables and the Header in a blank file. Tell the user this
-fallback has no layout library, so slides are built from the helpers instead of cloned.
-
 ## Canvas and grid
 
-| Measure | Value |
+| Element | Spec |
 |---|---|
-| Slide | 1920 × 1080 frame, `clipsContent = true`, fill bound to `color/background` |
-| Header | `Header` instance at x 48, y 48, width 1824 (ends at y ≈ 105) |
-| Content margin | x 80 (footer text at x 82) · right edge 1840 |
-| Eyebrow | y 200, Geist 32, `color/text-secondary` |
-| Headline | y 250–260, Instrument Serif → Lastik, 96–120 px |
-| Content band | starts at y 480 (rules at 480, labels at 504, titles at 550) |
-| Footer baseline | bottom of footer text at y 984 (page number right-aligned to 1838) |
-| Columns | 4-up: x = 80 + i × 450, width 410 · 3-up: x = 80 + i × 600, width 560 · 2-up: x = 80 + i × 900, width 820–860 |
+| Slide | 1920 × 1080 frame, `clipsContent = true`, linear gradient top → bottom, stops bound to `color/background-top` → `color/background-bottom` |
+| Header | `Header` instance at (0, 0), 1920 × 105 |
+| Footer | `Footer` instance at (0, 978), 1920 × 102 |
+| Content area | x 48–1872, y 153–929 (1824 × 776) |
+| Title column | `Title column` auto-layout at (48, 153), 432 × 776, vertical, padding 48 top / 48 bottom, space-between |
+| Content column | `Content column` auto-layout at (512, 153), 1360 × 776, padding 48 top / 48 bottom; optional 1 px left rule `color/rule-strong` |
+| Four-column grid | `Column` frames at x = 48 + i × 464, 432 × 776; columns 2–4 carry a 1 px right rule `color/rule` |
 | Deck page layout | slides in a row: x = index × 2020, y = 0 |
+
+Everything inside the title and content columns is auto-layout. Text that grows pushes its siblings instead of
+overlapping them — overflow shows up as content spilling past a column's 776 px height (the review scan reports it).
 
 ## Typography
 
-| Role | Font (bound variables) | Sizes |
-|---|---|---|
-| Headings | `font/heading-family` + `font/heading-style` (ships as Instrument Serif / Regular; final: Lastik / Free) | 240 · 200 · 144 · 120 · 96 · 80 · 72 · 64 · 56 · 48 · 40 |
-| Body | `font/body-family` + `font/body-style` (Geist / Regular) | 36 · 32 · 28 · 26 · 24 · 22 |
-| Header label | `font/body-family` + `font/body-medium-style` (Geist / Medium) | 24 |
-| Kanji 簡素 | Noto Serif JP Regular (not bound — Lastik has no CJK glyphs) | 360 |
+| Role | Font | Size / line height | Notes |
+|---|---|---|---|
+| Cover / section title | Heading | 150 / 100 % | Centered. Outlined variant: no fill, 1.5 px outside stroke `color/outline` |
+| Statement | Heading | 96 / 100 % | Bottom of the content column |
+| Title (left column) | Heading | 60 / 100 % | One idea, 1–3 lines |
+| Headline, list item, column title, stat, contact name | Heading | 42 / 100 % | |
+| Quote | Heading | 32 / 120 % | Testimonials |
+| Label, body, list text | Body | 24 · auto / 120 % / 150 % | **UPPERCASE via text case**, `color/text-secondary` (50 %) for labels, `color/text-body` (60 %) for body |
+| Meta, caption | Body | 20 / 28 px | Uppercase |
+| Note | Body | "*" 32 / 32 px + text 20 / 28 px | Bottom of the title column |
+| Kanji 簡素 | Noto Serif JP Regular | 1211 | Only inside the `Kanji background` component |
 
-Letter spacing: headings −2 %, body −1 %. Line height: headlines 100–112 %, body 125–140 %.
+Heading = `font/heading-family` + `font/heading-style` (ships as Instrument Serif / Regular; final Lastik / Free).
+Body = `font/body-family` + `font/body-style` (Geist / **Medium**). Letter spacing: headings −2 %, body −1 %.
+
+**Uppercase is a text property, not the copy.** Write body copy in sentence case; the layout renders it uppercase.
 
 ## Colors — `Theme` collection
 
 | Variable | Dark (default) | Light | Use |
 |---|---|---|---|
-| `color/background` | #0A0A0A | #FFFFFF | Slide fill |
-| `color/placeholder` | #1C1C1C | #EDEDED | Image placeholders, timeline bars |
-| `color/text-primary` | #F5F5F2 | #000000 | Headlines, key text, logo |
-| `color/text-body` | #F5F5F2 @ 60 % | #000000 @ 60 % | Body copy |
-| `color/text-secondary` | #F5F5F2 @ 50 % | #000000 @ 50 % | Eyebrows, meta, labels, page numbers |
-| `color/rule` | #F5F5F2 @ 15 % | #000000 @ 15 % | Rules, header bottom line |
+| `color/background-top` | #000000 | #FFFFFF | Slide gradient, top stop |
+| `color/background-bottom` | #141414 | #F2F2F2 | Slide gradient, bottom stop |
+| `color/placeholder` | #1A1A1A | #EDEDED | Image placeholders, avatars, timeline bars |
+| `color/text-primary` | #F5F5F2 | #000000 | Headings, highlights, logo, icons |
+| `color/text-body` | #F5F5F2 @ 60 % | #000000 @ 60 % | Body and list text |
+| `color/text-secondary` | #F5F5F2 @ 50 % | #000000 @ 50 % | Labels, numbers, meta, captions, footer |
+| `color/rule` | #F5F5F2 @ 15 % | #000000 @ 15 % | Dividers, header rule, column rules, quote mark |
+| `color/rule-strong` | #FFFFFF @ 20 % | #000000 @ 20 % | Content column left rule |
+| `color/outline` | #FFFFFF @ 50 % | #000000 @ 50 % | Outlined cover and section titles |
+| `color/accent` | #8CFF8E | #1E8E3E | "Now" / current-step label only |
 
-**Never hard-code colors.** Bind every fill and stroke to these variables. Switch a deck to light by setting the
-explicit mode on each slide frame: `frame.setExplicitVariableModeForCollection(theme, lightModeId)`.
+**Never hard-code colors.** Switch a deck to light with `setTheme(frame, 'Light')` on each slide.
 
-## Header component
+## Components (`Components` page)
 
-- Page `Components`, component `Header`: logo (vector, bound to `color/text-primary`) + section label + bottom rule.
-- Text property whose key starts with `Section` controls the label. Find the key at runtime:
-  `Object.keys(header.componentPropertyDefinitions).find(k => k.startsWith('Section'))`.
-- Every slide has exactly one Header instance at (48, 48). The label is the chapter name (`Intro`, `Services`,
-  `Work`, `Proof`, `Next steps`, `Contact`, `Scope`, `Timeline`, `Team`, `Investment`, `Kickoff`…).
+| Component | Size | Properties | Use |
+|---|---|---|---|
+| `Header` | 1920 × 105 | `Section` (text, shown uppercase) | Every slide, at (0, 0) |
+| `Footer` | 1920 × 102 | `Meta` (text), `Show meta` (boolean), `Page` (text) | Every slide, at (0, 978). Cover: Meta "*formerly Echo Studio". Proposal / kickoff: Meta "Confidential — prepared for [Client]" |
+| `Kanji background` | 1920 × 1080 | — | First child of Name meaning and Contact slides |
+| `O mark` | 214 × 256 | — | Mark statement |
+| `Quote mark` | 20 × 32 | — | Testimonial columns |
+| `Globe icon` | 24 × 24 | — | Studio meta |
+
+Find property keys at runtime (they carry a `#id` suffix) — the helpers do this.
 
 ## Layout library (`Slides` page)
 
-Clone a layout, then edit its text layers **by layer name**. Keep layer names — the review scan relies on them.
+Clone a layout, then edit text **by layer name**. Keep layer names — helpers and the review scan rely on them.
 
-| Layout | Use for | Text layers (by name) |
+| Layout | Use for | Layer names |
 |---|---|---|
-| `Layout / Cover` | Deck cover | `Cover title`, `Cover note` |
-| `Layout / Index` | Agenda | `Title`, `Index number` ×5, `Index item` ×5 |
-| `Layout / Statement` | One big sentence | `Eyebrow`, `Statement` (bottom-anchored at 920) |
-| `Layout / Name meaning` | 簡素 slide | `Eyebrow`, `Kanji`, `Definition`, `Body` |
-| `Layout / Logo wall` | Client logos | `Eyebrow`, `Headline`, `Image placeholder` ×4 |
-| `Layout / Split text + image` | Studio, signature detail | `Eyebrow`, `Headline`, `Meta`, `Image placeholder` |
-| `Layout / Four columns` | Services, process | `Eyebrow`, `Headline`, `Column number/title/body` ×4, `Note` |
-| `Layout / Two-column contrast` | Usual way vs our way | `Eyebrow`, `Headline`, `Column label/headline/body` ×2 |
-| `Layout / Three columns` | Next steps, scope, communication | `Eyebrow`, `Headline`, `Column number/title/meta/body` ×3 |
-| `Layout / Stats` | Results, proof | `Eyebrow`, `Headline`, `Stat` ×4, `Stat label` ×4 |
-| `Layout / Testimonials` | Quotes | `Eyebrow`, `Main quote`, `Main attribution`, `Supporting quote/attribution` ×2 |
-| `Layout / Contact` | Closing | `Eyebrow`, `Headline`, `Contact name/details` ×3 |
-| `Layout / Case cover` | Case study opener | `Eyebrow`, `Headline`, `Meta`, `Image placeholder` |
+| `Layout / Cover` | Deck cover | `Cover title outline`, `Cover title` · Footer Meta |
+| `Layout / Section opener` | Chapter divider (decks > 20 slides) | `Section title` (outlined) |
+| `Layout / Index` | Agenda | `Title` · `Index row` ×5 → `Index number`, `Index item` · `Divider` |
+| `Layout / Statement` | One big sentence | `Title` · `Statement` |
+| `Layout / Name meaning` | 簡素 slide | Kanji background · `Title` · `Definition`, `Body` |
+| `Layout / Logo wall` | Clients | `Title` · `Headline` · `Logo row` ×2 → `Logo tile` ×4 (`Caption`) |
+| `Layout / Split text + image` | Studio, signature detail | `Title` · `Meta`, `Rule`, `Meta highlight` + Globe icon · `Headline`, `Image placeholder` |
+| `Layout / Mark statement` | How we're different, approach | `Title`, `Note` · O mark · `Headline`, `Body` |
+| `Layout / Three columns` | Next steps, goals, communication | `Title`, `Note` · `Column` ×3 → `Column number`, `Column title`, `Column item` (+ `Divider`) |
+| `Layout / Four columns` | Services, process | `Column` ×4 → `Column number`, `Column title`, `Column item` ×4 (+ `Divider`) |
+| `Layout / Stats` | Results, proof in numbers, process rows | `Title` · `Stat row` ×4 → `Row number`, `Stat`, `Stat label`, `Row meta` · `Divider` |
+| `Layout / Testimonials` | Quotes | `Portrait` · `Column` ×3 → Quote mark, `Quote`, `Avatar`, `Person name`, `Person title` |
+| `Layout / Contact` | Closing | Kanji background · `Title` · `Contact` ×3 → `Contact name`, `Contact email` |
+| `Layout / Case cover` | Case study opener | `Title`, `Subtitle`, `Meta`, `Rule`, `Meta highlight` · `Image placeholder` |
 | `Layout / Visual grid` | Case visuals | `Image placeholder` ×3 |
-| `Layout / Challenge & idea` | Case framing, brief understanding | `Eyebrow` ×2, `Column headline/body` ×2, `Feature title/body` ×3 |
-| `Layout / Timeline` | Proposal / kickoff timeline | `Eyebrow`, `Headline`, `Week label` ×12, `Phase label` ×4, `Phase bar` ×4, `Milestones` |
-| `Layout / Team grid` | Team | `Eyebrow`, `Headline`, `Image placeholder` ×4, `Person name/role` ×4 |
-| `Layout / Investment` | Fee | `Eyebrow`, `Headline`, `Fee`, `Fee note`, `Column label`, `Payment items`, `Confidential` |
-| `Layout / Scope in-out` | Scope, assumptions & risks | `Eyebrow`, `Headline`, `Column label/items` ×2, `Confidential` |
-| `Layout / Checklist` | What we need from you | `Eyebrow`, `Headline`, `Item number/Item/Item meta` ×6, `Confidential` |
-| `Layout / Section opener` | Chapter break (decks > 20 slides only) | `Eyebrow`, `Section title` |
+| `Layout / Challenge & idea` | Case framing, brief understanding, scope summary | `Column` ×4 → `Column label`, `Column title`, `Column body` or `Column item` |
+| `Layout / Timeline` | Proposal / kickoff timeline | `Title` · `Week label` ×12 · `Phase row` ×4 → `Phase label`, `Phase bar` · `Milestones` · Footer Meta |
+| `Layout / Team grid` | Team | `Title` · `Person` ×4 → `Image placeholder`, `Person name`, `Person role` |
+| `Layout / Investment` | Fee | `Title` · `Fee`, `Fee note` · `Payment row` ×3 → `Payment item`, `Payment share` · Footer Meta |
+| `Layout / Scope in-out` | Scope, assumptions & risks | `Title` · `Column` ×2 → `Column label`, `Column item` ×5 · Footer Meta |
+| `Layout / Checklist` | What we need from you, first two weeks | `Title` · `Item row` ×6 → `Item number`, `Item`, `Item meta` · Footer Meta |
 
-Every layout except `Cover` has a `Page number` layer. Proposal and kickoff slides need a `Confidential` layer —
-add it with the helper if the cloned layout does not have one.
-
-Repeating items (columns, stats, checklist rows): when the content has fewer items than the layout, **remove** the
-extra item layers rather than leaving them empty; when it has more, choose a different layout or split the slide.
+Repeated items: when the content has fewer items than the layout, remove the extras with `removeListItems`
+(it also removes the matching dividers); when it has more, pick another layout or split the slide.
+The current step in Three columns uses `color/accent` on its `Column number` ("Now").
 
 ## Build procedure
 
 1. Read the copy approved in the previous step.
 2. In the duplicated file, create a page `Deck — [Client] — [Deck type]`.
 3. Paste `scripts/build-helpers.js` at the top of each `use_figma` script.
-4. Clone layouts in order with `cloneLayout(name, deckPage, index, section)`, then set the text layers:
-   - Stacked layers (index items): `setText(frame, name, text, i)`.
-   - Side-by-side layers (columns, stats, quotes, contact blocks): `setText(frame, name, text, i, 'x')`.
-   - List-style bodies (e.g. service sub-items): one item per line (`\n`), even if the copy document shows them joined with ` · `.
-   - Image captions: `setCaptions(frame, [...])`.
-   - Bottom-anchored text (`Statement`, `Meta` at 920; `Note` at 984): `anchorBottom(node, y)` after setting it.
-   - Text under a heading (`Body`, `Column body`, `Stat label`, attributions): `stackBelow(heading, text, gap)` after setting both.
-   - Unused layers: `removeAll(frame, name)` or `removeExtra(frame, names, keep)`.
+4. Clone layouts in order with `cloneLayout(name, deckPage, index, section)`, then:
+   - Stacked layers (rows): `setText(frame, name, text, i)`. Side-by-side layers (columns): `setText(frame, name, text, i, 'x')`.
+   - Image captions: `setCaptions(frame, [...])` — covers `Image placeholder`, `Logo tile` and `Portrait`.
+   - Footer: `setFooter(frame, { meta })`; proposal and kickoff: `addConfidential(frame, client)` on every slide but the cover.
+   - Unused items: `removeListItems(listFrame, keep, { skip })`; unused layers: `removeAll(frame, name)`.
 5. Build **at most 5–6 slides per `use_figma` call.** Switch pages at most once per call.
 6. After each call, screenshot the slides you built (`await frame.screenshot({ scale: 0.25 })`, max 5 per call).
 7. When all slides exist: `setPageNumbers(deckPage)`, then run `scripts/review-scan.js`.
 
 ## API limits and gotchas
 
-- **Lastik cannot be loaded by the MCP.** Editing characters, font size, or width of a text node that currently
-  renders in Lastik throws — and a thrown error **rolls back the entire script**. Before editing, the helpers
-  check `font/heading-family`; if it is not Instrument Serif, stop and ask the user to switch it back
-  (`Instrument Serif` / `Regular`) for the duration of the edits.
-- What still works on Lastik nodes: moving (x/y), opacity, fills, `clone()`, `remove()`.
-- After the user switches headings to Lastik, headings get wider. Run `review-scan.js` and move body text that
-  sits under a heading (`stackBelow`) — do not try to resize the Lastik text.
+- **Lastik cannot be loaded by the MCP.** Editing characters, font size, or width of a text node that renders in
+  Lastik throws — and a thrown error **rolls back the entire script**. The helpers check `font/heading-family`; if
+  it is not Instrument Serif, set it (and `font/heading-style`) back to Instrument Serif / Regular with
+  `setValueForMode` for the edits, then ask the user to switch back to Lastik. Never set it to Lastik from the API.
+- What still works on Lastik nodes: moving, opacity, fills, strokes, `clone()`, `remove()`.
+- Because layouts are auto-layout, the Lastik switch rarely causes overlaps; it can still push content past a
+  column's height or leave one word on a headline's last line. Screenshot every slide in Lastik and fix with
+  manual line breaks (same words) — see SKILL.md troubleshooting.
 - `figma.notify()` is not available; `console.log` is invisible — always `return` results.
-- Fonts must be loaded before any text mutation, including `appendChild` of cloned text.
-- Keep image placeholders as frames with the `Image placeholder` name; the user drops real images into them.
+- Load fonts before any text mutation, including `appendChild` of cloned text.
+- Gradient stops are bound to variables through `boundVariables` on each stop; if a paint ever comes back unbound,
+  rebuild it with `bgFill(frame)`.
