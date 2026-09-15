@@ -1,0 +1,14 @@
+{
+  "name": "kanso",
+  "owner": {
+    "name": "Kanso",
+    "email": "hello@kanso.solutions"
+  },
+  "plugins": [
+    {
+      "name": "kanso-decks",
+      "source": "./plugins/kanso-decks",
+      "description": "Build on-brand Kanso client decks (intro, proposal, case study, kickoff) in Figma."
+    }
+  ]
+}

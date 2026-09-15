@@ -1,0 +1,8 @@
+{
+  "name": "kanso-decks",
+  "description": "Build on-brand Kanso client decks (intro, proposal, case study, kickoff) in Figma, with verified studio facts and deck patterns.",
+  "author": {
+    "name": "Kanso",
+    "email": "hello@kanso.solutions"
+  }
+}
