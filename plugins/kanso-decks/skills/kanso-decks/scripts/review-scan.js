@@ -10,7 +10,7 @@ await figma.setCurrentPageAsync(page);
 
 const CHROME = new Set(['Header', 'Footer', 'Kanji background']); // full-width instances, ignored for overlap checks
 const slides = page.children.filter(n => n.type === 'FRAME').sort((a, b) => a.x - b.x);
-const report = { slides: slides.length, overlaps: [], spills: [], overflow: [], footerZone: [], placeholders: [], emptyText: [], unboundText: [], footerMeta: [] };
+const report = { slides: slides.length, overlaps: [], spills: [], overflow: [], footerZone: [], placeholders: [], emptyText: [], unboundText: [], footerMeta: [], signing: [] };
 
 const box = (n, f) => {
   const sx = f.absoluteTransform[0][2], sy = f.absoluteTransform[1][2];
@@ -65,6 +65,17 @@ for (const f of slides) {
     const ph = String(props[pageKey].value).match(/\[[^\]]+\]/g);
     if (ph) report.placeholders.push(`${f.name}: footer page → ${ph.join(', ')}`);
   }
+}
+
+// 6. Proposal signing: a fee must be followed by a way to sign, and every Sign button needs a link.
+const feeSlides = slides.filter(f => f.findOne(n => n.type === 'TEXT' && n.name === 'Fee'));
+const signButtons = slides.flatMap(f => f.findAll(n => n.type === 'INSTANCE' && n.name === 'Sign button').map(b => ({ f, b })));
+if (feeSlides.length && !signButtons.length) report.signing.push('Fee shown but no Sign button in the deck — add addSignButton + Acceptance slide');
+if (feeSlides.length && !slides.some(f => /Acceptance/.test(f.name))) report.signing.push('No Acceptance slide after Investment');
+for (const { f, b } of signButtons) {
+  const label = b.findOne(n => n.type === 'TEXT' && n.name === 'Button label');
+  const link = label ? label.getRangeHyperlink(0, label.characters.length) : null;
+  if (!link || link === figma.mixed) report.signing.push(`${f.name}: Sign button has no e-sign link (Open item: [e-sign link])`);
 }
 
 report.ok = !report.overlaps.length && !report.spills.length && !report.overflow.length && !report.footerZone.length && !report.emptyText.length;

@@ -205,6 +205,73 @@ function removeListItems(list, keep, { skip = 0 } = {}) {
 }
 function removeAll(frame, layerName) { frame.findAll(n => n.name === layerName).forEach(n => n.remove()); }
 
+// ---------- Proposal signing ----------
+// Returns the "Sign button" component, creating it on the Components page if this file predates the signing update.
+function ensureSignButton() {
+  const existing = COMPONENT('Sign button');
+  if (existing) return existing;
+  const lowest = componentsPage.children.reduce((m, n) => Math.max(m, n.y + n.height), 0);
+  const btn = figma.createComponent(); componentsPage.appendChild(btn);
+  btn.name = 'Sign button'; btn.x = 100; btn.y = lowest + 160;
+  btn.layoutMode = 'HORIZONTAL'; btn.primaryAxisAlignItems = 'SPACE_BETWEEN'; btn.counterAxisAlignItems = 'CENTER';
+  btn.paddingTop = 28; btn.paddingBottom = 28; btn.paddingLeft = 32; btn.paddingRight = 32; btn.itemSpacing = 32;
+  btn.fills = []; btn.strokes = paint(V.ruleStrong); btn.strokeWeight = 1; btn.strokeAlign = 'INSIDE'; btn.cornerRadius = 999;
+  btn.resize(1360, 100); btn.primaryAxisSizingMode = 'FIXED'; btn.counterAxisSizingMode = 'AUTO';
+  const label = T(btn, 'Sign the proposal →', { kind: 'h', size: 42, lh: 100, name: 'Button label' });
+  const helper = T(btn, 'Valid until [date] · or sign on page [n]', { kind: 'b', size: 24, lh: 120, upper: true, color: 'secondary', name: 'Button helper', align: 'RIGHT' });
+  label.componentPropertyReferences = { characters: btn.addComponentProperty('Label', 'TEXT', 'Sign the proposal →') };
+  helper.componentPropertyReferences = { characters: btn.addComponentProperty('Helper', 'TEXT', 'Valid until [date] · or sign on page [n]') };
+  btn.description = 'Proposal signing CTA. Link it to the client’s e-sign URL with setSignLink.';
+  return btn;
+}
+const signKey = (btn, prefix) => Object.keys(btn.componentPropertyDefinitions).find(k => k.startsWith(prefix));
+
+// Appends a Sign button as the last item of the slide's Content column (Investment). helper: text on the right.
+function addSignButton(frame, helper = 'Valid until [date] · or sign on page [n]') {
+  const btn = ensureSignButton();
+  const col = frame.findChild(n => n.name === 'Content column');
+  if (!col) throw new Error(`"${frame.name}" has no Content column.`);
+  col.findAll(n => n.type === 'INSTANCE' && n.name === 'Sign button').forEach(n => n.remove());
+  const inst = btn.createInstance(); col.appendChild(inst); inst.layoutSizingHorizontal = 'FILL';
+  inst.setProperties({ [signKey(btn, 'Helper')]: helper });
+  return inst;
+}
+
+// Builds the Acceptance slide from scratch (use when the file has no "Layout / Acceptance").
+function buildAcceptanceSlide(deckPage, index, client = '[Client]') {
+  const btn = ensureSignButton();
+  const { frame, titleCol, contentCol } = newSlide(deckPage, index, 'Acceptance', 'Acceptance', { meta: `Confidential — prepared for ${client}`, title: 'Ready to start.', contentRule: true });
+  const note = T(titleCol, '*\nSigning confirms the scope, timeline, fee and payment schedule in this proposal.', { kind: 'b', size: 20, lh: 28, px: true, upper: true, color: 'secondary', name: 'Note', w: 332 });
+  note.setRangeFontSize(0, 1, 32); note.setRangeLineHeight(0, 2, { unit: 'PIXELS', value: 32 });
+  const online = AL(contentCol, 'VERTICAL', { name: 'Sign online', gap: 24, fillW: true });
+  T(online, 'Sign online', { kind: 'b', size: 24, upper: true, color: 'secondary', name: 'Column label', fill: true });
+  const inst = btn.createInstance(); online.appendChild(inst); inst.layoutSizingHorizontal = 'FILL';
+  inst.setProperties({ [signKey(btn, 'Helper')]: 'Takes two minutes · signed copy by email' });
+  const paper = AL(contentCol, 'VERTICAL', { name: 'Sign here', gap: 32, fillW: true });
+  T(paper, 'Or sign here', { kind: 'b', size: 24, upper: true, color: 'secondary', name: 'Column label', fill: true });
+  T(paper, `Accepted on behalf of ${client}`, { kind: 'h', size: 42, lh: 100, name: 'Signature line label', fill: true });
+  const fields = AL(paper, 'HORIZONTAL', { name: 'Signature fields', gap: 32, fillW: true });
+  [['Signature', 2], ['Name', 1], ['Title', 1], ['Date', 1]].forEach(([lab, grow]) => {
+    const fld = AL(fields, 'VERTICAL', { name: 'Field', gap: 12, fillW: true }); fld.layoutGrow = grow;
+    const space = figma.createFrame(); fld.appendChild(space); space.name = 'Writing space'; space.fills = []; space.resize(100, 72); space.layoutSizingHorizontal = 'FILL';
+    const line = figma.createRectangle(); fld.appendChild(line); line.resize(100, 1); line.fills = paint(V.ruleStrong); line.name = 'Divider'; line.layoutSizingHorizontal = 'FILL';
+    T(fld, lab, { kind: 'b', size: 20, lh: 28, px: true, upper: true, color: 'secondary', name: 'Field label', fill: true });
+  });
+  T(paper, 'This proposal is valid until [date]. Work starts on the kickoff date agreed after signing.', { kind: 'b', size: 24, lh: 120, upper: true, color: 'body', name: 'Terms', fill: true });
+  return frame;
+}
+
+// Links every Sign button on a slide to the e-sign URL: text hyperlinks (work in PDF exports) + a click action
+// (works in Figma present mode). Works while headings render in Lastik.
+async function setSignLink(frame, url) {
+  const buttons = frame.findAll(n => n.type === 'INSTANCE' && n.name === 'Sign button');
+  for (const b of buttons) {
+    for (const t of b.findAll(n => n.type === 'TEXT')) t.setRangeHyperlink(0, t.characters.length, { type: 'URL', value: url });
+    await b.setReactionsAsync([{ trigger: { type: 'ON_CLICK' }, actions: [{ type: 'URL', url }] }]);
+  }
+  return buttons.length;
+}
+
 function setTheme(frame, modeName /* 'Dark' | 'Light' */) { frame.setExplicitVariableModeForCollection(THEME, THEME_MODE[modeName]); }
 
 // "NN / TT" in every slide's footer, ordered left to right.

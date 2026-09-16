@@ -85,6 +85,15 @@ Anything unknown becomes a placeholder — never a guess.
 - Free to use: clients published on kanso.solutions (Dataland, Derimod, Pro Legacy, Chiliz).
 - Any other client name or logo: ask the user before using it.
 
+## Signing
+
+- Button label: **Sign the proposal →** (the only place an arrow is used).
+- Investment helper: `Valid until [date] · or sign on page [n]`. Acceptance helper: `Takes two minutes · signed copy by email`.
+- Acceptance title: **Ready to start.** Note: *Signing confirms the scope, timeline, fee and payment schedule in this proposal.*
+- Signature block: `Accepted on behalf of [Client]`, fields Signature · Name · Title · Date. Only the client signs.
+- Terms line: *This proposal is valid until [date]. Work starts on the kickoff date agreed after signing.*
+- Next steps, first column: Approval — *You sign the proposal online.*
+
 ## Confidentiality
 
 Proposal and kickoff decks carry a footer on every slide except the cover:

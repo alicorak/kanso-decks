@@ -42,7 +42,7 @@ Ask the shared intake questions from `deck-flows.md` in a single message, plus t
 Required before continuing: deck type · client name, industry, website · meeting type and presenter
 (name, role, email) · the client's goal or problem.
 
-- Proposal only: also ask fee (USD, single fee), payment schedule, validity (default 30 days — confirm), timeline,
+- Proposal only: also ask the client's e-sign link (or keep `[e-sign link]`), fee (USD, single fee), payment schedule, validity (default 30 days — confirm), timeline,
   phases in scope and what Support covers, revision rounds, out-of-scope items, communication cadence, team.
 - Kickoff only: goals and success measures, both teams, milestones, cadence, client inputs, risks, first two weeks.
 - If a website is given, read it to understand the client. Never copy its text onto slides.
@@ -78,6 +78,9 @@ Follow `figma-system.md` → Build procedure:
 - Proposal and kickoff: `addConfidential(frame, client)` on every slide except the cover (sets the Footer's Meta to
   `Confidential — prepared for [Client]`).
 - Body copy renders uppercase through the layout's text case — keep the copy itself in sentence case.
+- Proposal signing: Investment ends with the Sign button and the Acceptance slide follows it (see `deck-flows.md` →
+  Proposal and `figma-system.md` → Build procedure). Link both buttons with `setSignLink(frame, url)` when the brief
+  has a URL; the review scan flags any unlinked button.
 - Finish with `setPageNumbers`.
 
 ### 6. Review ⏸
@@ -95,6 +98,8 @@ Run `scripts/review-scan.js`. Fix overlaps, overflow, footer-zone hits, and empt
 
 - **Facts:** state only what is in `kanso-facts.md` or the user's brief. Numbers, dates, prices, client names,
   awards, durations — if unverified, use a `[placeholder]` and list it in Open items.
+- **A price always leads to signing:** any deck that shows a fee also shows how to sign (Sign button + Acceptance
+  slide). Never invent an e-sign URL — keep `[e-sign link]` and list it under Open items.
 - **Kanso work only:** the case library is in `kanso-facts.md` (v1: Dataland). Team members' personal projects
   are never Kanso case studies. Other projects need a brief from the user; their facts stay placeholders until given.
 - **Every case study has a Results slide or result line**, even if it is a placeholder.

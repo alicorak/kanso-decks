@@ -50,6 +50,10 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
   timeline, revision rounds, out-of-scope items, communication cadence
 - Required sections: how we understand the brief · approach and process · timeline · team · scope in / out ·
   assumptions and risks · payment terms and validity · relevant case studies
+- **Signing (2026-09-16):** wherever the fee appears, the client is led to sign. Investment ends with a
+  "Sign the proposal →" button linked to the client's e-sign tool (tool not fixed; `[e-sign link]` per client), and a
+  new Acceptance slide follows with the same button plus a client-only signature block as a print/PDF backup.
+  The proposal is 16 slides; service variants (brand, mobile app, end-to-end, website) change slides 4–8 and 12.
 
 ### Case study
 - Length: **depends on use** (short inside a proposal, medium/long as a standalone presentation)
