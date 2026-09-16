@@ -1,6 +1,7 @@
 // Kanso deck build helpers — UI v2 (2026-09-15)
-// Paste this block at the top of a `use_figma` script that runs in a file duplicated from "Kanso Deck Template".
-// Everything is looked up by name, so it works in any copy of the template.
+// Paste this block at the top of a `use_figma` script that runs in a file duplicated from the Kanso deck source file
+// (Client Introduction). Source slides live on the pages "Introduction Slide", "Proposal" and "Kickoff".
+// Everything is looked up by name, so it works in any copy of that file.
 // Plain JavaScript with top-level await (the use_figma runtime wraps it). Always `return` results at the end.
 
 // ---------- Fonts ----------
@@ -16,7 +17,7 @@ const ALL_VARS = await figma.variables.getLocalVariablesAsync();
 const COLLECTIONS = await figma.variables.getLocalVariableCollectionsAsync();
 function varByName(name) {
   const v = ALL_VARS.find(x => x.name === name);
-  if (!v) throw new Error(`Missing variable "${name}". Is this file duplicated from the UI v2 Kanso Deck Template?`);
+  if (!v) throw new Error(`Missing variable "${name}". Is this file duplicated from the Kanso deck source file (Client Introduction)?`);
   return v;
 }
 const V = {
@@ -38,18 +39,30 @@ function assertHeadingsEditable() {
   if (!HEADINGS_EDITABLE) throw new Error(`font/heading-family is "${HEADING_FAMILY}". Set it to Instrument Serif / Regular for the edit, then ask the user to switch back to Lastik.`);
 }
 
-// ---------- Pages and components ----------
+// ---------- Source pages ----------
+// Intro and case slides: the "0N - …" sections of "Introduction Slide" (current design; ignore the older "0N — …" ones).
+// Proposal and kickoff: sections "Shared" and "Variant — Brand | Mobile app | End-to-end | Website".
+// Loose frames outside sections are drafts — never clone them.
+const SOURCE_PAGES = { intro: 'Introduction Slide', proposal: 'Proposal', kickoff: 'Kickoff' };
 const PAGE = name => figma.root.children.find(p => p.name === name);
-const componentsPage = PAGE('Components');
-const slidesPage = PAGE('Slides');
-await componentsPage.loadAsync();
-await slidesPage.loadAsync();
-const COMPONENT = name => componentsPage.findOne(n => n.type === 'COMPONENT' && n.name === name);
-const HEADER = COMPONENT('Header'), FOOTER = COMPONENT('Footer');
-const KANJI = COMPONENT('Kanji background'), OMARK = COMPONENT('O mark'), QUOTE = COMPONENT('Quote mark'), GLOBE = COMPONENT('Globe icon');
-const propKey = (component, prefix) => Object.keys(component.componentPropertyDefinitions).find(k => k.startsWith(prefix));
-const SECTION_KEY = propKey(HEADER, 'Section');
-const FOOTER_KEY = { meta: propKey(FOOTER, 'Meta'), show: propKey(FOOTER, 'Show meta'), page: propKey(FOOTER, 'Page') };
+async function sourcePage(kind) {
+  const p = PAGE(SOURCE_PAGES[kind] || kind);
+  if (!p) throw new Error(`Source page for "${kind}" not found. Is this a copy of the Kanso deck source file?`);
+  await p.loadAsync();
+  return p;
+}
+const stripNumber = name => name.replace(/^\d+\s+—\s+/, '');
+// findSlide('proposal', 'Scope · Brand') or findSlide('intro', '10 — How we're different'); sectionName narrows the search.
+async function findSlide(kind, slideName, sectionName) {
+  const p = await sourcePage(kind);
+  const sections = p.children.filter(n => n.type === 'SECTION'
+    && (!sectionName || n.name === sectionName)
+    && (kind !== 'intro' || /^\d+ - /.test(n.name)));
+  const frames = sections.flatMap(sec => sec.children.filter(n => n.type === 'FRAME'));
+  const hit = frames.find(f => f.name === slideName) || frames.find(f => stripNumber(f.name) === stripNumber(slideName));
+  if (!hit) throw new Error(`Slide "${slideName}" not found on "${p.name}"${sectionName ? ` in "${sectionName}"` : ''}.`);
+  return hit;
+}
 
 // ---------- Paint + primitives ----------
 const isAL = p => p && p.layoutMode && p.layoutMode !== 'NONE';
@@ -119,14 +132,20 @@ function ImageBox(parent, caption, o = {}) {
 }
 
 // ---------- Slides ----------
+// Header and footer bars are plain frames in the source file (no components). New slides copy them from a kickoff slide.
+async function chromeSource() { return findSlide('kickoff', 'Why we’re here', 'Shared'); }
+
 // Blank slide with gradient, header, footer; optional title column and content column.
-function newSlide(deckPage, index, name, section, { meta = null, title = null, contentRule = false } = {}) {
+async function newSlide(deckPage, index, name, section, { meta = null, title = null, contentRule = false } = {}) {
+  const src = await chromeSource();
   const f = figma.createFrame(); deckPage.appendChild(f);
   f.resize(1920, 1080); f.x = index * 2020; f.y = 0; f.clipsContent = true;
   f.name = `${String(index + 1).padStart(2, '0')} — ${name}`;
   bgFill(f);
-  const h = HEADER.createInstance(); f.appendChild(h); h.x = 0; h.y = 0; h.setProperties({ [SECTION_KEY]: section });
-  const ft = FOOTER.createInstance(); f.appendChild(ft); ft.x = 0; ft.y = 978;
+  for (const part of ['Header', 'Footer']) {
+    const c = src.findChild(n => n.name === part).clone(); f.appendChild(c); c.x = 0; c.y = part === 'Header' ? 0 : 978;
+  }
+  setSection(f, section);
   setFooter(f, { meta, page: '00 / 00' });
   let titleCol = null, contentCol = null;
   if (title != null) {
@@ -137,32 +156,63 @@ function newSlide(deckPage, index, name, section, { meta = null, title = null, c
   return { frame: f, titleCol, contentCol };
 }
 
-// Clone a layout from the Slides page onto the deck page.
-function cloneLayout(layoutName, deckPage, index, section) {
-  const src = slidesPage.findChild(n => n.type === 'FRAME' && n.name === `Layout / ${layoutName}`);
-  if (!src) throw new Error(`Layout "${layoutName}" not found on the Slides page.`);
+// Clone a source slide onto the deck page: cloneSlide('kickoff', 'Plan · Brand', deckPage, 5, { section: 'Plan' }).
+// Headings must render in Instrument Serif while cloning (a clone that contains Lastik text fails on append).
+async function cloneSlide(kind, slideName, deckPage, index, { sectionName, section } = {}) {
+  assertHeadingsEditable();
+  const src = await findSlide(kind, slideName, sectionName);
   const f = src.clone(); deckPage.appendChild(f);
   f.x = index * 2020; f.y = 0;
-  f.name = `${String(index + 1).padStart(2, '0')} — ${layoutName}`;
+  f.name = `${String(index + 1).padStart(2, '0')} — ${stripNumber(src.name).replace(/ · (Brand|Mobile app|End-to-end|Website)$/, '')}`;
   if (section) setSection(f, section);
   return f;
 }
 
+async function loadFontsOf(t) { for (const fn of t.getRangeAllFontNames(0, t.characters.length)) await figma.loadFontAsync(fn); }
+
+// Header label: component instance (older files) or the "Section label" text inside the Header frame.
 function setSection(frame, section) {
-  const inst = frame.findChild(n => n.type === 'INSTANCE' && n.name === 'Header');
-  if (inst) inst.setProperties({ [SECTION_KEY]: section });
+  const header = frame.findChild(n => n.name === 'Header');
+  if (!header) return false;
+  if (header.type === 'INSTANCE') { const k = Object.keys(header.componentProperties).find(k => k.startsWith('Section')); if (k) { header.setProperties({ [k]: section }); return true; } }
+  const t = header.findOne(n => n.type === 'TEXT' && n.name === 'Section label');
+  if (t) t.characters = section;
+  return !!t;
 }
 
 // meta: string shows it, null/'' hides it. page: optional page text.
+// Works with Footer instances, Footer frames (Meta + Page number texts) and intro slides ("Chrome / Page" text).
 function setFooter(frame, { meta, page } = {}) {
-  const inst = frame.findChild(n => n.type === 'INSTANCE' && n.name === 'Footer');
-  if (!inst) return;
-  const props = {};
-  if (meta !== undefined) { props[FOOTER_KEY.meta] = meta || ''; props[FOOTER_KEY.show] = !!meta; }
-  if (page !== undefined) props[FOOTER_KEY.page] = page;
-  inst.setProperties(props);
+  const footer = frame.findChild(n => n.name === 'Footer');
+  if (footer && footer.type === 'INSTANCE') {
+    const props = footer.componentProperties, key = p => Object.keys(props).find(k => k.startsWith(p));
+    const next = {};
+    if (meta !== undefined) { next[key('Meta')] = meta || ''; next[key('Show meta')] = !!meta; }
+    if (page !== undefined) next[key('Page')] = page;
+    footer.setProperties(next);
+    return true;
+  }
+  if (footer) {
+    const m = footer.findOne(n => n.type === 'TEXT' && n.name === 'Meta');
+    if (m && meta !== undefined) { if (meta) m.characters = meta; m.visible = !!meta; }
+    const pn = footer.findOne(n => n.type === 'TEXT' && n.name === 'Page number');
+    if (pn && page !== undefined) pn.characters = page;
+    return true;
+  }
+  const chromePage = frame.findOne(n => n.type === 'TEXT' && n.name === 'Chrome / Page');
+  if (chromePage && page !== undefined) chromePage.characters = page;
+  return !!chromePage;
 }
 const addConfidential = (frame, client) => setFooter(frame, { meta: `Confidential — prepared for ${client}` });
+
+// Intro source slides use generic layer names ("Headline", "Body", "Frame 12"). Replace their copy by its current text.
+function replaceText(frame, currentText, text) {
+  const node = frame.findAll(n => n.type === 'TEXT' && n.characters.trim() === currentText.trim())[0];
+  if (!node) throw new Error(`No text "${currentText}" in "${frame.name}".`);
+  if (boundIds(node, 'fontFamily').includes(V.hf.id)) assertHeadingsEditable();
+  node.characters = text;
+  return node;
+}
 
 // Text layers by name. order 'y' (default): top-to-bottom rows. order 'x': left-to-right columns.
 function texts(frame, layerName, order = 'y') {
@@ -206,41 +256,11 @@ function removeListItems(list, keep, { skip = 0 } = {}) {
 function removeAll(frame, layerName) { frame.findAll(n => n.name === layerName).forEach(n => n.remove()); }
 
 // ---------- Proposal signing ----------
-// Returns the "Sign button" component, creating it on the Components page if this file predates the signing update.
-function ensureSignButton() {
-  const existing = COMPONENT('Sign button');
-  if (existing) return existing;
-  const lowest = componentsPage.children.reduce((m, n) => Math.max(m, n.y + n.height), 0);
-  const btn = figma.createComponent(); componentsPage.appendChild(btn);
-  btn.name = 'Sign button'; btn.x = 100; btn.y = lowest + 160;
-  btn.layoutMode = 'HORIZONTAL'; btn.primaryAxisAlignItems = 'SPACE_BETWEEN'; btn.counterAxisAlignItems = 'CENTER';
-  btn.paddingTop = 28; btn.paddingBottom = 28; btn.paddingLeft = 32; btn.paddingRight = 32; btn.itemSpacing = 32;
-  btn.fills = []; btn.strokes = paint(V.ruleStrong); btn.strokeWeight = 1; btn.strokeAlign = 'INSIDE'; btn.cornerRadius = 999;
-  btn.resize(1360, 100); btn.primaryAxisSizingMode = 'FIXED'; btn.counterAxisSizingMode = 'AUTO';
-  const label = T(btn, 'Sign the proposal →', { kind: 'h', size: 42, lh: 100, name: 'Button label' });
-  const helper = T(btn, 'Signed in Google Docs · valid until [date]', { kind: 'b', size: 24, lh: 120, upper: true, color: 'secondary', name: 'Button helper', align: 'RIGHT' });
-  label.componentPropertyReferences = { characters: btn.addComponentProperty('Label', 'TEXT', 'Sign the proposal →') };
-  helper.componentPropertyReferences = { characters: btn.addComponentProperty('Helper', 'TEXT', 'Signed in Google Docs · valid until [date]') };
-  btn.description = 'Proposal signing CTA. Link it to the client’s e-sign URL with setSignLink.';
-  return btn;
-}
-const signKey = (btn, prefix) => Object.keys(btn.componentPropertyDefinitions).find(k => k.startsWith(prefix));
-
-// Appends a Sign button as the last item of the slide's Content column (Investment). helper: text on the right.
-function addSignButton(frame, helper = 'Signed in Google Docs · valid until [date]') {
-  const btn = ensureSignButton();
-  const col = frame.findChild(n => n.name === 'Content column');
-  if (!col) throw new Error(`"${frame.name}" has no Content column.`);
-  col.findAll(n => n.type === 'INSTANCE' && n.name === 'Sign button').forEach(n => n.remove());
-  const inst = btn.createInstance(); col.appendChild(inst); inst.layoutSizingHorizontal = 'FILL';
-  inst.setProperties({ [signKey(btn, 'Helper')]: helper });
-  return inst;
-}
-
-// Links every Sign button on a slide to the e-sign URL: text hyperlinks (work in PDF exports) + a click action
-// (works in Figma present mode). Works while headings render in Lastik.
+// The Investment slide already carries the Sign button (a frame named "Sign button" with "Button label" and
+// "Button helper"). Links every Sign button on a slide to the Google Docs signing link: text hyperlinks (work in PDF
+// exports) + a click action (works in Figma present mode). Works while headings render in Lastik.
 async function setSignLink(frame, url) {
-  const buttons = frame.findAll(n => n.type === 'INSTANCE' && n.name === 'Sign button');
+  const buttons = frame.findAll(n => (n.type === 'INSTANCE' || n.type === 'FRAME') && n.name === 'Sign button');
   for (const b of buttons) {
     for (const t of b.findAll(n => n.type === 'TEXT')) t.setRangeHyperlink(0, t.characters.length, { type: 'URL', value: url });
     await b.setReactionsAsync([{ trigger: { type: 'ON_CLICK' }, actions: [{ type: 'URL', url }] }]);

@@ -1,6 +1,6 @@
 ---
 name: kanso-decks
-description: Build on-brand Kanso client presentations in Figma — intro/capabilities decks, proposals, case studies, and project kickoffs. Use whenever someone at Kanso asks for a deck, pitch, presentation, proposal, case study slides, kickoff slides, or slide copy for a client meeting, even if they don't name the deck type. Handles the brief, outline, copy, Figma build from the Kanso Deck Template, and a final layout review, with approval between steps.
+description: Build on-brand Kanso client presentations in Figma — intro/capabilities decks, proposals, case studies, and project kickoffs. Use whenever someone at Kanso asks for a deck, pitch, presentation, proposal, case study slides, kickoff slides, or slide copy for a client meeting, even if they don't name the deck type. Handles the brief, outline, copy, Figma build from the Kanso deck source file, and a final layout review, with approval between steps.
 ---
 
 # Kanso decks
@@ -18,8 +18,8 @@ Check these once per session. If one fails, tell the user exactly what to fix an
 1. **Figma MCP is connected** and `whoami` shows an account with a **Full** seat on the team that owns the deck file
    (View seats cannot write).
 2. **The `figma-use` skill is loaded** before any `use_figma` call (Figma plugin skill, or `skill://figma/figma-use`).
-3. The user can **duplicate the Kanso Deck Template** in Figma
-   (https://www.figma.com/design/Hc5KB8bcdQZHG19ZTI6OIA). The MCP cannot duplicate files.
+3. The user can **duplicate the Kanso deck source file** (Client Introduction) in Figma
+   (https://www.figma.com/design/q6Quf4V8CXEKlCLrmrQ6zb/Client-Introduction). The MCP cannot duplicate files.
 
 ## Which file to read, when
 
@@ -66,9 +66,9 @@ in the conversation. Wait for approval or edits.
 
 ### 4. Figma file
 
-Ask the user to duplicate the template, rename it `[Client] — [Deck type] — [YYYY-MM-DD]`, and paste the link.
+Ask the user to duplicate the source file, rename it `[Client] — [Deck type] — [YYYY-MM-DD]`, and paste the link.
 Confirm the file opens and the headings are still in Instrument Serif (see `figma-system.md` → API limits).
-If duplication is impossible, use the bootstrap fallback described there and say what is missing.
+If duplication is impossible, stop: the build clones slides from that file's Introduction Slide, Proposal and Kickoff pages.
 
 ### 5. Build
 
@@ -109,7 +109,7 @@ Run `scripts/review-scan.js`. Fix overlaps, overflow, footer-zone hits, and empt
 - **Testimonials are verbatim.** Never edit or merge quotes.
 - **English by default.** Another language only when the brief asks for it.
 - **Process phases** are always Strategy → Design → Development → Support.
-- **Bind, don't hard-code:** every color and font in Figma is bound to the template variables.
+- **Bind, don't hard-code:** every color and font in Figma is bound to the file's variables (one exception: the red `#FF4D4D` on Out of scope and Risks labels).
 - **Research is structure only:** never reproduce copy or imagery from deck.gallery decks.
 
 ## When something goes wrong
@@ -118,7 +118,7 @@ Run `scripts/review-scan.js`. Fix overlaps, overflow, footer-zone hits, and empt
 |---|---|---|
 | `use_figma` says no edit access | View seat or wrong account | User reconnects the Figma MCP with a Full-seat account |
 | `Cannot write to node with unloaded font "Lastik Free"` | Headings already switched to Lastik | User sets `font/heading-family` = Instrument Serif, `font/heading-style` = Regular; rerun; switch back after |
-| `Missing variable …` | File is not a template copy | Ask for a duplicate of the template, or use the bootstrap fallback |
+| `Missing variable …` | File is not a copy of the source file | Ask for a duplicate of the Client Introduction file |
 | A script fails halfway | Scripts are atomic — nothing was applied | Read the error, fix, rerun the same script |
 | Review scan reports a spill (content taller than its column) | Copy longer than the layout — layouts are auto-layout, so text pushes siblings instead of overlapping | Shorten copy (preferred), remove list items with `removeListItems`, or move the content to a layout with more room; never shrink below the type scale |
 | User says headings are switched, but the scan still reads Instrument Serif | The change isn't saved in the file the MCP reads yet (value not confirmed with Enter, a different copy, or sync delay) | Report the exact variable values you read and the file key; ask the user to confirm the value with Enter in *this* file and to check the headings visibly changed; scan again. Never report a Lastik check as passed while `font/heading-family` reads Instrument Serif |

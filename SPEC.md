@@ -86,15 +86,15 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
    (budget and timeline are asked only in the proposal flow)
 2. **Outline** (slide list) → **approval**
 3. **Copy** → **approval**
-4. **Figma** — new file duplicated from the template, slides built
+4. **Figma** — new file duplicated from the source file, slides built
 5. **Review** — screenshots, overlap/overflow scan, list of open `[placeholder]`s
 
 ## 6. Visual system (Figma)
 
 | Topic | Decision |
 |---|---|
-| Template | **"Kanso Deck Template"** Figma file, shared by link |
-| Each deck | A separate file duplicated from the template |
+| Source file | **Client Introduction** Figma file (intro, proposal and kickoff pages), shared by link. The "Kanso Deck Template" was archived on 2026-09-16 |
+| Each deck | A separate file duplicated from the source file; slides are cloned from its pages |
 | Default theme | **Dark**: gradient #000000 → #141414 (top → bottom); light as an alternative |
 | UI version | **v2 (2026-09-15)** — follows the redesigned Client Introduction deck (UI only, copy unchanged) |
 | Header / footer | Full-width bars: header 1920 × 105 (logo + UPPERCASE section label + rule), footer 1920 × 102 (meta + page number) |
@@ -114,7 +114,7 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
   2026-09-15 so teammates can install without invites. Nothing secret lives in the repo; keep it that way
   (no prices, credentials, or unpublished client work).
 - Install (desktop / CLI): `claude plugin marketplace add alicorak/kanso-decks` → `claude plugin install kanso-decks@kanso`
-- Figma: the template is shared by link (view access); each teammate duplicates it into drafts on a team where they
+- Figma: the source file is shared by link (view access); each teammate duplicates it into drafts on a team where they
   have a Full seat
 - claude.ai web: skill upload — steps to be verified during packaging
 

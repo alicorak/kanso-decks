@@ -8,7 +8,7 @@ const page = figma.root.children.find(p => p.name === DECK_PAGE_NAME);
 if (!page) throw new Error(`Page "${DECK_PAGE_NAME}" not found.`);
 await figma.setCurrentPageAsync(page);
 
-const CHROME = new Set(['Header', 'Footer', 'Kanji background']); // full-width instances, ignored for overlap checks
+const CHROME = new Set(['Header', 'Footer', 'Kanji background']); // full-width bars, ignored for overlap checks
 const slides = page.children.filter(n => n.type === 'FRAME').sort((a, b) => a.x - b.x);
 const report = { slides: slides.length, overlaps: [], spills: [], overflow: [], footerZone: [], placeholders: [], emptyText: [], unboundText: [], footerMeta: [], signing: [] };
 
@@ -54,17 +54,22 @@ for (const f of slides) {
     if (t.name !== 'Kanji' && !insideChrome(t) && !bound) report.unboundText.push(`${f.name}: "${t.name}"`);
   }
 
-  // 5. Footer meta per slide (check confidentiality notes on proposal / kickoff decks).
-  const footer = f.findChild(n => n.type === 'INSTANCE' && n.name === 'Footer');
-  if (footer) {
-    const props = footer.componentProperties;
-    const metaKey = Object.keys(props).find(k => k.startsWith('Meta'));
-    const showKey = Object.keys(props).find(k => k.startsWith('Show meta'));
-    report.footerMeta.push(`${f.name}: ${props[showKey] && props[showKey].value ? props[metaKey].value : '—'}`);
-    const pageKey = Object.keys(props).find(k => k.startsWith('Page'));
-    const ph = String(props[pageKey].value).match(/\[[^\]]+\]/g);
-    if (ph) report.placeholders.push(`${f.name}: footer page → ${ph.join(', ')}`);
+  // 5. Footer meta and page per slide (Footer instance, Footer frame, or intro "Chrome / Page" text).
+  const footer = f.findChild(n => n.name === 'Footer');
+  let meta = '—', pageText = null;
+  if (footer && footer.type === 'INSTANCE') {
+    const props = footer.componentProperties, key = p => Object.keys(props).find(k => k.startsWith(p));
+    if (props[key('Show meta')] && props[key('Show meta')].value) meta = props[key('Meta')].value;
+    pageText = String(props[key('Page')].value);
+  } else {
+    const m = footer && footer.findOne(n => n.type === 'TEXT' && n.name === 'Meta');
+    if (m && m.visible) meta = m.characters;
+    const pn = f.findOne(n => n.type === 'TEXT' && (n.name === 'Page number' || n.name === 'Chrome / Page'));
+    if (pn) pageText = pn.characters;
   }
+  report.footerMeta.push(`${f.name}: ${meta} · ${pageText || 'no page number'}`);
+  const pagePh = pageText && pageText.match(/\[[^\]]+\]/g);
+  if (pagePh) report.placeholders.push(`${f.name}: footer page → ${pagePh.join(', ')}`);
 }
 
 // 6. Proposal signing: a fee must be followed by a way to sign, and every Sign button needs a link.
