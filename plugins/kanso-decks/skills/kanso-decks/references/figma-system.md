@@ -158,7 +158,8 @@ The current step in Three columns uses `color/accent` on its `Column number` ("N
      build its content with `T`, `AL` and `Divider`.
 5. Build **at most 5–6 slides per `use_figma` call.** Switch pages at most once per call.
 6. After each call, screenshot the slides you built (`await frame.screenshot({ scale: 0.25 })`, max 5 per call).
-7. When all slides exist: `setPageNumbers(deckPage)`, then run `scripts/review-scan.js`.
+7. When all slides exist: `setPageNumbers(deckPage)` and `await setThumbnailTitle(projectName)` — the file's
+   Thumbnail cover shows the project name (e.g. "Oda Coffee app"), not "Client Intro". Then run `scripts/review-scan.js`.
 
 ## API limits and gotchas
 

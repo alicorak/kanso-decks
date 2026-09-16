@@ -268,6 +268,31 @@ function removeListItems(list, keep, { skip = 0 } = {}) {
 }
 function removeAll(frame, layerName) { frame.findAll(n => n.name === layerName).forEach(n => n.remove()); }
 
+// ---------- File thumbnail ----------
+// Every deck file's "Thumbnail" page has a "Cover" frame whose big "Headline" reads "Client Intro" in the source file.
+// Set it to the project name. The source title is hard-coded Lastik (not editable by the MCP), so it is rebuilt as a
+// full-width centred text bound to the heading variables — it renders in Lastik again after the user's switch.
+async function setThumbnailTitle(title) {
+  assertHeadingsEditable();
+  const page = PAGE('Thumbnail');
+  if (!page) throw new Error('No "Thumbnail" page in this file.');
+  await page.loadAsync();
+  const cover = page.children.find(n => n.type === 'FRAME' && n.name === 'Cover');
+  if (!cover) throw new Error('No "Cover" frame on the Thumbnail page.');
+  const old = cover.findAll(n => n.type === 'TEXT' && n.name === 'Headline').sort((a, b) => b.fontSize - a.fontSize)[0];
+  const cy = old.y + old.height / 2;
+  const t = figma.createText();
+  t.fontName = FONTS.heading; t.characters = title;
+  t.fontSize = old.fontSize; t.lineHeight = old.lineHeight; t.letterSpacing = old.letterSpacing;
+  t.fills = JSON.parse(JSON.stringify(old.fills));
+  t.setBoundVariable('fontFamily', V.hf); t.setBoundVariable('fontStyle', V.hs);
+  t.name = 'Headline'; t.textAlignHorizontal = 'CENTER';
+  old.parent.insertChild(old.parent.children.indexOf(old), t);
+  t.textAutoResize = 'HEIGHT'; t.resize(cover.width, t.height); t.x = 0; t.y = Math.round(cy - t.height / 2);
+  old.remove();
+  return t;
+}
+
 // ---------- Proposal signing ----------
 // The Investment slide already carries the Sign button (a frame named "Sign button" with "Button label" and
 // "Button helper"). Links every Sign button on a slide to the Google Docs signing link: text hyperlinks (work in PDF

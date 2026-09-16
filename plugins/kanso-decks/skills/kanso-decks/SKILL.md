@@ -85,7 +85,8 @@ Follow `figma-system.md` → Build procedure:
 - Proposal signing: Investment ends with the Sign button — no Acceptance slide (see `deck-flows.md` → Proposal and
   `figma-system.md` → Build procedure). Link it with `setSignLink(frame, url)` when the brief has the Google Docs
   signing link; the review scan flags an unlinked button.
-- Finish with `setPageNumbers`.
+- Finish with `setPageNumbers` and `setThumbnailTitle(projectName)` — the Thumbnail page's cover always shows the
+  project name.
 
 ### 6. Review ⏸
 
