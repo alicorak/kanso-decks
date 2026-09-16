@@ -67,7 +67,9 @@ in the conversation. Wait for approval or edits.
 ### 4. Figma file
 
 Ask the user to duplicate the source file, rename it `[Client] — [Deck type] — [YYYY-MM-DD]`, and paste the link.
-Confirm the file opens and the headings are still in Instrument Serif (see `figma-system.md` → API limits).
+Confirm the file opens. The source file ships with headings in Lastik, so before building set `font/heading-family` /
+`font/heading-style` to Instrument Serif / Regular with `setValueForMode` (load `Noto Sans Symbols2` Regular first — the
+→ on the Sign button falls back to it) and tell the user they'll switch back to Lastik after the review.
 If duplication is impossible, stop: the build clones slides from that file's Introduction Slide, Proposal and Kickoff pages.
 
 ### 5. Build
