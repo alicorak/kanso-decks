@@ -152,7 +152,7 @@ timeline come from the signed proposal. Every slide except the cover: `addConfid
 | 1 | The signed proposal (or its scope, timeline and service) and the signing date | none — ask |
 | 2 | Goals and how success will be measured (metric, target, date) | none — ask |
 | 3 | Team on both sides: names, roles, decision-maker, day-to-day contact | none — ask |
-| 4 | Communication: check-in day and time, response time, design files link | Slack, Google Docs · weekly check-in — confirm |
+| 4 | Communication: check-in day and time, response time, design files link | Slack, Google Docs · weekly check-in · messages answered within one working day — confirm |
 | 5 | Feedback: days to reply, revision rounds, who signs off | From the proposal — confirm |
 | 6 | What we need from the client, with owner and date | Service defaults — confirm |
 | 7 | First two weeks: workshop, research, first deliverable | Service defaults — confirm |

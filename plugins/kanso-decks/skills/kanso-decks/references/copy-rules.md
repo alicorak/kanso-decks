@@ -99,6 +99,12 @@ Relevant work slide.
 - Kickoff: within **5 days** of signing.
 - Proposals have no Acceptance or Next steps slide — Investment covers signing and what happens after it.
 
+## Kickoff
+
+- Scope recap bottom line: *Anything new is scoped and priced separately.* (Kanso policy)
+- Response time: *Messages answered within one working day.* (Kanso standard)
+- Kickoff is held within 5 days of signing; the deck never repeats the fee.
+
 ## Confidentiality
 
 Proposal and kickoff decks carry a footer on every slide except the cover:
