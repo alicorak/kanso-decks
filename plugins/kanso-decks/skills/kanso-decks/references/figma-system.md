@@ -12,8 +12,8 @@ footer bars, a title column + content column grid, uppercase Geist labels, and a
 |---|---|
 | File | **Client Introduction** — https://www.figma.com/design/q6Quf4V8CXEKlCLrmrQ6zb/Client-Introduction |
 | Pages | `Introduction Slide` (intro and case slides) · `Proposal` · `Kickoff` |
-| Sections | Intro: the `0N - …` sections (current design; the older `0N — …` sections are superseded). Proposal and kickoff: `Shared` + `Variant — Brand / Mobile app / End-to-end / Website` |
-| Rule | Never build a client deck inside the source file. Loose frames outside sections are drafts — never clone them |
+| Sections | Intro: the `0N - …` sections. Proposal and kickoff: `Shared` + `Variant — Brand / Mobile app / End-to-end / Website` |
+| Rule | Never build a client deck inside the source file. Only slides inside sections are sources |
 
 The Kanso Deck Template (layout library + components) was archived on 2026-09-16; the source file replaces it.
 

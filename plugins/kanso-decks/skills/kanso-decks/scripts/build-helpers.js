@@ -40,9 +40,9 @@ function assertHeadingsEditable() {
 }
 
 // ---------- Source pages ----------
-// Intro and case slides: the "0N - …" sections of "Introduction Slide" (current design; ignore the older "0N — …" ones).
+// Intro and case slides: the "0N - …" sections of "Introduction Slide".
 // Proposal and kickoff: sections "Shared" and "Variant — Brand | Mobile app | End-to-end | Website".
-// Loose frames outside sections are drafts — never clone them.
+// Only slides inside sections are sources.
 const SOURCE_PAGES = { intro: 'Introduction Slide', proposal: 'Proposal', kickoff: 'Kickoff' };
 const PAGE = name => figma.root.children.find(p => p.name === name);
 async function sourcePage(kind) {
