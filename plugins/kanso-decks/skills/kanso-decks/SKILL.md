@@ -43,7 +43,8 @@ Required before continuing: deck type · client name, industry, website · meeti
 (name, role, email) · the client's goal or problem.
 
 - Proposal only: also ask the client's e-sign link (or keep `[e-sign link]`), fee (USD, single fee), payment schedule, validity (default 15 days — confirm), timeline,
-  phases in scope and what Support covers, revision rounds, out-of-scope items, communication cadence, team.
+  phases in scope and what Support covers, revision rounds, out-of-scope items, team roles, days from signing to kickoff.
+  The proposal is short (9 slides): team names, communication cadence and the first two weeks belong to the kickoff deck.
 - Kickoff only: goals and success measures, both teams, milestones, cadence, client inputs, risks, first two weeks.
 - If a website is given, read it to understand the client. Never copy its text onto slides.
 - Missing optional answers become `[placeholders]`. Do not invent them.

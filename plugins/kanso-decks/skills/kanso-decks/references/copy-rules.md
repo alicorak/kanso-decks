@@ -95,8 +95,8 @@ Relevant work slide.
 - Acceptance title: **Ready to start.** Note: *Signing confirms the scope, timeline, fee and payment schedule in this proposal.*
 - Signature block: `Accepted on behalf of [Client]`, fields Signature · Name · Title · Date. Only the client signs.
 - Validity: **15 days** from the proposal date by default (confirm per proposal). Fee note: `Valid for 15 days from [date].`
-- Terms line: *This proposal is valid until [date]. Work starts on the kickoff date agreed after signing.*
-- Next steps, first column: Approval — *You sign the proposal online.*
+- Acceptance terms: *Valid for 15 days from [date]. After signing, we schedule the kickoff within [x] days.*
+- Proposals have no Next steps slide — the Acceptance terms cover what happens after signing.
 
 ## Confidentiality
 

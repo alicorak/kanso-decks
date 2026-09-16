@@ -112,6 +112,16 @@ Clone a layout, then edit text **by layer name**. Keep layer names — helpers a
 | `Layout / Scope in-out` | Scope, assumptions & risks | `Title` · `Column` ×2 → `Column label`, `Column item` ×5 · Footer Meta |
 | `Layout / Checklist` | What we need from you, first two weeks | `Title` · `Item row` ×6 → `Item number`, `Item`, `Item meta` · Footer Meta |
 
+**Proposal v1.3 slides (2026-09-16).** Slides 3–5 of the short proposal are not layouts in the Kanso Deck Template yet.
+Until they are, build them on the UI v2 grid with the helpers (`T`-style text bound to the variables, auto-layout
+only) and these layer names, matching the reference build on the Proposal page of the Client Introduction file:
+
+| Slide | Structure and layer names |
+|---|---|
+| `Proposal / What we propose` | Title column: `Title` "What we propose", `Note` = service · Content column (left rule, space between): `Statement` (heading 96) · `Approach` → `Column label` "Our approach", `Approach headline` (heading 42, 900 wide), `Approach body` (body 24, 640 wide) |
+| `Proposal / Process & timeline` | Title column: `Title` "[x] weeks from kickoff to launch." · Content column (space between): `Week labels` (12 × `Week label`, 360 left padding) · `Divider` + `Phase row` ×4 → `Phase label group` (360 wide: `Phase label` heading 42, `Key deliverable` body 20 secondary), `Phase track` (fill; `Phase bar` in `color/placeholder`, x = start × track/12) · `Milestones` |
+| `Proposal / Scope` | Title column: `Title` "What’s in, and what’s not." · Content column (left rule, space between): `Scope columns` → `Column` ×4 (`Column label`, then `Divider` + `Column item` per item; In scope items in text-primary, others text-body) · `Team line` → `Divider`, `Team roles` "Team: [roles]" |
+
 Repeated items: when the content has fewer items than the layout, remove the extras with `removeListItems`
 (it also removes the matching dividers); when it has more, pick another layout or split the slide.
 The current step in Three columns uses `color/accent` on its `Column number` ("Now").

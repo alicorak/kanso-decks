@@ -47,16 +47,22 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 ### Proposal
 - Pricing: **single project fee, USD**
 - Asked during the proposal flow: fee, payment schedule (no default), validity (default 15 days, still confirmed),
-  timeline, revision rounds, out-of-scope items, communication cadence
-- Required sections: how we understand the brief · approach and process · timeline · team · scope in / out ·
-  assumptions and risks · payment terms and validity · relevant case studies
+  timeline, revision rounds, out-of-scope items, team roles, days from signing to kickoff
+- Required sections (v1.3): how we understand the brief · what we propose + approach · process & timeline ·
+  scope (in / out / assumptions / risks + team roles) · investment and validity · acceptance · contact;
+  relevant work optional
 - **Signing (2026-09-16):** wherever the fee appears, the client is led to sign. Investment ends with a
   "Sign the proposal →" button linked to the client's e-sign tool (tool not fixed; `[e-sign link]` per client), and a
   new Acceptance slide follows with the same button plus a client-only signature block as a print/PDF backup.
-  The proposal is 14 slides (13 without Relevant work); service variants (brand, mobile app, end-to-end, website)
-  change slides 4–8 and 10.
+  (Slide counts superseded by v1.3 below.)
 - **Leaner proof (2026-09-16):** proposals don't repeat the intro's proof — no Result or Testimonials slides; one
   optional Relevant work slide (case + one result + optional verbatim quote) when the case is close to the project.
+- **Short proposal (v1.3, 2026-09-16):** the proposal holds only what the client needs to decide and sign.
+  9 slides: Cover · How we understand the brief · What we propose (+ approach) · Process & timeline · Scope
+  (in / out / assumptions / risks as short columns + team roles line) · Relevant work (optional) · Investment ·
+  Acceptance · Contact. Removed: separate Approach, Process, Timeline, Team, Assumptions & risks, and Next steps
+  slides. Team faces, communication cadence and the first two weeks move to the kickoff deck. Service variants
+  change slides 3–5.
 
 ### Case study
 - Length: **depends on use** (short inside a proposal, medium/long as a standalone presentation)

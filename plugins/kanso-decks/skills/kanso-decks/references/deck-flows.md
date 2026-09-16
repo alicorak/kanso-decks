@@ -56,9 +56,10 @@ First-contact meeting. Goal: the client understands who we are, what we do, and 
 
 ---
 
-## 2. Proposal deck — 12–20 slides
+## 2. Proposal deck — 9 slides
 
-Presented after discovery. Goal: the client can approve scope, timeline, team, and fee.
+Presented after discovery. Goal: the client can decide and sign — what we'll do, when, what's in, what it costs.
+How we work together after signing (team names, communication, first two weeks) belongs in the kickoff deck.
 Every slide except the cover: `addConfidential(frame, client)` → footer reads `Confidential — prepared for [Client]`.
 
 ### Extra intake (proposal only)
@@ -68,46 +69,47 @@ Every slide except the cover: `addConfidential(frame, client)` → footer reads 
 | 1 | Project fee (single fee, USD) | none — ask |
 | 2 | Payment schedule | none — ask |
 | 3 | Proposal validity | 15 days — confirm |
-| 4 | Timeline: start date and duration per phase | none — ask |
+| 4 | Timeline: start date and duration per phase, key milestones | none — ask |
 | 5 | Which phases are in scope, and what Support covers | Strategy · Design · Development · Support — confirm |
 | 6 | Revision rounds | none — ask |
 | 7 | Out-of-scope items | none — ask (suggest candidates from the brief) |
-| 8 | Communication cadence | none — ask |
-| 9 | Team on this project (names, roles) | none — ask |
-| 10 | Relevant case (optional slide) | Only if close to this project or read by people who missed the intro; Dataland for app / end-to-end |
-| 11 | E-sign link for this client (DocuSign, PandaDoc, Dropbox Sign or similar) | none — keep `[e-sign link]` and list it under Open items |
+| 8 | Team roles on this project (roles only, no names) | Service default — confirm |
+| 9 | Relevant case (optional slide) | Only if close to this project or read by people who missed the intro; Dataland for app / end-to-end |
+| 10 | E-sign link for this client (DocuSign, PandaDoc, Dropbox Sign or similar) | none — keep `[e-sign link]` and list it under Open items |
+| 11 | Days from signing to kickoff | none — keep `[x]` |
 
 ### Flow
 
 | # | Layout | Content | Required |
 |---|---|---|---|
 | 1 | Cover | Client name + project title; footer meta = date | Yes |
-| 2 | Statement | What we propose, in one sentence | Yes |
-| 3 | Challenge & idea | **How we understand the brief** — situation · problem · goals · success criteria | Yes |
-| 4 | Mark statement | **Our approach** — the core idea | Yes |
-| 5 | Four columns | **Process**: phases in scope with activities and deliverables | Yes |
-| 6 | Timeline | **Timeline** — phases across weeks, milestones | Yes |
-| 7 | Scope in-out | **Scope in / out** | Yes |
-| 8 | Team grid | **Team** — who works on this, roles | Yes |
-| 9 | Case cover + result row + optional quote | **Relevant work** — one case close to this project, one result, an optional verbatim quote | Optional |
-| 10 | Scope in-out | **Assumptions and risks** — incl. revision rounds, client inputs | Yes |
-| 11 | Investment | **Investment** — single fee in USD, payment schedule, validity, **Sign button** below the schedule | Yes |
-| 12 | Acceptance | **Ready to start.** — Sign online button + signature block for the client (print / PDF backup) | Yes |
-| 13 | Three columns | Next steps: Approval ("You sign the proposal online.", accent "Now") → Kickoff → First two weeks | Yes |
-| 14 | Contact | Presenter + hello@ | Yes |
+| 2 | Challenge & idea | **How we understand the brief** — situation · problem · goals · success criteria | Yes |
+| 3 | Proposal / What we propose | **What we propose** — one sentence, then "Our approach": a Lastik 42 line and a short body. Note = service | Yes |
+| 4 | Proposal / Process & timeline | **Process & timeline** — title "[x] weeks from kickoff to launch."; four phase rows, each with a key deliverable under the phase name and a bar across 12 weeks; milestones line | Yes |
+| 5 | Proposal / Scope | **Scope** — "What's in, and what's not.": In scope · Out of scope · Assumptions · Risks (3–5 short items each); bottom line `Team: [roles]` | Yes |
+| 6 | Case cover + result row + optional quote | **Relevant work** — one case close to this project, one result, an optional verbatim quote | Optional |
+| 7 | Investment | **Investment** — single fee in USD, payment schedule, validity, **Sign button** below the schedule | Yes |
+| 8 | Acceptance | **Ready to start.** — Sign online button + signature block for the client (print / PDF backup); terms: "Valid for 15 days from [date]. After signing, we schedule the kickoff within [x] days." | Yes |
+| 9 | Contact | Presenter + hello@ | Yes |
+
+**Short by design.** No separate Approach, Process, Team, Assumptions or Next steps slides: approach sits on What
+we propose, process and timeline are one slide, assumptions and risks are short columns on Scope, team is a roles
+line, and the Acceptance terms say what happens after signing. Team faces, communication cadence and the first two
+weeks go to the kickoff deck.
 
 **Proof.** The intro deck already shows Kanso's work and testimonials, so a proposal doesn't repeat them: no
-testimonials slide, and slide 9 only when the case is close to this project or the proposal will reach people who
+testimonials slide, and slide 6 only when the case is close to this project or the proposal will reach people who
 didn't see the intro.
 
-**Service variants.** Slides 4–8 and 10 change with the service (brand, mobile app / digital product,
-end-to-end, website): the approach line, the work inside each phase, timeline length, scope in/out, team roles,
-and assumptions. Phase names never change.
+**Service variants.** Slides 3–5 change with the service (brand, mobile app / digital product, end-to-end,
+website): the approach line, key deliverables, timeline length and bars, milestones, scope columns and team roles.
+Phase names never change. Reference build: the Proposal page of the Client Introduction file (sections Shared and
+Variant — Brand / Mobile app / End-to-end / Website).
 
 **Signing.** Wherever the fee appears, the next thing the client sees is how to sign: the Sign button on
 Investment ("Valid until [date] · or sign on the next page") and the Acceptance slide right after it. Both buttons link
-to the client's e-sign URL (`setSignLink`). Only the client signs. Footers read `NN / 14` (`NN / 13` without Relevant work); renumber if slides
-are removed.
+to the client's e-sign URL (`setSignLink`). Only the client signs. Footers read `NN / 09` (`NN / 08` without Relevant
+work); renumber if slides are removed.
 
 ---
 
