@@ -112,7 +112,7 @@ Run `scripts/review-scan.js`. Fix overlaps, overflow, footer-zone hits, and empt
 - **Testimonials are verbatim.** Never edit or merge quotes.
 - **English by default.** Another language only when the brief asks for it.
 - **Process phases** are always Strategy → Design → Development → Support.
-- **Bind, don't hard-code:** every color and font in Figma is bound to the file's variables (one exception: the red `#FF4D4D` on Out of scope and Risks labels).
+- **Bind, don't hard-code:** every color and font in Figma is bound to the file's variables.
 - **Research is structure only:** never reproduce copy or imagery from deck.gallery decks.
 
 ## When something goes wrong

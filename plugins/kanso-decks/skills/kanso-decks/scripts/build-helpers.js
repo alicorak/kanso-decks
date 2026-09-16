@@ -25,7 +25,7 @@ const V = {
   ph: varByName('color/placeholder'), primary: varByName('color/text-primary'),
   body: varByName('color/text-body'), secondary: varByName('color/text-secondary'),
   rule: varByName('color/rule'), ruleStrong: varByName('color/rule-strong'),
-  outline: varByName('color/outline'), accent: varByName('color/accent'),
+  outline: varByName('color/outline'), accent: varByName('color/accent'), negative: varByName('color/negative'),
   hf: varByName('font/heading-family'), hs: varByName('font/heading-style'),
   bf: varByName('font/body-family'), bs: varByName('font/body-style'),
 };

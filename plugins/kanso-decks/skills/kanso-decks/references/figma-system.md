@@ -70,8 +70,9 @@ Body = `font/body-family` + `font/body-style` (Geist / **Medium**). Letter spaci
 | `color/rule-strong` | #FFFFFF @ 20 % | #000000 @ 20 % | Content column left rule |
 | `color/outline` | #FFFFFF @ 50 % | #000000 @ 50 % | Outlined cover and section titles |
 | `color/accent` | #8CFF8E | #1E8E3E | "Now" / current-step label; commitment labels (In scope, Assumptions, team groups) |
+| `color/negative` | #FF4D4D | #D92D20 | Exclusion and risk labels (Out of scope, Risks); brief Situation and Problem labels |
 
-**Never hard-code colors** — one exception: the red `#FF4D4D` on Out of scope and Risks labels (no `color/negative` variable yet). Switch a deck to light with `setTheme(frame, 'Light')` on each slide.
+**Never hard-code colors.** Switch a deck to light with `setTheme(frame, 'Light')` on each slide.
 
 ## Source slides
 
@@ -115,7 +116,7 @@ when editing a clone or rebuilding one with `newSlide`.
 |---|---|
 | `Proposal / What we propose` | Title column: `Title` "What we propose", `Note` = service · Content column (left rule, space between): `Statement` (heading 96) · `Approach` → `Column label` "Our approach", `Approach headline` (heading 42, 900 wide), `Approach body` (body 24, 640 wide) |
 | `Proposal / Process & timeline` | Title column: `Title` "[x] weeks from kickoff to launch." · Content column (space between): `Week labels` (12 × `Week label`, 360 left padding) · `Divider` + `Phase row` ×4 → `Phase label group` (360 wide: `Phase label` heading 42, `Key deliverable` body 20 secondary), `Phase track` (fill; `Phase bar` in `color/placeholder`, x = start × track/12) · `Milestones` |
-| `Proposal / Scope` | Title column: `Title` "What’s in, and what’s not." · Content column (left rule): `Scope columns` (fills the height, gap 32) → `Column` ×4 in the order In scope · Assumptions · Out of scope · Risks. Each column: fill height, space between, 1 px right rule, 32 right padding; `Column label` at the top, the item group at the bottom (`Column item`s with a `Divider` between them). What we commit to — In scope and Assumptions: labels `color/accent`, items `color/text-primary`. What we exclude or flag — Out of scope and Risks: labels red `#FF4D4D`, items `color/text-body`. No team line |
+| `Proposal / Scope` | Title column: `Title` "What’s in, and what’s not." · Content column (left rule): `Scope columns` (fills the height, gap 32) → `Column` ×4 in the order In scope · Assumptions · Out of scope · Risks. Each column: fill height, space between, 1 px right rule, 32 right padding; `Column label` at the top, the item group at the bottom (`Column item`s with a `Divider` between them). What we commit to — In scope and Assumptions: labels `color/accent`, items `color/text-primary`. What we exclude or flag — Out of scope and Risks: labels `color/negative`, items `color/text-body`. No team line |
 
 
 **Kickoff slides (2026-09-16).** Structure and layer names of the slides on the Kickoff page. Headings `Title` 60 in the title column; `Note` at its bottom where the copy has one.
