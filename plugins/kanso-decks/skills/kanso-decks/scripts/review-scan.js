@@ -69,9 +69,9 @@ for (const f of slides) {
 
 // 6. Proposal signing: a fee must be followed by a way to sign, and every Sign button needs a link.
 const feeSlides = slides.filter(f => f.findOne(n => n.type === 'TEXT' && n.name === 'Fee'));
-const signButtons = slides.flatMap(f => f.findAll(n => n.type === 'INSTANCE' && n.name === 'Sign button').map(b => ({ f, b })));
-if (feeSlides.length && !signButtons.length) report.signing.push('Fee shown but no Sign button in the deck — add addSignButton + Acceptance slide');
-if (feeSlides.length && !slides.some(f => /Acceptance/.test(f.name))) report.signing.push('No Acceptance slide after Investment');
+const signButtons = slides.flatMap(f => f.findAll(n => (n.type === 'INSTANCE' || n.type === 'FRAME') && n.name === 'Sign button').map(b => ({ f, b })));
+if (feeSlides.length && !signButtons.length) report.signing.push('Fee shown but no Sign button in the deck — add addSignButton to Investment');
+for (const f of feeSlides) if (!f.findOne(n => (n.type === 'INSTANCE' || n.type === 'FRAME') && n.name === 'Sign button')) report.signing.push(`${f.name}: fee without a Sign button on the same slide`);
 for (const { f, b } of signButtons) {
   const label = b.findOne(n => n.type === 'TEXT' && n.name === 'Button label');
   const link = label ? label.getRangeHyperlink(0, label.characters.length) : null;

@@ -111,7 +111,7 @@ The only deck in the catalog labelled as a proposal is **McKinley** (46 slides).
 
 **Near-universal (by inference):** 1, 3, 5, 6, 11, 14. **Optional:** 4, 9, 10, 12.
 **Length:** McKinley's 46 is long for a studio proposal. Inferred target: **12–20 slides**.
-Kanso decision (v1.3, 2026-09-16): a short 9-slide proposal — see `deck-flows.md`.
+Kanso decision (v1.3, 2026-09-16): a short 8-slide proposal (v1.4) — see `deck-flows.md`.
 **Examples:** McKinley Studios Pitch Deck (https://www.deck.gallery/mckinley-pitch-deck-retail-rollout/), Studio Linear Packages & Pricing (https://www.deck.gallery/studio-linear-packages-pricing/), Emma Capabilities Deck 2023 (https://www.deck.gallery/emma-philips-capabilities-deck/).
 
 ### 2.3 Case study deck (observed inside capabilities decks, not as standalone decks)

@@ -47,14 +47,14 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 ### Proposal
 - Pricing: **single project fee, USD**
 - Asked during the proposal flow: fee, payment schedule (no default), validity (default 15 days, still confirmed),
-  timeline, revision rounds, out-of-scope items, days from signing to kickoff
+  timeline, revision rounds, out-of-scope items; kickoff within 5 days of signing (standard)
 - Required sections (v1.3): how we understand the brief · what we propose + approach · process & timeline ·
-  scope (in / assumptions / out / risks) · investment and validity · acceptance · contact;
+  scope (in / assumptions / out / risks) · investment, validity and signing · contact;
   relevant work optional
 - **Signing (2026-09-16):** wherever the fee appears, the client is led to sign. Investment ends with a
   "Sign the proposal →" button linked to the client's e-sign tool (tool not fixed; `[e-sign link]` per client), and a
   new Acceptance slide follows with the same button plus a client-only signature block as a print/PDF backup.
-  (Slide counts superseded by v1.3 below.)
+  (Superseded: see v1.4 below.)
 - **Leaner proof (2026-09-16):** proposals don't repeat the intro's proof — no Result or Testimonials slides; one
   optional Relevant work slide (case + one result + optional verbatim quote) when the case is close to the project.
 - **Short proposal (v1.3, 2026-09-16):** the proposal holds only what the client needs to decide and sign.
@@ -64,14 +64,20 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
   slides. The team (names, roles, faces), communication cadence and the first two weeks move to the kickoff deck;
   the proposal names no people. Scope colours: commitments (in, assumptions) accent, exclusions and risks red. Service variants
   change slides 3–5.
+- **Signing in Google Docs (v1.4, 2026-09-16):** Kanso signs proposals with Google Docs eSignature, so the signature
+  lives in the Doc and a signature block on a slide adds nothing. Acceptance is removed; Investment carries the fee,
+  the Sign button ("Signed in Google Docs · valid until [date]") and the note on what signing confirms, with kickoff
+  within 5 days. The proposal is **8 slides** (7 without Relevant work).
 
 ### Case study
 - Length: **depends on use** (short inside a proposal, medium/long as a standalone presentation)
 - **Every case has a Results slide** (placeholder + flag when data is missing)
 
 ### Kickoff
-- Required sections: goals and success criteria · team and roles · timeline and milestones ·
-  communication cadence and tools · scope summary · what we need from the client · risks and dependencies · first two weeks
+- **11 slides (2026-09-16):** Cover · Why we're here · Goals & success · Team · Scope recap · Plan (variant) ·
+  How we work together · Reviews & approvals · What we need from you (variant) · First two weeks · Contact
+- Held within **5 days** of signing; no fee, signing or case studies; no separate risks slide (late inputs, feedback
+  timing and approvals cover them)
 - Tools: **Slack, Google Docs**; cadence asked per project
 
 ## 5. Workflow

@@ -218,16 +218,16 @@ function ensureSignButton() {
   btn.fills = []; btn.strokes = paint(V.ruleStrong); btn.strokeWeight = 1; btn.strokeAlign = 'INSIDE'; btn.cornerRadius = 999;
   btn.resize(1360, 100); btn.primaryAxisSizingMode = 'FIXED'; btn.counterAxisSizingMode = 'AUTO';
   const label = T(btn, 'Sign the proposal →', { kind: 'h', size: 42, lh: 100, name: 'Button label' });
-  const helper = T(btn, 'Valid until [date] · or sign on the next page', { kind: 'b', size: 24, lh: 120, upper: true, color: 'secondary', name: 'Button helper', align: 'RIGHT' });
+  const helper = T(btn, 'Signed in Google Docs · valid until [date]', { kind: 'b', size: 24, lh: 120, upper: true, color: 'secondary', name: 'Button helper', align: 'RIGHT' });
   label.componentPropertyReferences = { characters: btn.addComponentProperty('Label', 'TEXT', 'Sign the proposal →') };
-  helper.componentPropertyReferences = { characters: btn.addComponentProperty('Helper', 'TEXT', 'Valid until [date] · or sign on the next page') };
+  helper.componentPropertyReferences = { characters: btn.addComponentProperty('Helper', 'TEXT', 'Signed in Google Docs · valid until [date]') };
   btn.description = 'Proposal signing CTA. Link it to the client’s e-sign URL with setSignLink.';
   return btn;
 }
 const signKey = (btn, prefix) => Object.keys(btn.componentPropertyDefinitions).find(k => k.startsWith(prefix));
 
 // Appends a Sign button as the last item of the slide's Content column (Investment). helper: text on the right.
-function addSignButton(frame, helper = 'Valid until [date] · or sign on the next page') {
+function addSignButton(frame, helper = 'Signed in Google Docs · valid until [date]') {
   const btn = ensureSignButton();
   const col = frame.findChild(n => n.name === 'Content column');
   if (!col) throw new Error(`"${frame.name}" has no Content column.`);
@@ -235,30 +235,6 @@ function addSignButton(frame, helper = 'Valid until [date] · or sign on the nex
   const inst = btn.createInstance(); col.appendChild(inst); inst.layoutSizingHorizontal = 'FILL';
   inst.setProperties({ [signKey(btn, 'Helper')]: helper });
   return inst;
-}
-
-// Builds the Acceptance slide from scratch (use when the file has no "Layout / Acceptance").
-function buildAcceptanceSlide(deckPage, index, client = '[Client]') {
-  const btn = ensureSignButton();
-  const { frame, titleCol, contentCol } = newSlide(deckPage, index, 'Acceptance', 'Acceptance', { meta: `Confidential — prepared for ${client}`, title: 'Ready to start.', contentRule: true });
-  const note = T(titleCol, '*\nSigning confirms the scope, timeline, fee and payment schedule in this proposal.', { kind: 'b', size: 20, lh: 28, px: true, upper: true, color: 'secondary', name: 'Note', w: 332 });
-  note.setRangeFontSize(0, 1, 32); note.setRangeLineHeight(0, 2, { unit: 'PIXELS', value: 32 });
-  const online = AL(contentCol, 'VERTICAL', { name: 'Sign online', gap: 24, fillW: true });
-  T(online, 'Sign online', { kind: 'b', size: 24, upper: true, color: 'secondary', name: 'Column label', fill: true });
-  const inst = btn.createInstance(); online.appendChild(inst); inst.layoutSizingHorizontal = 'FILL';
-  inst.setProperties({ [signKey(btn, 'Helper')]: 'Takes two minutes · signed copy by email' });
-  const paper = AL(contentCol, 'VERTICAL', { name: 'Sign here', gap: 32, fillW: true });
-  T(paper, 'Or sign here', { kind: 'b', size: 24, upper: true, color: 'secondary', name: 'Column label', fill: true });
-  T(paper, `Accepted on behalf of ${client}`, { kind: 'h', size: 42, lh: 100, name: 'Signature line label', fill: true });
-  const fields = AL(paper, 'HORIZONTAL', { name: 'Signature fields', gap: 32, fillW: true });
-  [['Signature', 2], ['Name', 1], ['Title', 1], ['Date', 1]].forEach(([lab, grow]) => {
-    const fld = AL(fields, 'VERTICAL', { name: 'Field', gap: 12, fillW: true }); fld.layoutGrow = grow;
-    const space = figma.createFrame(); fld.appendChild(space); space.name = 'Writing space'; space.fills = []; space.resize(100, 72); space.layoutSizingHorizontal = 'FILL';
-    const line = figma.createRectangle(); fld.appendChild(line); line.resize(100, 1); line.fills = paint(V.ruleStrong); line.name = 'Divider'; line.layoutSizingHorizontal = 'FILL';
-    T(fld, lab, { kind: 'b', size: 20, lh: 28, px: true, upper: true, color: 'secondary', name: 'Field label', fill: true });
-  });
-  T(paper, 'This proposal is valid until [date]. Work starts on the kickoff date agreed after signing.', { kind: 'b', size: 24, lh: 120, upper: true, color: 'body', name: 'Terms', fill: true });
-  return frame;
 }
 
 // Links every Sign button on a slide to the e-sign URL: text hyperlinks (work in PDF exports) + a click action

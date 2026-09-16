@@ -56,7 +56,7 @@ First-contact meeting. Goal: the client understands who we are, what we do, and 
 
 ---
 
-## 2. Proposal deck — 9 slides
+## 2. Proposal deck — 8 slides
 
 Presented after discovery. Goal: the client can decide and sign — what we'll do, when, what's in, what it costs.
 How we work together after signing (the people and their roles, communication, first two weeks) belongs in the kickoff deck.
@@ -74,8 +74,7 @@ Every slide except the cover: `addConfidential(frame, client)` → footer reads 
 | 6 | Revision rounds | none — ask |
 | 7 | Out-of-scope items | none — ask (suggest candidates from the brief) |
 | 8 | Relevant case (optional slide) | Only if close to this project or read by people who missed the intro; Dataland for app / end-to-end |
-| 9 | E-sign link for this client (DocuSign, PandaDoc, Dropbox Sign or similar) | none — keep `[e-sign link]` and list it under Open items |
-| 10 | Days from signing to kickoff | none — keep `[x]` |
+| 9 | Google Docs signing link for this proposal (Kanso signs proposals with Google Docs eSignature) | none — keep `[e-sign link]` and list it under Open items |
 
 ### Flow
 
@@ -87,13 +86,12 @@ Every slide except the cover: `addConfidential(frame, client)` → footer reads 
 | 4 | Proposal / Process & timeline | **Process & timeline** — title "[x] weeks from kickoff to launch."; four phase rows, each with a key deliverable under the phase name and a bar across 12 weeks; milestones line | Yes |
 | 5 | Proposal / Scope | **Scope** — "What's in, and what's not.": In scope · Assumptions · Out of scope · Risks (3–5 short items each). No team line | Yes |
 | 6 | Case cover + result row + optional quote | **Relevant work** — one case close to this project, one result, an optional verbatim quote | Optional |
-| 7 | Investment | **Investment** — single fee in USD, payment schedule, validity, **Sign button** below the schedule | Yes |
-| 8 | Acceptance | **Ready to start.** — Sign online button + signature block for the client (print / PDF backup); terms: "Valid for 15 days from [date]. After signing, we schedule the kickoff within [x] days." | Yes |
-| 9 | Contact | Presenter + hello@ | Yes |
+| 7 | Investment | **Investment & signing** — payment schedule, single fee in USD with what it covers, **Sign button** (helper: validity), Note: what signing confirms + kickoff within 5 days | Yes |
+| 8 | Contact | Presenter + hello@ | Yes |
 
 **Short by design.** No separate Approach, Process, Team, Assumptions or Next steps slides: approach sits on What
-we propose, process and timeline are one slide, assumptions and risks are short columns on Scope, and the Acceptance
-terms say what happens after signing. The proposal names no people: the team (names, roles, faces), communication
+we propose, process and timeline are one slide, assumptions and risks are short columns on Scope, and the Investment
+note says what happens after signing. The proposal names no people: the team (names, roles, faces), communication
 cadence and the first two weeks go to the kickoff deck.
 
 **Proof.** The intro deck already shows Kanso's work and testimonials, so a proposal doesn't repeat them: no
@@ -105,10 +103,10 @@ website): the approach line, key deliverables, timeline length and bars, milesto
 Phase names never change. Reference build: the Proposal page of the Client Introduction file (sections Shared and
 Variant — Brand / Mobile app / End-to-end / Website).
 
-**Signing.** Wherever the fee appears, the next thing the client sees is how to sign: the Sign button on
-Investment ("Valid until [date] · or sign on the next page") and the Acceptance slide right after it. Both buttons link
-to the client's e-sign URL (`setSignLink`). Only the client signs. Footers read `NN / 09` (`NN / 08` without Relevant
-work); renumber if slides are removed.
+**Signing.** The fee and the way to sign sit on the same slide: Investment ends with the Sign button
+("Signed in Google Docs · valid until [date]"), linked with `setSignLink` to the Google Docs signing link. There is no
+separate Acceptance slide and no signature block — the signature lives in the Google Doc. Only the client signs.
+Footers read `NN / 08` (`NN / 07` without Relevant work); renumber if slides are removed.
 
 ---
 
@@ -141,40 +139,45 @@ work); renumber if slides are removed.
 
 ---
 
-## 4. Kickoff deck — 10–16 slides
+## 4. Kickoff deck — 11 slides
 
-First meeting after signing. Goal: both teams leave aligned on goals, roles, rhythm, and the next two weeks.
-Every slide except the cover: `addConfidential(frame, client)`.
+First meeting after signing, held within **5 days** of signing. Goal: both teams leave aligned on goals, people,
+rhythm, and the next two weeks. The kickoff doesn't sell again: no fee, no signing, no case studies; scope and
+timeline come from the signed proposal. Every slide except the cover: `addConfidential(frame, client)`.
 
 ### Extra intake (kickoff only)
 
-| # | Question |
-|---|---|
-| 1 | Goals and how success will be measured |
-| 2 | Team on both sides: names, roles, decision-maker, day-to-day contact |
-| 3 | Timeline and milestones (from the signed proposal if available) |
-| 4 | Communication cadence (tools default: Slack, Google Docs) |
-| 5 | What we need from the client: access, assets, content, approvals |
-| 6 | Known risks and dependencies |
-| 7 | Plan for the first two weeks |
+| # | Question | Default |
+|---|---|---|
+| 1 | The signed proposal (or its scope, timeline and service) and the signing date | none — ask |
+| 2 | Goals and how success will be measured (metric, target, date) | none — ask |
+| 3 | Team on both sides: names, roles, decision-maker, day-to-day contact | none — ask |
+| 4 | Communication: check-in day and time, response time, design files link | Slack, Google Docs · weekly check-in — confirm |
+| 5 | Feedback: days to reply, revision rounds, who signs off | From the proposal — confirm |
+| 6 | What we need from the client, with owner and date | Service defaults — confirm |
+| 7 | First two weeks: workshop, research, first deliverable | Service defaults — confirm |
 
 ### Flow
 
 | # | Layout | Content | Required |
 |---|---|---|---|
-| 1 | Cover | Project name + client; footer meta = kickoff date | Yes |
-| 2 | Statement | Why we're here — the project goal in one sentence | Yes |
-| 3 | Three columns | **Goals and success criteria** | Yes |
-| 4 | Scope in-out | **Scope summary** — in / out | Yes |
-| 5 | Team grid | **Team and roles** — both sides | Yes |
-| 6 | Four columns | Process: Strategy · Design · Development · Support | Yes |
-| 7 | Timeline | **Timeline and milestones** | Yes |
-| 8 | Three columns | **Communication cadence and tools** — Slack, Google Docs, meeting rhythm | Yes |
-| 9 | Stats *(as rows)* | Feedback and approval: how rounds work, who signs off | Optional |
-| 10 | Checklist | **What we need from you** | Yes |
-| 11 | Scope in-out | **Risks and dependencies** | Yes |
-| 12 | Checklist | **First two weeks** | Yes |
-| 13 | Contact | Day-to-day contacts on both sides | Yes |
+| 1 | Cover | "Kickoff for" + project name; footer meta = client · kickoff date | Yes |
+| 2 | Kickoff / Statement | **Why we're here** — the project goal in one sentence; Note: proposal signed on [date] | Yes |
+| 3 | Kickoff / Three columns | **What success looks like.** — three goals, each with measure · target · by | Yes |
+| 4 | Kickoff / Team | **Who you'll work with.** — Kanso (photos) and client (no photos), roles, decision-maker, day-to-day contact | Yes |
+| 5 | Kickoff / Scope recap | **What we agreed.** — in / out from the signed proposal; "Anything new is scoped and priced separately." | Yes |
+| 6 | Kickoff / Rows | **Plan** — "[x] weeks, phase by phase.": four phase rows with the work inside, weeks and sign-off | Yes · variant |
+| 7 | Kickoff / Three columns | **How we work together.** — channels (Slack, Google Docs) · meetings · response times | Yes |
+| 8 | Kickoff / Rows | **How feedback and sign-off work.** — Review → Feedback → Revise → Sign-off | Yes |
+| 9 | Kickoff / Rows | **What we need from you.** — six inputs with owner and date; Note: late inputs move the dates after them | Yes · variant |
+| 10 | Kickoff / Rows | **The first two weeks.** — W1/W2 rows: kickoff, access, workshop, research, check-in, first deliverable | Yes |
+| 11 | Contact | **Let's get started.** — Studio hello@, Kanso project lead, client contact | Yes |
+
+**Risks.** No separate slide: the proposal already lists them. Late inputs are covered on 9, feedback timing on 7 and 8.
+
+**Service variants.** Slides 6 and 9 change with the service (brand, mobile app, end-to-end, website); slide 10's
+workshop, research and first deliverable follow the service too. Reference build: the Kickoff page of the Client
+Introduction file.
 
 ---
 

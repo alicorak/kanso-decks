@@ -91,12 +91,13 @@ Relevant work slide.
 ## Signing
 
 - Button label: **Sign the proposal →** (the only place an arrow is used).
-- Investment helper: `Valid until [date] · or sign on the next page`. Acceptance helper: `Takes two minutes · signed copy by email`.
-- Acceptance title: **Ready to start.** Note: *Signing confirms the scope, timeline, fee and payment schedule in this proposal.*
-- Signature block: `Accepted on behalf of [Client]`, fields Signature · Name · Title · Date. Only the client signs.
-- Validity: **15 days** from the proposal date by default (confirm per proposal). Fee note: `Valid for 15 days from [date].`
-- Acceptance terms: *Valid for 15 days from [date]. After signing, we schedule the kickoff within [x] days.*
-- Proposals have no Next steps slide — the Acceptance terms cover what happens after signing.
+- Signing tool: **Google Docs eSignature**. Only the client signs.
+- Investment helper: `Signed in Google Docs · valid until [date]` — the only place validity appears.
+- Investment note: *Signing confirms the scope, timeline, fee and payment schedule in this proposal. After signing, we schedule the kickoff within 5 days.*
+- Fee note: `Covers [phases in scope] as described in this proposal.`
+- Validity: **15 days** from the proposal date by default (confirm per proposal).
+- Kickoff: within **5 days** of signing.
+- Proposals have no Acceptance or Next steps slide — Investment covers signing and what happens after it.
 
 ## Confidentiality
 

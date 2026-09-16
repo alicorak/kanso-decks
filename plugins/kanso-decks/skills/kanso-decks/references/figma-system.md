@@ -76,7 +76,7 @@ Body = `font/body-family` + `font/body-style` (Geist / **Medium**). Letter spaci
 | `Header` | 1920 × 105 | `Section` (text, shown uppercase) | Every slide, at (0, 0) |
 | `Footer` | 1920 × 102 | `Meta` (text), `Show meta` (boolean), `Page` (text) | Every slide, at (0, 978). Cover: Meta "*formerly Echo Studio". Proposal / kickoff: Meta "Confidential — prepared for [Client]" |
 | `Kanji background` | 1920 × 1080 | — | First child of Name meaning and Contact slides |
-| `Sign button` | 1360 × 100 | `Label` (text, default "Sign the proposal →"), `Helper` (text) | Proposals: Investment content column (last item) and Acceptance. Pill with a 1 px `color/rule-strong` stroke. The label and helper link to the client's e-sign URL |
+| `Sign button` | 1360 × 100 | `Label` (text, default "Sign the proposal →"), `Helper` (text) | Proposals: Investment content column (last item). Pill with a 1 px `color/rule-strong` stroke. The label and helper link to the client's e-sign URL |
 | `O mark` | 214 × 256 | — | Mark statement |
 | `Quote mark` | 20 × 32 | — | Testimonial columns |
 | `Globe icon` | 24 × 24 | — | Studio meta |
@@ -108,7 +108,6 @@ Clone a layout, then edit text **by layer name**. Keep layer names — helpers a
 | `Layout / Timeline` | Proposal / kickoff timeline | `Title` · `Week label` ×12 · `Phase row` ×4 → `Phase label`, `Phase bar` · `Milestones` · Footer Meta |
 | `Layout / Team grid` | Team | `Title` · `Person` ×4 → `Image placeholder`, `Person name`, `Person role` |
 | `Layout / Investment` | Fee | `Title` · `Fee group` (`Fee`, `Fee note`) · `Payment schedule` (`Payment row` ×3 → `Payment item`, `Payment share`) · `Sign button` · Footer Meta |
-| `Layout / Acceptance` | Proposal signing (right after Investment) | `Title` ("Ready to start."), `Note` · `Sign online` (`Column label`, `Sign button`) · `Sign here` (`Column label`, `Signature line label`, `Signature fields` → `Field` ×4 with `Field label`: Signature, Name, Title, Date, `Terms`) · Footer Meta |
 | `Layout / Scope in-out` | Scope, assumptions & risks | `Title` · `Column` ×2 → `Column label`, `Column item` ×5 · Footer Meta |
 | `Layout / Checklist` | What we need from you, first two weeks | `Title` · `Item row` ×6 → `Item number`, `Item`, `Item meta` · Footer Meta |
 
@@ -124,6 +123,21 @@ directly and note it as the one exception to "bind, don't hard-code".
 | `Proposal / Process & timeline` | Title column: `Title` "[x] weeks from kickoff to launch." · Content column (space between): `Week labels` (12 × `Week label`, 360 left padding) · `Divider` + `Phase row` ×4 → `Phase label group` (360 wide: `Phase label` heading 42, `Key deliverable` body 20 secondary), `Phase track` (fill; `Phase bar` in `color/placeholder`, x = start × track/12) · `Milestones` |
 | `Proposal / Scope` | Title column: `Title` "What’s in, and what’s not." · Content column (left rule): `Scope columns` (fills the height, gap 32) → `Column` ×4 in the order In scope · Assumptions · Out of scope · Risks. Each column: fill height, space between, 1 px right rule, 32 right padding; `Column label` at the top, the item group at the bottom (`Column item`s with a `Divider` between them). What we commit to — In scope and Assumptions: labels `color/accent`, items `color/text-primary`. What we exclude or flag — Out of scope and Risks: labels red `#FF4D4D`, items `color/text-body`. No team line |
 
+
+**Kickoff slides (2026-09-16).** Built on the same UI v2 grid, matching the reference build on the Kickoff page of
+the Client Introduction file. Headings `Title` 60 in the title column; `Note` at its bottom where the copy has one.
+
+| Slide | Structure and layer names |
+|---|---|
+| `Kickoff / Statement` | Content column (left rule, top-aligned, 32 left padding): `Statement` (heading 96) |
+| `Kickoff / Three columns` | Content column (left rule): `Columns` (fill height, gap 32) → `Column` ×3 (fill, space between, 1 px right rule, 32 side padding): `Column number` at the top; `Column content` at the bottom → `Column title` (heading 42), then `Divider` + `Column item` per item (text-primary) |
+| `Kickoff / Team` | Content column (left rule, space between): `Team group` ×2 → `Group label` (accent: "Kanso", "[Client]"), `People` → `Person` ×4 → `Image placeholder` (Kanso only, 220 high) or `Divider` (client), `Person name` (heading 32), `Person role` (body 20 secondary) |
+| `Kickoff / Scope recap` | Content column (left rule, gap 48): `Columns` → `Column` ×2 like the proposal Scope (In scope accent / primary, Out of scope red / body) · `Bottom line` → `Divider`, `Scope note` |
+| `Kickoff / Rows` | Content column (space between): rows separated by `Divider`, each row centred, 32 left padding: number (body 20 secondary, 80 wide) · main (heading) · optional detail (body 24, fills) · meta (body 20 secondary, right-aligned). Plan: `Phase row` → `Row number`, `Phase label` (60, 320 wide), `Phase work`, `Phase meta` (360 wide, "W1–W2⏎[sign-off]"). Approvals: `Stat row` → `Row number`, `Stat` (60, 320 wide), `Stat label`, `Row meta` (300). Inputs and first two weeks: `Item row` → `Item number`, `Item` (42, fills), `Item meta` (300) |
+
+Header and footer: if the file has no `Header` / `Footer` components, clone the detached `Header` and `Footer` frames
+from an existing slide and set `Section label`, `Meta` and `Page number` by layer name.
+
 Repeated items: when the content has fewer items than the layout, remove the extras with `removeListItems`
 (it also removes the matching dividers); when it has more, pick another layout or split the slide.
 The current step in Three columns uses `color/accent` on its `Column number` ("Now").
@@ -137,10 +151,9 @@ The current step in Three columns uses `color/accent` on its `Column number` ("N
    - Stacked layers (rows): `setText(frame, name, text, i)`. Side-by-side layers (columns): `setText(frame, name, text, i, 'x')`.
    - Image captions: `setCaptions(frame, [...])` — covers `Image placeholder`, `Logo tile` and `Portrait`.
    - Footer: `setFooter(frame, { meta })`; proposal and kickoff: `addConfidential(frame, client)` on every slide but the cover.
-   - Proposal signing: if the file has no `Sign button` component or `Layout / Acceptance` (template copies made
-     before the signing update), call `ensureSignButton()`, `addSignButton(investmentFrame)` and
-     `buildAcceptanceSlide(deckPage, index, client)`. With a URL from the brief: `setSignLink(frame, url)` on both
-     slides; otherwise leave the button unlinked and list `[e-sign link]` under Open items.
+   - Proposal signing: if the file has no `Sign button` component, call `ensureSignButton()` and
+     `addSignButton(investmentFrame)`. With the Google Docs signing link from the brief: `setSignLink(frame, url)`;
+     otherwise leave the button unlinked and list `[e-sign link]` under Open items.
    - Unused items: `removeListItems(listFrame, keep, { skip })`; unused layers: `removeAll(frame, name)`.
 5. Build **at most 5–6 slides per `use_figma` call.** Switch pages at most once per call.
 6. After each call, screenshot the slides you built (`await frame.screenshot({ scale: 0.25 })`, max 5 per call).
