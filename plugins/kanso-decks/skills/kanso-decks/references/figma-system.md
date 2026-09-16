@@ -143,12 +143,17 @@ The current step in Three columns uses `color/accent` on its `Column number` ("N
    - Intro and case slides: `replaceText(frame, currentText, newText)`.
    - Proposal and kickoff slides — stacked layers (rows): `setText(frame, name, text, i)`; side-by-side layers
      (columns): `setText(frame, name, text, i, 'x')`.
+   - Title-column notes: `setNote(frame, text)` — never `setText`, which enlarges the whole note to the "*" size.
    - Image captions: `setCaptions(frame, [...])` — covers `Image placeholder`, `Logo tile` and `Portrait`.
    - Header label: `setSection(frame, label)`. Footer: `setFooter(frame, { meta })`; proposal and kickoff:
      `addConfidential(frame, client)` on every slide but the cover.
    - Proposal signing: the cloned Investment already has the Sign button. With the Google Docs signing link from the
      brief: `await setSignLink(frame, url)`; otherwise leave it unlinked and list `[e-sign link]` under Open items.
    - Unused items: `removeListItems(listFrame, keep, { skip })`; unused layers: `removeAll(frame, name)`.
+   - **Clean what the source carries over.** Source slides can hold real names or example values (e.g. Kanso team
+     names on kickoff Team) and template guidance notes (kickoff First two weeks: "Workshop, review and first
+     deliverable follow the service."). After cloning, replace every such value with the brief's value or a
+     `[placeholder]`, and remove guidance notes — nothing on a slide may come from the source unless it's in the copy.
    - A slide the source file doesn't have: `await newSlide(deckPage, index, name, section, { meta, title })`, then
      build its content with `T`, `AL` and `Divider`.
 5. Build **at most 5–6 slides per `use_figma` call.** Switch pages at most once per call.

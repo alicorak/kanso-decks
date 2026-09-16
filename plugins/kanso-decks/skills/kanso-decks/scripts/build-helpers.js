@@ -230,6 +230,19 @@ function setText(frame, layerName, text, nth = 0, order = 'y') {
   return node;
 }
 
+// Title-column Note ("*" on its own line, then 20 px text). setText would give the whole note the "*" size — use this.
+function setNote(frame, text) {
+  const node = texts(frame, 'Note')[0];
+  if (!node) throw new Error(`No Note in "${frame.name}".`);
+  const L = node.characters.length;
+  const star = { size: node.getRangeFontSize(0, 1), lh: node.getRangeLineHeight(0, 1) };
+  const rest = { size: node.getRangeFontSize(L - 1, L), lh: node.getRangeLineHeight(L - 1, L) };
+  node.characters = '*\n' + text;
+  node.setRangeFontSize(0, node.characters.length, rest.size); node.setRangeLineHeight(0, node.characters.length, rest.lh);
+  node.setRangeFontSize(0, 1, star.size); node.setRangeLineHeight(0, 2, star.lh);
+  return node;
+}
+
 // Captions of Image placeholder / Logo tile / Portrait frames, in reading order (left-to-right, then top-to-bottom).
 function setCaptions(frame, captions) {
   const abs = n => n.absoluteTransform;
