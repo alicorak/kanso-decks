@@ -67,7 +67,7 @@ Every slide except the cover: `addConfidential(frame, client)` → footer reads 
 |---|---|---|
 | 1 | Project fee (single fee, USD) | none — ask |
 | 2 | Payment schedule | none — ask |
-| 3 | Proposal validity | 30 days — confirm |
+| 3 | Proposal validity | 15 days — confirm |
 | 4 | Timeline: start date and duration per phase | none — ask |
 | 5 | Which phases are in scope, and what Support covers | Strategy · Design · Development · Support — confirm |
 | 6 | Revision rounds | none — ask |

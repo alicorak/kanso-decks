@@ -42,7 +42,7 @@ Ask the shared intake questions from `deck-flows.md` in a single message, plus t
 Required before continuing: deck type · client name, industry, website · meeting type and presenter
 (name, role, email) · the client's goal or problem.
 
-- Proposal only: also ask the client's e-sign link (or keep `[e-sign link]`), fee (USD, single fee), payment schedule, validity (default 30 days — confirm), timeline,
+- Proposal only: also ask the client's e-sign link (or keep `[e-sign link]`), fee (USD, single fee), payment schedule, validity (default 15 days — confirm), timeline,
   phases in scope and what Support covers, revision rounds, out-of-scope items, communication cadence, team.
 - Kickoff only: goals and success measures, both teams, milestones, cadence, client inputs, risks, first two weeks.
 - If a website is given, read it to understand the client. Never copy its text onto slides.

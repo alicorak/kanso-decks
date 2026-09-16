@@ -46,7 +46,7 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 
 ### Proposal
 - Pricing: **single project fee, USD**
-- Asked during the proposal flow: fee, payment schedule (no default), validity (default 30 days, still confirmed),
+- Asked during the proposal flow: fee, payment schedule (no default), validity (default 15 days, still confirmed),
   timeline, revision rounds, out-of-scope items, communication cadence
 - Required sections: how we understand the brief · approach and process · timeline · team · scope in / out ·
   assumptions and risks · payment terms and validity · relevant case studies
