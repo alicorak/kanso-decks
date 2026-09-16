@@ -218,16 +218,16 @@ function ensureSignButton() {
   btn.fills = []; btn.strokes = paint(V.ruleStrong); btn.strokeWeight = 1; btn.strokeAlign = 'INSIDE'; btn.cornerRadius = 999;
   btn.resize(1360, 100); btn.primaryAxisSizingMode = 'FIXED'; btn.counterAxisSizingMode = 'AUTO';
   const label = T(btn, 'Sign the proposal →', { kind: 'h', size: 42, lh: 100, name: 'Button label' });
-  const helper = T(btn, 'Valid until [date] · or sign on page [n]', { kind: 'b', size: 24, lh: 120, upper: true, color: 'secondary', name: 'Button helper', align: 'RIGHT' });
+  const helper = T(btn, 'Valid until [date] · or sign on the next page', { kind: 'b', size: 24, lh: 120, upper: true, color: 'secondary', name: 'Button helper', align: 'RIGHT' });
   label.componentPropertyReferences = { characters: btn.addComponentProperty('Label', 'TEXT', 'Sign the proposal →') };
-  helper.componentPropertyReferences = { characters: btn.addComponentProperty('Helper', 'TEXT', 'Valid until [date] · or sign on page [n]') };
+  helper.componentPropertyReferences = { characters: btn.addComponentProperty('Helper', 'TEXT', 'Valid until [date] · or sign on the next page') };
   btn.description = 'Proposal signing CTA. Link it to the client’s e-sign URL with setSignLink.';
   return btn;
 }
 const signKey = (btn, prefix) => Object.keys(btn.componentPropertyDefinitions).find(k => k.startsWith(prefix));
 
 // Appends a Sign button as the last item of the slide's Content column (Investment). helper: text on the right.
-function addSignButton(frame, helper = 'Valid until [date] · or sign on page [n]') {
+function addSignButton(frame, helper = 'Valid until [date] · or sign on the next page') {
   const btn = ensureSignButton();
   const col = frame.findChild(n => n.name === 'Content column');
   if (!col) throw new Error(`"${frame.name}" has no Content column.`);

@@ -74,7 +74,7 @@ Every slide except the cover: `addConfidential(frame, client)` → footer reads 
 | 7 | Out-of-scope items | none — ask (suggest candidates from the brief) |
 | 8 | Communication cadence | none — ask |
 | 9 | Team on this project (names, roles) | none — ask |
-| 10 | Relevant case studies | Dataland if relevant |
+| 10 | Relevant case (optional slide) | Only if close to this project or read by people who missed the intro; Dataland for app / end-to-end |
 | 11 | E-sign link for this client (DocuSign, PandaDoc, Dropbox Sign or similar) | none — keep `[e-sign link]` and list it under Open items |
 
 ### Flow
@@ -89,22 +89,24 @@ Every slide except the cover: `addConfidential(frame, client)` → footer reads 
 | 6 | Timeline | **Timeline** — phases across weeks, milestones | Yes |
 | 7 | Scope in-out | **Scope in / out** | Yes |
 | 8 | Team grid | **Team** — who works on this, roles | Yes |
-| 9 | Case cover | **Relevant work** — the case that fits the service | Yes |
-| 10 | Stats | **Result** of that case — verified numbers or placeholders | Yes |
-| 11 | Testimonials | Quotes relevant to the project | Optional |
-| 12 | Scope in-out | **Assumptions and risks** — incl. revision rounds, client inputs | Yes |
-| 13 | Investment | **Investment** — single fee in USD, payment schedule, validity, **Sign button** below the schedule | Yes |
-| 14 | Acceptance | **Ready to start.** — Sign online button + signature block for the client (print / PDF backup) | Yes |
-| 15 | Three columns | Next steps: Approval ("You sign the proposal online.", accent "Now") → Kickoff → First two weeks | Yes |
-| 16 | Contact | Presenter + hello@ | Yes |
+| 9 | Case cover + result row + optional quote | **Relevant work** — one case close to this project, one result, an optional verbatim quote | Optional |
+| 10 | Scope in-out | **Assumptions and risks** — incl. revision rounds, client inputs | Yes |
+| 11 | Investment | **Investment** — single fee in USD, payment schedule, validity, **Sign button** below the schedule | Yes |
+| 12 | Acceptance | **Ready to start.** — Sign online button + signature block for the client (print / PDF backup) | Yes |
+| 13 | Three columns | Next steps: Approval ("You sign the proposal online.", accent "Now") → Kickoff → First two weeks | Yes |
+| 14 | Contact | Presenter + hello@ | Yes |
 
-**Service variants.** Slides 4–8 and 12 change with the service (brand, mobile app / digital product,
+**Proof.** The intro deck already shows Kanso's work and testimonials, so a proposal doesn't repeat them: no
+testimonials slide, and slide 9 only when the case is close to this project or the proposal will reach people who
+didn't see the intro.
+
+**Service variants.** Slides 4–8 and 10 change with the service (brand, mobile app / digital product,
 end-to-end, website): the approach line, the work inside each phase, timeline length, scope in/out, team roles,
 and assumptions. Phase names never change.
 
 **Signing.** Wherever the fee appears, the next thing the client sees is how to sign: the Sign button on
-Investment ("Valid until [date] · or sign on page 14") and the Acceptance slide right after it. Both buttons link
-to the client's e-sign URL (`setSignLink`). Only the client signs. Footers read `NN / 16`; renumber if slides
+Investment ("Valid until [date] · or sign on the next page") and the Acceptance slide right after it. Both buttons link
+to the client's e-sign URL (`setSignLink`). Only the client signs. Footers read `NN / 14` (`NN / 13` without Relevant work); renumber if slides
 are removed.
 
 ---

@@ -53,7 +53,10 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 - **Signing (2026-09-16):** wherever the fee appears, the client is led to sign. Investment ends with a
   "Sign the proposal →" button linked to the client's e-sign tool (tool not fixed; `[e-sign link]` per client), and a
   new Acceptance slide follows with the same button plus a client-only signature block as a print/PDF backup.
-  The proposal is 16 slides; service variants (brand, mobile app, end-to-end, website) change slides 4–8 and 12.
+  The proposal is 14 slides (13 without Relevant work); service variants (brand, mobile app, end-to-end, website)
+  change slides 4–8 and 10.
+- **Leaner proof (2026-09-16):** proposals don't repeat the intro's proof — no Result or Testimonials slides; one
+  optional Relevant work slide (case + one result + optional verbatim quote) when the case is close to the project.
 
 ### Case study
 - Length: **depends on use** (short inside a proposal, medium/long as a standalone presentation)

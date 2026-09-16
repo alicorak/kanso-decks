@@ -80,6 +80,9 @@ Anything unknown becomes a placeholder — never a guess.
 - Attribution format: `Name — Title, Company`.
 - One testimonial per slide as the main element; at most two supporting quotes in smaller type.
 
+**In proposals:** no testimonials slide — the intro already carries them. At most one quote, on the optional
+Relevant work slide.
+
 ## Client names and logos
 
 - Free to use: clients published on kanso.solutions (Dataland, Derimod, Pro Legacy, Chiliz).
@@ -88,7 +91,7 @@ Anything unknown becomes a placeholder — never a guess.
 ## Signing
 
 - Button label: **Sign the proposal →** (the only place an arrow is used).
-- Investment helper: `Valid until [date] · or sign on page [n]`. Acceptance helper: `Takes two minutes · signed copy by email`.
+- Investment helper: `Valid until [date] · or sign on the next page`. Acceptance helper: `Takes two minutes · signed copy by email`.
 - Acceptance title: **Ready to start.** Note: *Signing confirms the scope, timeline, fee and payment schedule in this proposal.*
 - Signature block: `Accepted on behalf of [Client]`, fields Signature · Name · Title · Date. Only the client signs.
 - Terms line: *This proposal is valid until [date]. Work starts on the kickoff date agreed after signing.*
