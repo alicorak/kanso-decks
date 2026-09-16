@@ -85,7 +85,7 @@ Every slide except the cover: `addConfidential(frame, client)` → footer reads 
 | 3 | Proposal / What we propose | **What we propose** — one sentence, then "Our approach": a Lastik 42 line and a short body. Note = service | Yes |
 | 4 | Proposal / Process & timeline | **Process & timeline** — title "[x] weeks from kickoff to launch."; four phase rows, each with a key deliverable under the phase name and a bar across 12 weeks; milestones line | Yes |
 | 5 | Proposal / Scope | **Scope** — "What's in, and what's not.": In scope · Assumptions · Out of scope · Risks (3–5 short items each). No team line | Yes |
-| 6 | Case cover + result row + optional quote | **Relevant work** — one case close to this project, one result, an optional verbatim quote | Optional |
+| 6 | Case cover + result row + optional quote | **Relevant work** — one case close to this project, one result, an optional verbatim quote (25 words or fewer) | Optional |
 | 7 | Investment | **Investment & signing** — payment schedule, single fee in USD with what it covers, **Sign button** (helper: validity), Note: what signing confirms + kickoff within 5 days | Yes |
 | 8 | Contact | Presenter + hello@ | Yes |
 

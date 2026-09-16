@@ -81,7 +81,14 @@ Anything unknown becomes a placeholder — never a guess.
 - One testimonial per slide as the main element; at most two supporting quotes in smaller type.
 
 **In proposals:** no testimonials slide — the intro already carries them. At most one quote, on the optional
-Relevant work slide.
+Relevant work slide, and only if it is **25 words or fewer** — quotes can't be shortened, so a longer one is left out
+(the quote sits in the narrow title column; the 38-word Dataland quote filled it in the 2026-09-16 test).
+
+## Headlines in columns
+
+- In three- and four-column slides (brief, goals, how we work together), a column title is **4 words or fewer**.
+  Lastik breaks those columns after about four words, so longer titles leave one word alone on the last line.
+- If a longer title is unavoidable, plan the break: add a manual line break (`\n`) so both lines are balanced.
 
 ## Client names and logos
 
