@@ -33,7 +33,7 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 |---|---|
 | Process phases | **Strategy → Design → Development → Support** (Support scope set per proposal) |
 | Case library | v1: **Dataland** only (Derimod and Pro Legacy once their website case studies are published) |
-| Team slide | Asked for every deck |
+| Team slide | Intro and kickoff; proposals name no people (v1.3) |
 | Contact slide | Presenter (name, role, email) + hello@kanso.solutions |
 | Confidentiality note | Proposal and kickoff: "Confidential — prepared for [Client]" |
 | Source of truth | `references/kanso-facts.md` (verified facts only) |
@@ -47,9 +47,9 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 ### Proposal
 - Pricing: **single project fee, USD**
 - Asked during the proposal flow: fee, payment schedule (no default), validity (default 15 days, still confirmed),
-  timeline, revision rounds, out-of-scope items, team roles, days from signing to kickoff
+  timeline, revision rounds, out-of-scope items, days from signing to kickoff
 - Required sections (v1.3): how we understand the brief · what we propose + approach · process & timeline ·
-  scope (in / out / assumptions / risks + team roles) · investment and validity · acceptance · contact;
+  scope (in / assumptions / out / risks) · investment and validity · acceptance · contact;
   relevant work optional
 - **Signing (2026-09-16):** wherever the fee appears, the client is led to sign. Investment ends with a
   "Sign the proposal →" button linked to the client's e-sign tool (tool not fixed; `[e-sign link]` per client), and a
@@ -59,9 +59,10 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
   optional Relevant work slide (case + one result + optional verbatim quote) when the case is close to the project.
 - **Short proposal (v1.3, 2026-09-16):** the proposal holds only what the client needs to decide and sign.
   9 slides: Cover · How we understand the brief · What we propose (+ approach) · Process & timeline · Scope
-  (in / out / assumptions / risks as short columns + team roles line) · Relevant work (optional) · Investment ·
+  (in / assumptions / out / risks as short columns) · Relevant work (optional) · Investment ·
   Acceptance · Contact. Removed: separate Approach, Process, Timeline, Team, Assumptions & risks, and Next steps
-  slides. Team faces, communication cadence and the first two weeks move to the kickoff deck. Service variants
+  slides. The team (names, roles, faces), communication cadence and the first two weeks move to the kickoff deck;
+  the proposal names no people. Scope colours: commitments (in, assumptions) accent, exclusions and risks red. Service variants
   change slides 3–5.
 
 ### Case study

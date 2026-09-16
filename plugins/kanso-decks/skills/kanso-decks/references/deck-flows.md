@@ -59,7 +59,7 @@ First-contact meeting. Goal: the client understands who we are, what we do, and 
 ## 2. Proposal deck — 9 slides
 
 Presented after discovery. Goal: the client can decide and sign — what we'll do, when, what's in, what it costs.
-How we work together after signing (team names, communication, first two weeks) belongs in the kickoff deck.
+How we work together after signing (the people and their roles, communication, first two weeks) belongs in the kickoff deck.
 Every slide except the cover: `addConfidential(frame, client)` → footer reads `Confidential — prepared for [Client]`.
 
 ### Extra intake (proposal only)
@@ -73,10 +73,9 @@ Every slide except the cover: `addConfidential(frame, client)` → footer reads 
 | 5 | Which phases are in scope, and what Support covers | Strategy · Design · Development · Support — confirm |
 | 6 | Revision rounds | none — ask |
 | 7 | Out-of-scope items | none — ask (suggest candidates from the brief) |
-| 8 | Team roles on this project (roles only, no names) | Service default — confirm |
-| 9 | Relevant case (optional slide) | Only if close to this project or read by people who missed the intro; Dataland for app / end-to-end |
-| 10 | E-sign link for this client (DocuSign, PandaDoc, Dropbox Sign or similar) | none — keep `[e-sign link]` and list it under Open items |
-| 11 | Days from signing to kickoff | none — keep `[x]` |
+| 8 | Relevant case (optional slide) | Only if close to this project or read by people who missed the intro; Dataland for app / end-to-end |
+| 9 | E-sign link for this client (DocuSign, PandaDoc, Dropbox Sign or similar) | none — keep `[e-sign link]` and list it under Open items |
+| 10 | Days from signing to kickoff | none — keep `[x]` |
 
 ### Flow
 
@@ -86,23 +85,23 @@ Every slide except the cover: `addConfidential(frame, client)` → footer reads 
 | 2 | Challenge & idea | **How we understand the brief** — situation · problem · goals · success criteria | Yes |
 | 3 | Proposal / What we propose | **What we propose** — one sentence, then "Our approach": a Lastik 42 line and a short body. Note = service | Yes |
 | 4 | Proposal / Process & timeline | **Process & timeline** — title "[x] weeks from kickoff to launch."; four phase rows, each with a key deliverable under the phase name and a bar across 12 weeks; milestones line | Yes |
-| 5 | Proposal / Scope | **Scope** — "What's in, and what's not.": In scope · Out of scope · Assumptions · Risks (3–5 short items each); bottom line `Team: [roles]` | Yes |
+| 5 | Proposal / Scope | **Scope** — "What's in, and what's not.": In scope · Assumptions · Out of scope · Risks (3–5 short items each). No team line | Yes |
 | 6 | Case cover + result row + optional quote | **Relevant work** — one case close to this project, one result, an optional verbatim quote | Optional |
 | 7 | Investment | **Investment** — single fee in USD, payment schedule, validity, **Sign button** below the schedule | Yes |
 | 8 | Acceptance | **Ready to start.** — Sign online button + signature block for the client (print / PDF backup); terms: "Valid for 15 days from [date]. After signing, we schedule the kickoff within [x] days." | Yes |
 | 9 | Contact | Presenter + hello@ | Yes |
 
 **Short by design.** No separate Approach, Process, Team, Assumptions or Next steps slides: approach sits on What
-we propose, process and timeline are one slide, assumptions and risks are short columns on Scope, team is a roles
-line, and the Acceptance terms say what happens after signing. Team faces, communication cadence and the first two
-weeks go to the kickoff deck.
+we propose, process and timeline are one slide, assumptions and risks are short columns on Scope, and the Acceptance
+terms say what happens after signing. The proposal names no people: the team (names, roles, faces), communication
+cadence and the first two weeks go to the kickoff deck.
 
 **Proof.** The intro deck already shows Kanso's work and testimonials, so a proposal doesn't repeat them: no
 testimonials slide, and slide 6 only when the case is close to this project or the proposal will reach people who
 didn't see the intro.
 
 **Service variants.** Slides 3–5 change with the service (brand, mobile app / digital product, end-to-end,
-website): the approach line, key deliverables, timeline length and bars, milestones, scope columns and team roles.
+website): the approach line, key deliverables, timeline length and bars, milestones and scope columns.
 Phase names never change. Reference build: the Proposal page of the Client Introduction file (sections Shared and
 Variant — Brand / Mobile app / End-to-end / Website).
 
