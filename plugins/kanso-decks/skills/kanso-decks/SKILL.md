@@ -1,6 +1,6 @@
 ---
 name: kanso-decks
-description: Build on-brand Kanso client presentations in Figma — intro/capabilities decks, proposals, case studies, and project kickoffs. Use whenever someone at Kanso asks for a deck, pitch, presentation, proposal, case study slides, kickoff slides, or slide copy for a client meeting, even if they don't name the deck type. Handles the brief, outline, copy, Figma build from the Kanso deck source file, and a final layout review, with approval between steps.
+description: Build on-brand Kanso client presentations and documents in Figma — intro/capabilities decks, proposals, case studies, project kickoffs, and proforma invoices. Use whenever someone at Kanso asks for a deck, pitch, presentation, proposal, case study slides, kickoff slides, slide copy for a client meeting, or a proforma invoice / payment request for a project milestone, even if they don't name the type. Handles the brief, outline, copy, Figma build from the Kanso deck source file, and a final layout review, with approval between steps.
 ---
 
 # Kanso decks
@@ -47,6 +47,9 @@ Required before continuing: deck type · client name, industry, website · meeti
   The proposal is short (8 slides): kickoff within 5 days of signing is standard; the team (names and roles), communication cadence and the first two weeks belong to the kickoff deck.
 - Kickoff only: the signed proposal and signing date, goals and success measures, both teams, cadence, feedback and sign-off,
   client inputs, first two weeks. The kickoff is 11 slides and doesn't repeat the fee.
+- Proforma invoice: follow `deck-flows.md` → 5. Proforma invoice instead of steps 2–3 — intake, show the filled values ⏸,
+  then build with `cloneInvoice` / `setInvoiceSchedule` (`figma-system.md` → Invoice source). Never ask for or write out
+  Kanso's company or bank details; they are cloned from the source frame.
 - If a website is given, read it to understand the client. Never copy its text onto slides.
 - Missing optional answers become `[placeholders]`. Do not invent them.
 

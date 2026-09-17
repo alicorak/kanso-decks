@@ -181,6 +181,45 @@ Introduction file.
 
 ---
 
+## 5. Proforma invoice — 1 A4 page
+
+A payment request sent as a PDF for one milestone of a signed proposal. It is **not** the official invoice — that one
+is issued from the accounting system once payment is received. One proforma per payment milestone, in USD.
+No outline or copy step: fill the intake, show the filled values for approval ⏸, then build and review.
+
+### Intake (invoice only)
+
+| # | Question | Default |
+|---|---|---|
+| 1 | Invoice number — the last KNS number used (the skill can't know it) | none — ask; next = last + 1, format `KNS-YYYY-NNN` |
+| 2 | Client legal name, address, VAT / tax ID, contact name and email | none — ask |
+| 3 | Project name, proposal signing date, project fee | From the signed proposal |
+| 4 | Which milestone this invoice is for, with a one-line description | none — ask |
+| 5 | The full payment schedule (milestone · share) and which milestones are already paid | From the proposal — confirm paid ones |
+| 6 | Issue date | Today |
+| 7 | Theme | Light (print) · Dark on request |
+
+Due date = issue date + **14 days**. Amount = share × project fee. Subtotal = amount. Total due = amount + VAT.
+VAT line stays as it is in the source file unless the user gives the wording.
+
+### Sections (top to bottom)
+
+| # | Section | Content |
+|---|---|---|
+| 1 | Header | Logo · Invoice no. · Issue date · Due date |
+| 2 | Title | Proforma invoice *(fixed)* |
+| 3 | Parties | Project (name, signed on, fee) · From (Kanso — prefilled in the source file) · Bill to (client) |
+| 4 | Line item | Milestone · description · share of fee · amount |
+| 5 | Totals | Subtotal · VAT · Total due (USD) |
+| 6 | Payment schedule | Every milestone with share, amount and status: Paid · This invoice · Upcoming |
+| 7 | Pay by bank transfer | Bank details prefilled in the source file · Reference = invoice number |
+| 8 | Footer | Proforma note *(fixed)* · kanso.solutions · hello@kanso.solutions · Page 1 / 1 |
+
+**Kanso's company and bank details are entered only in the Figma source file.** Never ask for them, never write them
+into chat copy, files, or this repo — the build copies them from the source frame.
+
+---
+
 ## Rules for all flows
 
 - One idea per slide. If a slide needs two headlines, split it.

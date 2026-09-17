@@ -119,6 +119,17 @@ Relevant work slide, and only if it is **25 words or fewer** — quotes can't be
 - Response time: *Messages answered within one working day.* (Kanso standard)
 - Kickoff is held within 5 days of signing; the deck never repeats the fee.
 
+## Invoices
+
+- Title: **Proforma invoice** — never "Invoice" alone. Note (fixed): *This is a proforma invoice. The official invoice
+  follows once payment is received. Bank fees are paid by the sender.*
+- Numbering: `KNS-YYYY-NNN`, sequential per year (KNS-2026-001). Reference on the bank row = the invoice number.
+- Dates: `18 September 2026`. Due date: issue date + 14 days.
+- Money: USD with cents on invoices — `$19,200.00` (proposals drop the cents).
+- Line item: title = milestone name (e.g. Design sign-off); description = one line on what was reached
+  (e.g. UI and design system approved); share = `40% of $48,000.00`.
+- Schedule statuses: `Paid` · `This invoice` · `Upcoming` — exactly one `This invoice`.
+
 ## Confidentiality
 
 Proposal and kickoff decks carry a footer on every slide except the cover:

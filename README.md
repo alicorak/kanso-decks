@@ -1,7 +1,7 @@
 # kanso-decks
 
 A Claude skill that builds on-brand Kanso client decks in Figma — **intro**, **proposal**, **case study**, and
-**kickoff** — from a short brief, with approval at every step.
+**kickoff** — plus **proforma invoices** for proposal milestones — from a short brief, with approval at every step.
 
 It knows the studio's verified facts, the Kanso voice, the deck structures that work (distilled from 50 decks in the
 [deck.gallery](https://www.deck.gallery) public catalog), and how to build slides from the **Kanso deck source file**

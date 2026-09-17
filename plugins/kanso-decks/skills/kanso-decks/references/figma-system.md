@@ -11,7 +11,7 @@ footer bars, a title column + content column grid, uppercase Geist labels, and a
 | | |
 |---|---|
 | File | **Client Introduction** — https://www.figma.com/design/q6Quf4V8CXEKlCLrmrQ6zb/Client-Introduction |
-| Pages | `Introduction Slide` (intro and case slides) · `Proposal` · `Kickoff` |
+| Pages | `Introduction Slide` (intro and case slides) · `Proposal` · `Kickoff` · `Invoice` |
 | Sections | Intro: the `0N - …` sections. Proposal and kickoff: `Shared` + `Variant — Brand / Mobile app / End-to-end / Website` |
 | Rule | Never build a client deck inside the source file. Only slides inside sections are sources |
 
@@ -132,6 +132,33 @@ when editing a clone or rebuilding one with `newSlide`.
 Repeated items: when the content has fewer items than the slide, remove the extras with `removeListItems`
 (it also removes the matching dividers); when it has more, pick another slide or split it.
 The current step in Three columns uses `color/accent` on its `Column number` ("Now").
+
+## Invoice source (`Invoice` page)
+
+Two A4 frames named `Invoice — Proforma` (1240 × 1754), each in its own `Proforma invoice` section: one with the Theme
+collection set to **Light** (default, for print) and one set to **Dark**. `cloneInvoice` picks by mode. Content is
+auto-layout top to bottom; Kanso's company and bank details are already filled in the source frames.
+
+| Group | Layer names |
+|---|---|
+| Header | `Logo` · `Invoice meta` → `Meta row` ×3 → `Label` + `Invoice no.`, `Issue date`, `Due date` |
+| Title | `Title` "Proforma invoice" (heading 64) |
+| Parties | `Project` → `Project name` (heading 28), `Project line` ×2 (signed on, fee) · `From` → `From name`, `From line` ×4 · `Bill to` → `Bill to name`, `Bill to line` ×4 (address, city, VAT / tax ID, attn) |
+| Line items | `Table head` · `Line item` → `Item title` (heading 28), `Item description`, `Item share`, `Item amount` (heading 28) |
+| Totals | `Subtotal`, `VAT`, `Total due` (heading 28) |
+| Payment schedule | `Schedule row` ×3 → `Schedule milestone`, `Schedule share`, `Schedule amount`, `Schedule status` |
+| Payment details | `Bank`, `Account name`, `IBAN (USD)`, `SWIFT / BIC`, `Reference` |
+| Footer | `Note`, `Footer meta` ×2, `Page number` |
+
+Build an invoice:
+1. In the client's project file (a copy of the source file), create a page `Invoice — [Client] — KNS-YYYY-NNN`.
+2. `const inv = await cloneInvoice(page, 'Light')`, then `setText` for header, parties, line item and totals.
+   Leave `From …`, `Bank`, `Account name`, `IBAN (USD)` and `SWIFT / BIC` as cloned; set `Reference` to the number.
+3. `setInvoiceSchedule(inv, [{ milestone, share, amount, status }, …])` — sets the rows, colours each status
+   (Paid → text-secondary, This invoice → accent, Upcoming → text-body) and removes unused rows. More than three
+   milestones: stop and ask the user to add a row in the source frame.
+4. Screenshot, run the review scan (A4 frames skip the slide footer-zone check), then `setThumbnailTitle(projectName)`
+   if the file doesn't have it yet. Export as PDF is done by the user in Figma.
 
 ## Build procedure
 

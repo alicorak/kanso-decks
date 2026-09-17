@@ -40,7 +40,7 @@ for (const f of slides) {
   for (const n of f.findAll(n => n.visible && !insideChrome(n) && n.type !== 'GROUP')) {
     const b = box(n, f);
     if (b.x < -1 || b.y < -1 || b.r > 1921 || b.b > 1081) report.overflow.push(`${f.name}: "${n.name}" outside slide`);
-    else if (b.b > 978) report.footerZone.push(`${f.name}: "${n.name}" reaches y ${Math.round(b.b)}`);
+    else if (f.height === 1080 && b.b > 978) report.footerZone.push(`${f.name}: "${n.name}" reaches y ${Math.round(b.b)}`);
   }
 
   // 4. Text checks.

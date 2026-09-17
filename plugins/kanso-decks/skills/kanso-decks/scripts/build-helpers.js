@@ -43,7 +43,7 @@ function assertHeadingsEditable() {
 // Intro and case slides: the "0N - …" sections of "Introduction Slide".
 // Proposal and kickoff: sections "Shared" and "Variant — Brand | Mobile app | End-to-end | Website".
 // Only slides inside sections are sources.
-const SOURCE_PAGES = { intro: 'Introduction Slide', proposal: 'Proposal', kickoff: 'Kickoff' };
+const SOURCE_PAGES = { intro: 'Introduction Slide', proposal: 'Proposal', kickoff: 'Kickoff', invoice: 'Invoice' };
 const PAGE = name => figma.root.children.find(p => p.name === name);
 async function sourcePage(kind) {
   const p = PAGE(SOURCE_PAGES[kind] || kind);
@@ -270,6 +270,37 @@ function removeListItems(list, keep, { skip = 0 } = {}) {
   });
 }
 function removeAll(frame, layerName) { frame.findAll(n => n.name === layerName).forEach(n => n.remove()); }
+
+// ---------- Proforma invoice ----------
+// Clone the A4 source frame ("Invoice — Proforma") whose Theme mode is modeName ('Light' default, 'Dark').
+async function cloneInvoice(targetPage, modeName = 'Light') {
+  assertHeadingsEditable();
+  const p = await sourcePage('invoice');
+  const modeId = THEME_MODE[modeName];
+  const src = p.findAll(n => n.type === 'FRAME' && n.name === 'Invoice — Proforma' && n.parent.type === 'SECTION')
+    .find(f => (f.explicitVariableModes || {})[THEME.id] === modeId);
+  if (!src) throw new Error(`No ${modeName} "Invoice — Proforma" frame on the Invoice page.`);
+  const f = src.clone(); targetPage.appendChild(f); f.x = 0; f.y = 0;
+  return f;
+}
+// rows: [{ milestone, share, amount, status: 'Paid' | 'This invoice' | 'Upcoming' }]
+function setInvoiceSchedule(frame, rows) {
+  const list = frame.findOne(n => n.name === 'Payment schedule');
+  const rowFrames = list.children.filter(n => n.name === 'Schedule row');
+  if (rows.length > rowFrames.length) throw new Error(`The source has ${rowFrames.length} schedule rows; ${rows.length} needed. Ask the user to add a row in the source frame.`);
+  if (rows.filter(r => r.status === 'This invoice').length !== 1) throw new Error('Exactly one row must be "This invoice".');
+  const colour = { 'Paid': V.secondary, 'This invoice': V.accent, 'Upcoming': V.body };
+  rowFrames.forEach((rf, i) => {
+    const r = rows[i];
+    if (!r) { const prev = rf.parent.children[rf.parent.children.indexOf(rf) - 1]; if (prev && prev.name === 'Divider') prev.remove(); rf.remove(); return; }
+    const t = name => rf.findOne(n => n.type === 'TEXT' && n.name === name);
+    t('Schedule milestone').characters = r.milestone;
+    t('Schedule share').characters = r.share;
+    t('Schedule amount').characters = r.amount;
+    const st = t('Schedule status'); st.characters = r.status;
+    st.fills = [figma.variables.setBoundVariableForPaint(st.fills[0], 'color', colour[r.status])]; // keeps the source fallback colour
+  });
+}
 
 // ---------- File thumbnail ----------
 // Every deck file's "Thumbnail" page has a "Cover" frame whose big "Headline" reads "Client Intro" in the source file.

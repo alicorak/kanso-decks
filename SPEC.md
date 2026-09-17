@@ -10,7 +10,7 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 | Topic | Decision |
 |---|---|
 | Users | Designers, sales / business development, project managers, founders |
-| Deck types (v1) | Intro, Proposal, Case study, Kickoff |
+| Deck types (v1) | Intro, Proposal, Case study, Kickoff · plus Proforma invoice (A4, 2026-09-17) |
 | Output | Figma Design file, 1920×1080 frames |
 | Language | English by default |
 | Surfaces | Claude desktop app, Claude Code CLI, claude.ai web |
@@ -79,6 +79,12 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 - Held within **5 days** of signing; no fee, signing or case studies; no separate risks slide (late inputs, feedback
   timing and approvals cover them)
 - Tools: **Slack, Google Docs**; cadence asked per project
+
+### Proforma invoice (2026-09-17)
+- A4 payment request per proposal milestone, USD, sent as PDF; the official invoice comes from accounting after payment
+- Numbering `KNS-YYYY-NNN` (the user gives the last number) · due = issue + 14 days · bank fees paid by the sender
+- Source: `Invoice` page of the Client Introduction file, Light (default) and Dark frames; Kanso company and bank
+  details live only there, never in this repo
 
 ## 5. Workflow
 
