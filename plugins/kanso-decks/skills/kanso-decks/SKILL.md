@@ -47,7 +47,7 @@ Required before continuing: deck type · client name, industry, website · meeti
   The proposal is short (8 slides): kickoff within 5 days of signing is standard; the team (names and roles), communication cadence and the first two weeks belong to the kickoff deck.
 - Kickoff only: the signed proposal and signing date, goals and success measures, both teams, cadence, feedback and sign-off,
   client inputs, first two weeks. The kickoff is 11 slides and doesn't repeat the fee.
-- Proforma invoice: follow `deck-flows.md` → 5. Proforma invoice instead of steps 2–3 — intake, show the filled values ⏸,
+- Proforma invoice (project milestone, or **retainer** month — `deck-flows.md` → Retainer mode): follow `deck-flows.md` → 5. Proforma invoice instead of steps 2–3 — intake, show the filled values ⏸,
   then build with `cloneInvoice` / `setInvoiceSchedule` (`figma-system.md` → Invoice source). Never ask for or write out
   Kanso's company or bank details; they are cloned from the source frame.
 - If a website is given, read it to understand the client. Never copy its text onto slides.

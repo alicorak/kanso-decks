@@ -83,7 +83,9 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 ### Proforma invoice (2026-09-17)
 - A4 payment request per proposal milestone, USD, sent as PDF; the official invoice comes from accounting after payment
 - Numbering `KNS-YYYY-NNN` (the user gives the last number) · due = issue + 14 days · bank fees paid by the sender
-- Source: `Invoice` page of the Client Introduction file, Light (default) and Dark frames; Kanso company and bank
+- Retainer mode (2026-09-17): fixed monthly fee billed in advance; same design without the payment schedule; an
+  Outstanding line only when a month is unpaid; work outside the retainer is invoiced separately
+- Source: `Invoice` page of the Client Introduction file, Proforma and Retainer frames in Light (default) and Dark; Kanso company and bank
   details live only there, never in this repo
 
 ## 5. Workflow

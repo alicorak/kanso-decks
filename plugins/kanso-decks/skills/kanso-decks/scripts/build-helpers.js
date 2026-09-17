@@ -272,14 +272,14 @@ function removeListItems(list, keep, { skip = 0 } = {}) {
 function removeAll(frame, layerName) { frame.findAll(n => n.name === layerName).forEach(n => n.remove()); }
 
 // ---------- Proforma invoice ----------
-// Clone the A4 source frame ("Invoice — Proforma") whose Theme mode is modeName ('Light' default, 'Dark').
-async function cloneInvoice(targetPage, modeName = 'Light') {
+// Clone an A4 source frame: kind 'Proforma' (project milestone) or 'Retainer' (monthly fee), modeName 'Light' | 'Dark'.
+async function cloneInvoice(targetPage, modeName = 'Light', kind = 'Proforma') {
   assertHeadingsEditable();
   const p = await sourcePage('invoice');
   const modeId = THEME_MODE[modeName];
-  const src = p.findAll(n => n.type === 'FRAME' && n.name === 'Invoice — Proforma' && n.parent.type === 'SECTION')
+  const src = p.findAll(n => n.type === 'FRAME' && n.parent.type === 'SECTION' && dashless(n.name) === dashless(`Invoice — ${kind}`))
     .find(f => (f.explicitVariableModes || {})[THEME.id] === modeId);
-  if (!src) throw new Error(`No ${modeName} "Invoice — Proforma" frame on the Invoice page.`);
+  if (!src) throw new Error(`No ${modeName} "Invoice — ${kind}" frame on the Invoice page.`);
   const f = src.clone(); targetPage.appendChild(f); f.x = 0; f.y = 0;
   return f;
 }
@@ -300,6 +300,19 @@ function setInvoiceSchedule(frame, rows) {
     const st = t('Schedule status'); st.characters = r.status;
     st.fills = [figma.variables.setBoundVariableForPaint(st.fills[0], 'color', colour[r.status])]; // keeps the source fallback colour
   });
+}
+
+// Retainer only, and only when the user says a month is unpaid: adds "Outstanding (September 2026)" under VAT.
+// Total due must then include it — set it with setText(frame, 'Total due', …).
+function addOutstanding(frame, month, amount) {
+  const totals = frame.findOne(n => n.name === 'Totals');
+  const rows = totals.children.filter(n => n.name === 'Total row');
+  const vatRow = rows.find(r => r.findOne(t => t.type === 'TEXT' && t.name === 'VAT'));
+  const row = rows[0].clone(); totals.insertChild(totals.children.indexOf(vatRow) + 1, row);
+  row.name = 'Outstanding row';
+  row.findOne(t => t.type === 'TEXT' && t.name === 'Label').characters = `Outstanding (${month})`;
+  const v = row.findOne(t => t.type === 'TEXT' && t.name !== 'Label'); v.name = 'Outstanding'; v.characters = amount;
+  return row;
 }
 
 // ---------- File thumbnail ----------

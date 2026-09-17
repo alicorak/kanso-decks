@@ -215,6 +215,25 @@ VAT line stays as it is in the source file unless the user gives the wording.
 | 7 | Pay by bank transfer | Bank details prefilled in the source file · Reference = invoice number |
 | 8 | Footer | Proforma note *(fixed)* · kanso.solutions · hello@kanso.solutions · Page 1 / 1 |
 
+### Retainer mode
+
+For clients on a **fixed monthly fee, billed in advance** at the start of each month. Same A4 design without the
+payment schedule; the source frame is `Invoice — Retainer`.
+
+| # | Question | Default |
+|---|---|---|
+| 1 | Invoice number — the last KNS number used | none — ask |
+| 2 | Client legal name, address, VAT / tax ID, contact | From the previous retainer invoice if the user has it |
+| 3 | Retainer name, start date, monthly fee | none — ask |
+| 4 | Month billed | The current month |
+| 5 | Scope line (one line on what the retainer covers) | none — ask |
+| 6 | Is any earlier month unpaid? | No — add an Outstanding line only if the user says yes |
+| 7 | Theme | Light |
+
+Retainer invoice sections: Header · Title · Retainer (name, since, monthly fee) · From · Bill to · Line item
+(Retainer — Month YYYY · scope · period 1–last day of the month · fee) · Totals (Subtotal · VAT · optional Outstanding ·
+Total due) · Pay by bank transfer · Note. Work outside the retainer is invoiced separately, never added to this one.
+
 **Kanso's company and bank details are entered only in the Figma source file.** Never ask for them, never write them
 into chat copy, files, or this repo — the build copies them from the source frame.
 

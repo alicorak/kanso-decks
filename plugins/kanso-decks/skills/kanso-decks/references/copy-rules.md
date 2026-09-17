@@ -129,6 +129,11 @@ Relevant work slide, and only if it is **25 words or fewer** — quotes can't be
 - Line item: title = milestone name (e.g. Design sign-off); description = one line on what was reached
   (e.g. UI and design system approved); share = `40% of $48,000.00`.
 - Schedule statuses: `Paid` · `This invoice` · `Upcoming` — exactly one `This invoice`.
+- Retainer: item title `Retainer — October 2026`; period `1–31 October 2026`; parties column `Retainer since
+  1 March 2026` · `Monthly fee $4,000.00 · billed in advance`. Note (fixed): *This is a proforma invoice for the month
+  ahead, billed in advance. The official invoice follows once payment is received. Bank fees are paid by the sender.*
+- Retainer arrears: only when the user says a month is unpaid — `Outstanding (September 2026)` under VAT, and Total due
+  includes it. No billing history table.
 
 ## Confidentiality
 

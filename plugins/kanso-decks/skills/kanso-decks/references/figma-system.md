@@ -135,8 +135,9 @@ The current step in Three columns uses `color/accent` on its `Column number` ("N
 
 ## Invoice source (`Invoice` page)
 
-Two A4 frames named `Invoice — Proforma` (1240 × 1754), each in its own `Proforma invoice` section: one with the Theme
-collection set to **Light** (default, for print) and one set to **Dark**. `cloneInvoice` picks by mode. Content is
+Four A4 frames (1240 × 1754): `Invoice — Proforma` in the `Proforma invoice` sections and `Invoice — Retainer` in the
+`Retainer invoice` sections, each once with the Theme collection set to **Light** (default, for print) and once
+**Dark**. `cloneInvoice(page, mode, kind)` picks by kind and mode (names may use `-` or `—`). Content is
 auto-layout top to bottom; Kanso's company and bank details are already filled in the source frames.
 
 | Group | Layer names |
@@ -149,12 +150,15 @@ auto-layout top to bottom; Kanso's company and bank details are already filled i
 | Payment schedule | `Schedule row` ×3 → `Schedule milestone`, `Schedule share`, `Schedule amount`, `Schedule status` |
 | Payment details | `Bank`, `Account name`, `IBAN (USD)`, `SWIFT / BIC`, `Reference` |
 | Footer | `Note`, `Footer meta` ×2, `Page number` |
+| Retainer differences | `Project` column label reads Retainer (`Project name` = retainer name, `Project line` ×2 = since, monthly fee) · table head Period instead of Share · `Item share` holds the period · no `Payment schedule` — `Payment details` spans the full width · optional `Outstanding row` → `Label`, `Outstanding` (added by `addOutstanding`) |
 
 Build an invoice:
 1. In the client's project file (a copy of the source file), create a page `Invoice — [Client] — KNS-YYYY-NNN`.
-2. `const inv = await cloneInvoice(page, 'Light')`, then `setText` for header, parties, line item and totals.
+2. `const inv = await cloneInvoice(page, 'Light')` — retainer: `cloneInvoice(page, 'Light', 'Retainer')` — then `setText`
+   for header, parties, line item and totals.
    Leave `From …`, `Bank`, `Account name`, `IBAN (USD)` and `SWIFT / BIC` as cloned; set `Reference` to the number.
-3. `setInvoiceSchedule(inv, [{ milestone, share, amount, status }, …])` — sets the rows, colours each status
+3. Retainer: skip the schedule; if a month is unpaid, `addOutstanding(inv, 'September 2026', '$4,000.00')` and include
+   it in `Total due`. Proforma: `setInvoiceSchedule(inv, [{ milestone, share, amount, status }, …])` — sets the rows, colours each status
    (Paid → text-secondary, This invoice → accent, Upcoming → text-body) and removes unused rows. More than three
    milestones: stop and ask the user to add a row in the source frame.
 4. Screenshot, run the review scan (A4 frames skip the slide footer-zone check), then `setThumbnailTitle(projectName)`
