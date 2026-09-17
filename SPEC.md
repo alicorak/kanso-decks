@@ -88,6 +88,12 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 - Source: `Invoice` page of the Client Introduction file, Proforma and Retainer frames in Light (default) and Dark; Kanso company and bank
   details live only there, never in this repo
 
+### Scoping and discovery (2026-09-17)
+- **Before the proposal:** a scoping call. Kanso fills the sheets — context, what we would deliver (one page per
+  service), decisions, practicalities, and a sales read the client never sees. No homework for a prospect.
+- **After signing:** the client fills a discovery form (brand first) before the workshop: positioning, audience,
+  tone, references. That work is paid, so it happens after the signature, not before.
+
 ## 5. Workflow
 
 1. **Brief** — required: client name / industry / website · meeting type and presenter · client goal / problem

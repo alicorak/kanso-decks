@@ -11,7 +11,7 @@ footer bars, a title column + content column grid, uppercase Geist labels, and a
 | | |
 |---|---|
 | File | **Client Introduction** — https://www.figma.com/design/q6Quf4V8CXEKlCLrmrQ6zb/Client-Introduction |
-| Pages | `Introduction Slide` (intro and case slides) · `Discovery & Workshop` · `Proposal` · `Invoice` · `Kickoff`. Pages may carry an order prefix (`03 - Proposal`); the helpers match the name without it |
+| Pages | `Introduction Slide` (intro and case slides) · `Discovery & Workshop` (internal scoping sheets) · `Proposal` · `Invoice` · `Kickoff` · `Workshop` (client discovery forms). Pages may carry an order prefix (`03 - Proposal`); the helpers match the name without it |
 | Sections | Intro: the `0N - …` sections. Proposal and kickoff: `Shared` + `Variant — Brand / Mobile app / End-to-end / Website` |
 | Rule | Never build a client deck inside the source file. Only slides inside sections are sources |
 
@@ -132,6 +132,21 @@ when editing a clone or rebuilding one with `newSlide`.
 Repeated items: when the content has fewer items than the slide, remove the extras with `removeListItems`
 (it also removes the matching dividers); when it has more, pick another slide or split it.
 The current step in Three columns uses `color/accent` on its `Column number` ("Now").
+
+## Scoping and discovery sheets (A4)
+
+Same A4 build as the invoice: 1240 × 1754, Light theme, auto-layout top to bottom, `Body` above a `Footer` with
+`Footer meta` and `Page number`. Sections are `Section NN` → `Section label`, `Section note`, then `Question` +
+`Answer` (an empty frame whose padding makes the writing space, closed by a `Divider`).
+
+| Document | Where | Pages |
+|---|---|---|
+| `Scoping — Shared` | `Discovery & Workshop` page | `01 — Context` (client meta + what they need) and `03 — Decisions & practicalities` (decisions, practicalities, `Sales read` block in `color/accent`, open items) |
+| `Scoping — Variant · [Service]` | `Discovery & Workshop` page | `02 — What we would deliver · [Service]`, one page per service |
+| `Brand discovery` | `Workshop` page | 3 client-facing pages: in your own words, the brand today, audience, positioning, name and language, expression, references |
+
+A scoping pack = shared page 1 + the service's page 2 + shared page 3, in that order; the footers already read
+`Page 1 / 3`, `Page 2 / 3`, `Page 3 / 3`.
 
 ## Invoice source (`Invoice` page)
 

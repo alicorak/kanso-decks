@@ -58,11 +58,15 @@ First-contact meeting. Goal: the client understands who we are, what we do, and 
 
 ## 2. Proposal deck — 8 slides
 
-Presented after discovery. Goal: the client can decide and sign — what we'll do, when, what's in, what it costs.
+Presented after the scoping call. Goal: the client can decide and sign — what we'll do, when, what's in, what it costs.
 How we work together after signing (the people and their roles, communication, first two weeks) belongs in the kickoff deck.
 Every slide except the cover: `addConfidential(frame, client)` → footer reads `Confidential — prepared for [Client]`.
 
 ### Extra intake (proposal only)
+
+The answers come from the **scoping call**, held before the proposal: Kanso fills the scoping sheets in the call, so
+the client gets no homework at this stage (source file, `Discovery & Workshop` page: `Scoping — Shared` pages 1 and 3,
+plus the `Scoping — Variant · [Service]` page). Ask the user for the filled sheets, or work through these questions.
 
 | # | Question | Default |
 |---|---|---|
@@ -75,6 +79,9 @@ Every slide except the cover: `addConfidential(frame, client)` → footer reads 
 | 7 | Out-of-scope items | none — ask (suggest candidates from the brief) |
 | 8 | Relevant case (optional slide) | Only if close to this project or read by people who missed the intro; Dataland for app / end-to-end |
 | 9 | Google Docs signing link for this proposal (Kanso signs proposals with Google Docs eSignature) | none — keep `[e-sign link]` and list it under Open items |
+
+**Never ask the client the deep questions before signing.** Audience, positioning, tone and references are the work
+itself — they belong to the discovery form the client fills after signing (see the kickoff flow).
 
 ### Flow
 
@@ -156,6 +163,11 @@ timeline come from the signed proposal. Every slide except the cover: `addConfid
 | 5 | Feedback: days to reply, revision rounds, who signs off | From the proposal — confirm |
 | 6 | What we need from the client, with owner and date | Service defaults — confirm |
 | 7 | First two weeks: workshop, research, first deliverable | Service defaults — confirm |
+| 8 | Has the client filled the discovery form yet? | Send it with the kickoff invite; it prepares the workshop |
+
+**Discovery form (after signing).** The client fills it before the workshop: what they stand for, who they must
+convince, how the brand should sound, references. Source file, `Workshop` page: `Brand discovery` (3 pages). Other
+services get their own version when their process is written.
 
 ### Flow
 
