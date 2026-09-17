@@ -43,8 +43,11 @@ function assertHeadingsEditable() {
 // Intro and case slides: the "0N - …" sections of "Introduction Slide".
 // Proposal and kickoff: sections "Shared" and "Variant — Brand | Mobile app | End-to-end | Website".
 // Only slides inside sections are sources.
-const SOURCE_PAGES = { intro: 'Introduction Slide', proposal: 'Proposal', kickoff: 'Kickoff', invoice: 'Invoice' };
-const PAGE = name => figma.root.children.find(p => p.name === name);
+const SOURCE_PAGES = { intro: 'Introduction Slide', proposal: 'Proposal', kickoff: 'Kickoff', invoice: 'Invoice', discovery: 'Discovery & Workshop' };
+// Page names may carry an order prefix ("03 - Proposal") — match on the name without it.
+const pageKey = name => name.replace(/^\s*\d+\s*[-—–.]\s*/, '').trim().toLowerCase();
+const PAGE = name => figma.root.children.find(p => p.name === name)
+  || figma.root.children.find(p => pageKey(p.name) === pageKey(name));
 async function sourcePage(kind) {
   const p = PAGE(SOURCE_PAGES[kind] || kind);
   if (!p) throw new Error(`Source page for "${kind}" not found. Is this a copy of the Kanso deck source file?`);
