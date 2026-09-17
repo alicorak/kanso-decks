@@ -84,6 +84,13 @@ Anything unknown becomes a placeholder — never a guess.
 Relevant work slide, and only if it is **25 words or fewer** — quotes can't be shortened, so a longer one is left out
 (the quote sits in the narrow title column; the 38-word Dataland quote filled it in the 2026-09-16 test).
 
+## Mobile apps: never "native"
+
+- Kanso builds iOS and Android together, not as separate native apps. Never write "native" (native app, native
+  development, native iOS, native platforms).
+- Write **iOS and Android**, **mobile app**, or **iOS and Android app** instead — e.g. "iOS and Android app design",
+  "Product design through development", "2 platforms: iOS and Android".
+
 ## Headlines in columns
 
 - In three- and four-column slides (brief, goals, how we work together), a column title is **4 words or fewer**.

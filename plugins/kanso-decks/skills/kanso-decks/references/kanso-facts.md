@@ -42,7 +42,7 @@ left — then we build it properly.*
 | # | Service | Sub-services | One-liner |
 |---|---|---|---|
 | 01 | Brand | Identity systems · Naming & verbal · Brand guidelines · Art direction | Logos, marks, and the rules that keep them consistent everywhere they appear. |
-| 02 | Design | Native app design · Design systems · Web design · Motion & animation | iOS and Android interfaces designed for how people actually hold and use their phones. |
+| 02 | Design | Mobile app design · Design systems · Web design · Motion & animation | iOS and Android interfaces designed for how people actually hold and use their phones. |
 | 03 | Experience | Interaction design · Prototyping · Content strategy · Accessibility | How a product responds to every tap, swipe, and gesture. |
 | 04 | Development | Engineering · Front-end development · Systems architecture · QA & handoff | Apps built the way each platform expects them to be built. |
 
@@ -62,7 +62,7 @@ Durations are project-specific: always ask, never assume.
 - **Tagline (site):** The world's first Museum of AI Arts
 - **Deck headline used:** Dataland: A museum that never stays still.
 - **Project:** iOS & Android app — the real-time companion to the museum
-- **Scope:** Product design through native development
+- **Scope:** Product design through development (iOS and Android)
 - **Services:** Design, Experience, Development
 - **Timeline:** February–August 2026
 - **Location:** Los Angeles, California
@@ -77,7 +77,7 @@ Durations are project-specific: always ask, never assume.
   - Live Experience — three screens, one gesture: **Map** (3D map, live gallery states, heatmap),
     **Now** (context-aware: artwork, sounds, scents), **RAIN** (AI guide aware of location and emotional context)
   - Wrap — post-visit summary; session data erased after 30 days, the Wrap is the permanent record
-- **Verified numbers:** 2,000+ events processed per second · 16 rainforest data streams · 6-phase boot sequence · 2 native platforms
+- **Verified numbers:** 2,000+ events processed per second · 16 rainforest data streams · 6-phase boot sequence · 2 platforms: iOS and Android
 - **Testimonial:** "Kanso delivered an interface that perfectly bridges the gap between human imagination and
   machine intelligence. I highly recommend them to anyone looking for a team that can deeply grasp complex,
   dynamic environments and execute them with flawless precision." — **Refik Anadol**, Co-founder, Dataland

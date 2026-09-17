@@ -51,15 +51,18 @@ async function sourcePage(kind) {
   await p.loadAsync();
   return p;
 }
-const stripNumber = name => name.replace(/^\d+\s+—\s+/, '');
+const stripNumber = name => name.replace(/^\d+\s+[—–-]\s+/, '');
+// Section and slide names may use "—" or "-" (the source file has both); compare without the dash style.
+const dashless = name => name.replace(/\s+[—–-]\s+/g, ' - ').trim();
 // findSlide('proposal', 'Scope · Brand') or findSlide('intro', '10 — How we're different'); sectionName narrows the search.
 async function findSlide(kind, slideName, sectionName) {
   const p = await sourcePage(kind);
   const sections = p.children.filter(n => n.type === 'SECTION'
-    && (!sectionName || n.name === sectionName)
-    && (kind !== 'intro' || /^\d+ - /.test(n.name)));
+    && (!sectionName || dashless(n.name) === dashless(sectionName))
+    && (kind !== 'intro' || /^\d+ [—-] /.test(n.name)));
   const frames = sections.flatMap(sec => sec.children.filter(n => n.type === 'FRAME'));
-  const hit = frames.find(f => f.name === slideName) || frames.find(f => stripNumber(f.name) === stripNumber(slideName));
+  const hit = frames.find(f => f.name === slideName)
+    || frames.find(f => dashless(stripNumber(f.name)) === dashless(stripNumber(slideName)));
   if (!hit) throw new Error(`Slide "${slideName}" not found on "${p.name}"${sectionName ? ` in "${sectionName}"` : ''}.`);
   return hit;
 }
