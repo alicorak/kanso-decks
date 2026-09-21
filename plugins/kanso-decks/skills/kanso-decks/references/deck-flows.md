@@ -165,9 +165,16 @@ timeline come from the signed proposal. Every slide except the cover: `addConfid
 | 7 | First two weeks: workshop, research, first deliverable | Service defaults — confirm |
 | 8 | Has the client filled the discovery form yet? | Send it with the kickoff invite; it prepares the workshop |
 
-**Discovery form (after signing).** The client fills it before the workshop: what they stand for, who they must
-convince, how the brand should sound, references. Source file, `Workshop` page: `Brand discovery` (3 pages). Other
-services get their own version when their process is written.
+**Workshop (after signing).** Two scripts cover every service — `Workshop — Brand` and `Workshop — Product` (mobile
+app, website, end-to-end; a 90-minute cut for small jobs) — on the source file's `Workshop` page. Each has an internal
+run sheet and a client preparation form, sent with the kickoff invite.
+
+The split that keeps them apart: **scoping collects facts** (what exists, what connects, what dates, who signs),
+**preparation asks for judgement** (what you believe, who you would choose, what you would give up), **the workshop
+takes the decisions** (primary audience, promise, not-list, or journeys, day-one line, metric), and **we write the
+document** — positioning for brand, a scope note for product. That document is Gate 1; design starts once it is
+approved. Never move a question up a stage: a prospect gets no homework, and nothing answerable in writing eats
+workshop time.
 
 ### Flow
 

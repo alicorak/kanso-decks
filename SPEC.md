@@ -94,6 +94,16 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 - **After signing:** the client fills a discovery form (brand first) before the workshop: positioning, audience,
   tone, references. That work is paid, so it happens after the signature, not before.
 
+### Workshop (2026-09-21)
+- Two run sheets, not four: **Brand** (positioning) and **Product** (mobile app, website, end-to-end), plus a
+  90-minute cut of the product script for small jobs. Services differ in emphasis, not in the decisions taken, so the
+  differences are facilitator notes rather than separate scripts.
+- Each service has an internal run sheet (agenda, rules, the questions in order, what each block must produce) and a
+  client preparation form that asks only for judgement — it plays the scoping answers back for correction instead of
+  asking them again.
+- Where a question belongs: a fact → the scoping call; answerable alone in writing → the preparation form; needs a
+  trade-off or the room to agree → the workshop; our synthesis → the document we write afterwards.
+
 ## 5. Workflow
 
 1. **Brief** — required: client name / industry / website · meeting type and presenter · client goal / problem

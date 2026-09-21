@@ -143,10 +143,17 @@ Same A4 build as the invoice: 1240 × 1754, Light theme, auto-layout top to bott
 |---|---|---|
 | `Scoping — Shared` | `Discovery & Workshop` page | `01 — Context` (client meta + what they need) and `03 — Decisions & practicalities` (decisions, practicalities, `Sales read` block in `color/accent`, open items) |
 | `Scoping — Variant · [Service]` | `Discovery & Workshop` page | `02 — What we would deliver · [Service]`, one page per service |
-| `Brand discovery` | `Workshop` page | 3 client-facing pages: in your own words, the brand today, audience, positioning, name and language, expression, references |
+| `Workshop — Brand` | `Workshop` page | `Run sheet · Brand · 1–3` (internal) and `Workshop prep · Brand · 1–3` (client) |
+| `Workshop — Product` | `Workshop` page | `Run sheet · Product · 1–4` (internal, covers mobile app, website and end-to-end) and `Workshop prep · Product · 1–3` (client) |
 
 A scoping pack = shared page 1 + the service's page 2 + shared page 3, in that order; the footers already read
 `Page 1 / 3`, `Page 2 / 3`, `Page 3 / 3`.
+
+A run sheet is page 1 setup (length, preconditions, agenda, six rules), then the blocks: number, title, minutes, one
+line of facilitation, the questions in quotes, and an `Out` line in `color/accent`. The product run sheet closes with
+a page of service notes and the 90-minute cut. A preparation form is client-facing: an accent header band, a
+`What we already have` block that plays the scoping answers back for correction, then judgement questions in the same
+order as the workshop blocks, each with a 46px writing space.
 
 ## Invoice source (`Invoice` page)
 
