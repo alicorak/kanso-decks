@@ -98,13 +98,13 @@ Layer names match `references/figma-system.md`. `[brackets]` = open items. **Hea
 ## 14 — Dataland · scope · `Layout / Three columns`
 - **Header:** Work
 - **Eyebrow:** Scope
-- **Headline:** Product design through native development.
+- **Headline:** Designed and built by one team.
 - **Columns** (*remove* the Column meta layers):
   | Column number | Column title | Column body |
   |---|---|---|
   | 01 | Design | Design system, single-grid icon set, out-of-home visual language |
   | 02 | Experience | Live Experience (Map, Now, RAIN) and the post-visit Wrap |
-  | 03 | Development | Native iOS and Android apps on a real-time data engine |
+  | 03 | Development | iOS and Android apps on a real-time data engine |
 
 ## 15 — Dataland · results · `Layout / Stats`
 - **Header:** Work
@@ -116,7 +116,7 @@ Layer names match `references/figma-system.md`. `[brackets]` = open items. **Hea
   | 2,000+ | events processed every second |
   | 16 | rainforest data streams, in sync |
   | 6 | phases in the boot sequence |
-  | 2 | native platforms: iOS and Android |
+  | 2 | platforms, built together: iOS and Android |
 
 ## 16 — Testimonials · `Layout / Testimonials`
 - **Header:** Proof
