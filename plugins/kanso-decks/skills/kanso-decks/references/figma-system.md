@@ -145,9 +145,19 @@ Same A4 build as the invoice: 1240 × 1754, Light theme, auto-layout top to bott
 | `Scoping — Variant · [Service]` | `Discovery & Workshop` page | `02 — What we would deliver · [Service]`, one page per service |
 | `Workshop — Brand` | `Workshop` page | `Run sheet · Brand · 1–3` (internal) and `Workshop prep · Brand · 1–3` (client) |
 | `Workshop — Product` | `Workshop` page | `Run sheet · Product · 1–4` (internal, covers mobile app, website and end-to-end) and `Workshop prep · Product · 1–3` (client) |
+| `Gate 1 — Positioning document` | `Workshop` page | 2 client pages: the decision and its approval, then the reasoning |
+| `Gate 1 — Scope note` | `Workshop` page | 2 client pages: the decision and its approval, then the detail |
 
 A scoping pack = shared page 1 + the service's page 2 + shared page 3, in that order; the footers already read
 `Page 1 / 3`, `Page 2 / 3`, `Page 3 / 3`.
+
+The two approval documents share one rule: **page 1 carries everything the client has to approve** — the statement
+or the job, who it is for, what we promise or what ships on day one, and the approval block — and page 2 carries the
+reasoning. A client who reads only the first page still approves the right thing. The approval block states what
+approving means and, in `color/accent`, what reopening it costs.
+
+Client-facing pages never carry our internal words: no `Gate 1`, no `not-list`, no `day-one line`, no `run sheet`.
+The band reads `Positioning` or `Scope note`; the gate language stays on the run sheets and in these references.
 
 A run sheet is page 1 setup (length, preconditions, agenda, six rules), then the blocks: number, title, minutes, one
 line of facilitation, the questions in quotes, and an `Out` line in `color/accent`. The product run sheet closes with

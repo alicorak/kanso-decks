@@ -104,6 +104,14 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 - Where a question belongs: a fact → the scoping call; answerable alone in writing → the preparation form; needs a
   trade-off or the room to agree → the workshop; our synthesis → the document we write afterwards.
 
+### Gate 1 documents (2026-09-22)
+- The workshop is written up within two working days: a **positioning document** for brand, a **scope note** for
+  product. Approving it starts design; reopening it later costs time or fee, and the document says so.
+- Two pages, decision first: everything to approve sits on page 1 with the approval block, and the reasoning follows
+  on page 2 — a client who reads one page still approves the right thing.
+- Our process words (`Gate 1`, not-list, day-one line, run sheet) never appear on a client-facing page. Clients are
+  told the consequence of their decision, not the mechanism behind it.
+
 ## 5. Workflow
 
 1. **Brief** — required: client name / industry / website · meeting type and presenter · client goal / problem

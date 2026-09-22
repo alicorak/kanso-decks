@@ -176,6 +176,16 @@ document** — positioning for brand, a scope note for product. That document is
 approved. Never move a question up a stage: a prospect gets no homework, and nothing answerable in writing eats
 workshop time.
 
+**The Gate 1 document.** Written within two working days of the workshop, from the source file's `Workshop` page:
+`Gate 1 — Positioning document` for brand, `Gate 1 — Scope note` for product. Two pages each — the decision and its
+approval first, the reasoning second. Fill every `[placeholder]` from what the room actually decided; anything the
+workshop left open goes in the open-questions rows with an owner and a date, never quietly resolved by us. The scope
+note outranks the signed proposal where they disagree, because it is the later decision.
+
+**Say the consequence, not the mechanism.** In anything a client reads, write “once you approve the positioning we
+start design”, never “Gate 1”. The same goes for `not-list`, `day-one line` and `run sheet`: useful between us,
+bureaucratic in front of them.
+
 ### Flow
 
 | # | Layout | Content | Required |
