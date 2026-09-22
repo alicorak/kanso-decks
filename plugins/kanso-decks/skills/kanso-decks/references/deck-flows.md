@@ -44,7 +44,7 @@ First-contact meeting. Goal: the client understands who we are, what we do, and 
 | 5 | Intro | Logo wall | Established clients and founders (one sentence, two logo rows) | Yes |
 | 6 | Intro | Split text + image | Studio: independent, Istanbul, since 2020, team size `[x]` | Yes |
 | 7 | Services | Section opener | "Services and approach" | Optional (decks > 20 slides) |
-| 8 | Services | Four columns | Brand · Design · Experience · Development with sub-services | Yes |
+| 8 | Services | Three columns | Design · Experience · Development with sub-services; brand identity sits under Design | Yes |
 | 9 | Services | Stats *(as rows)* or Four columns | Process: Strategy · Design · Development · Support | Yes |
 | 10 | Services | Mark statement | Design and code at the same table | Yes |
 | 11 | Work | Section opener | "Case studies" | Optional |

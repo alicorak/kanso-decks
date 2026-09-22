@@ -121,6 +121,12 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 - **No naming.** Kanso does not do naming work. If the name must change, it is out of scope and the client brings
   their own. Scoping asks whether the name is staying, not whether we should change it.
 
+### Services (2026-09-22)
+- Three services on the intro deck, not four: **Design**, **Experience**, **Development**. Brand identity is a
+  sub-service of Design, because the brand and the interface are designed by the same team.
+- Brand remains a project type we propose for — the proposal and kickoff keep their Brand variant — but it is never
+  presented as a separate service column.
+
 ## 5. Workflow
 
 1. **Brief** — required: client name / industry / website · meeting type and presenter · client goal / problem

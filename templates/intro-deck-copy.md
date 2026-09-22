@@ -53,10 +53,9 @@ Layer names match `references/figma-system.md`. `[brackets]` = open items. **Hea
 - **Columns:**
   | Column number | Column title | Column body |
   |---|---|---|
-  | 01 | Brand | Identity systems · Verbal direction · Brand guidelines · Art direction |
-  | 02 | Design | Native app design · Design systems · Web design · Motion & animation |
-  | 03 | Experience | Interaction design · Prototyping · Content strategy · Accessibility |
-  | 04 | Development | Engineering · Front-end development · Systems architecture · QA & handoff |
+  | 01 | Design | Brand & identity · Mobile app design · Design systems · Web design · Motion & animation |
+  | 02 | Experience | Interaction design · Prototyping · Content strategy · Accessibility |
+  | 03 | Development | Engineering · Front-end development · Systems architecture · QA & handoff |
 - **Note:** We take on a limited number of engagements each year.
 
 ## 09 — Process · `Layout / Four columns`
