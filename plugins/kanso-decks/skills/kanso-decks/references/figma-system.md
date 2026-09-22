@@ -11,7 +11,7 @@ footer bars, a title column + content column grid, uppercase Geist labels, and a
 | | |
 |---|---|
 | File | **Client Introduction** — https://www.figma.com/design/q6Quf4V8CXEKlCLrmrQ6zb/Client-Introduction |
-| Pages | `Introduction Slide` (intro and case slides) · `Discovery & Workshop` (internal scoping sheets) · `Proposal` · `Invoice` · `Kickoff` · `Workshop` (client discovery forms). Pages may carry an order prefix (`03 - Proposal`); the helpers match the name without it |
+| Pages | `01 - Introduction Slide` · `02 - Discovery & Scoping` (internal scoping sheets) · `03 - Proposal` · `04 - Invoice` · `05 - Kickoff` · `06 - Workshop` (run sheets, client preparation forms, and the positioning document or scope note written afterwards) · `07 - Design presentations` (the direction and route decks, each with the decision sheet signed after it). The helpers match a page name without its order prefix |
 | Sections | Intro: the `0N - …` sections. Proposal and kickoff: `Shared` + `Variant — Brand / Mobile app / End-to-end / Website` |
 | Rule | Never build a client deck inside the source file. Only slides inside sections are sources |
 
@@ -146,6 +146,7 @@ Same A4 build as the invoice: 1240 × 1754, Light theme, auto-layout top to bott
 | `Workshop — Brand` | `Workshop` page | `Run sheet · Brand · 1–3` (internal) and `Workshop prep · Brand · 1–3` (client) |
 | `Workshop — Product` | `Workshop` page | `Run sheet · Product · 1–4` (internal, covers mobile app, website and end-to-end) and `Workshop prep · Product · 1–3` (client) |
 | `Gate 1 — Positioning document` | `Workshop` page | 2 client pages: the decision and its approval, then the reasoning |
+| `Direction — Gate 2` · `Routes — Gate 3` | `Design presentations` page | The deck that presents the choice, plus a one-page decision sheet signed after the meeting |
 | `Gate 1 — Scope note` | `Workshop` page | 2 client pages: the decision and its approval, then the detail |
 
 A scoping pack = shared page 1 + the service's page 2 + shared page 3, in that order; the footers already read
@@ -155,6 +156,9 @@ The two approval documents share one rule: **page 1 carries everything the clien
 or the job, who it is for, what we promise or what ships on day one, and the approval block — and page 2 carries the
 reasoning. A client who reads only the first page still approves the right thing. The approval block states what
 approving means and, in `color/accent`, what reopening it costs.
+
+Every approval document sits on the page of the moment it belongs to — the write-up with the workshop, a decision
+sheet with the deck that earns it. There is no separate page for sign-offs.
 
 Client-facing pages never carry our internal words: no `Gate 1`, no `not-list`, no `day-one line`, no `run sheet`.
 The band reads `Positioning` or `Scope note`; the gate language stays on the run sheets and in these references.
