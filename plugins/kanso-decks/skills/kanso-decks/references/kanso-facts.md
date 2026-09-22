@@ -39,17 +39,22 @@ left — then we build it properly.*
 
 ## Services
 
-Three services. Brand sits under Design, as one of its sub-services — it is not a fourth column.
+Brand is a service in its own right: we scope it, propose it, price it and run its own workshop. **On the intro
+deck's services slide only**, it is shown as a sub-service of Design, so the slide reads as three columns instead of
+four. That is a presentation choice on one slide — everywhere else brand stands alone.
 
 | # | Service | Sub-services | One-liner |
 |---|---|---|---|
+| — | Brand | Identity systems · Verbal direction · Brand guidelines · Art direction | Logos, marks, and the rules that keep them consistent everywhere they appear. |
 | 01 | Design | Brand & identity · Mobile app design · Design systems · Web design · Motion & animation | The brand and the interface designed together, so the product looks like the company it comes from. |
 | 02 | Experience | Interaction design · Prototyping · Content strategy · Accessibility | How a product responds to every tap, swipe, and gesture. |
 | 03 | Development | Engineering · Front-end development · Systems architecture · QA & handoff | Apps built the way each platform expects them to be built. |
 
+The numbered rows are the columns on slide 08. The Brand row is how we describe the service anywhere else: a
+proposal, a scoping call, an email, a case study.
+
 **Kanso does not do naming.** If a client needs a new name, it is out of scope — say so plainly and never list
-naming as a sub-service. Brand work is a project type we propose for (the proposal and kickoff have a Brand
-variant), but on the services slide it lives under Design.
+naming as a sub-service.
 
 **Differentiator:** design and development in one team — no handoff between a design agency and a dev shop.
 
