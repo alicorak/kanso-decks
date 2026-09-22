@@ -1,197 +1,291 @@
-# kanso-decks — Decision record (v1)
+# Deck flows
 
-A Claude skill that helps the Kanso team produce client decks that are on-brand, consistent, and fast to build.
-This document captures the decisions made in the 2026-09-14 Q&A rounds. The skill files are written against it.
+Slide sequences and intake questions for the four deck types. Each flow lists the layout (see
+`figma-system.md` → Layout library for layer names), what goes on it, and whether it is required.
+
+Structure is informed by `deck-patterns.md` (deck.gallery research); Kanso-specific decisions come from `SPEC.md`.
+**Required** slides are always in the outline. **Optional** slides are proposed when the brief supports them.
 
 ---
 
-## 1. Scope
+## Shared intake (every deck)
 
-| Topic | Decision |
-|---|---|
-| Users | Designers, sales / business development, project managers, founders |
-| Deck types (v1) | Intro, Proposal, Case study, Kickoff · plus Proforma invoice (A4, 2026-09-17) |
-| Output | Figma Design file, 1920×1080 frames |
-| Language | English by default |
-| Surfaces | Claude desktop app, Claude Code CLI, claude.ai web |
+Ask these first, in one message. Do not start the outline until the required answers are in.
 
-## 2. Voice and copy rules
+| # | Question | Required |
+|---|---|---|
+| 1 | Which deck type: intro, proposal, case study, or kickoff? | Yes |
+| 2 | Client name, industry, and website | Yes |
+| 3 | Meeting type (first intro, proposal presentation, kickoff…) and who is presenting (name, role, email) | Yes |
+| 4 | The client's goal or problem — paste meeting notes or the email thread if you have them | Yes |
+| 5 | Theme: dark (default) or light? | No — default dark |
+| 6 | Language, if not English | No — default English |
 
-| Topic | Decision |
-|---|---|
-| Voice | Calm and minimal + confident |
-| Headlines | Short sentences ending with a period ("How we work.") |
-| Point of view | "We" |
-| Never | Agency clichés (cutting-edge, world-class, synergy…), exclamation marks, emoji, long paragraphs |
-| Numbers | Verified only; otherwise `[placeholder]`, added to the open-items list |
-| Client names / logos | Clients published on the website are fine (Dataland, Derimod, Pro Legacy, Chiliz); anything else needs approval |
-| Non-Kanso work | Team members' personal projects are never used as case studies |
+If a website is given, read it to understand the client before drafting. Never copy its text onto slides.
 
-## 3. Shared content
+---
 
-| Topic | Decision |
-|---|---|
-| Process phases | **Strategy → Design → Development → Support** (Support scope set per proposal) |
-| Case library | v1: **Dataland** only (Derimod and Pro Legacy once their website case studies are published) |
-| Team slide | Intro and kickoff; proposals name no people (v1.3) |
-| Contact slide | Presenter (name, role, email) + hello@kanso.solutions |
-| Confidentiality note | Proposal and kickoff: "Confidential — prepared for [Client]" |
-| Source of truth | `references/kanso-facts.md` (verified facts only) |
+## 1. Intro deck — 18–24 slides
 
-## 4. Deck types
+First-contact meeting. Goal: the client understands who we are, what we do, and what happens next.
 
-### Intro
-- Length: **18–24 slides** (single standard)
-- Baseline: the Client Introduction deck (Intro / Services / Work / Proof / Next steps)
+### Extra intake
+- Is there a specific project or service to emphasise? (Otherwise present all four services equally.)
+- Which case studies to show? (v1 library: Dataland.)
 
-### Proposal
-- Pricing: **single project fee, USD**
-- Asked during the proposal flow: fee, payment schedule (no default), validity (default 15 days, still confirmed),
-  timeline, revision rounds, out-of-scope items; kickoff within 5 days of signing (standard)
-- Required sections (v1.3): how we understand the brief · what we propose + approach · process & timeline ·
-  scope (in / assumptions / out / risks) · investment, validity and signing · contact;
-  relevant work optional
-- **Signing (2026-09-16):** wherever the fee appears, the client is led to sign. Investment ends with a
-  "Sign the proposal →" button linked to the client's e-sign tool (tool not fixed; `[e-sign link]` per client), and a
-  new Acceptance slide follows with the same button plus a client-only signature block as a print/PDF backup.
-  (Superseded: see v1.4 below.)
-- **Leaner proof (2026-09-16):** proposals don't repeat the intro's proof — no Result or Testimonials slides; one
-  optional Relevant work slide (case + one result + optional verbatim quote) when the case is close to the project.
-- **Short proposal (v1.3, 2026-09-16):** the proposal holds only what the client needs to decide and sign.
-  9 slides: Cover · How we understand the brief · What we propose (+ approach) · Process & timeline · Scope
-  (in / assumptions / out / risks as short columns) · Relevant work (optional) · Investment ·
-  Acceptance · Contact. Removed: separate Approach, Process, Timeline, Team, Assumptions & risks, and Next steps
-  slides. The team (names, roles, faces), communication cadence and the first two weeks move to the kickoff deck;
-  the proposal names no people. Scope colours: commitments (in, assumptions) accent, exclusions and risks red. Service variants
-  change slides 3–5.
-- **Signing in Google Docs (v1.4, 2026-09-16):** Kanso signs proposals with Google Docs eSignature, so the signature
-  lives in the Doc and a signature block on a slide adds nothing. Acceptance is removed; Investment carries the fee,
-  the Sign button ("Signed in Google Docs · valid until [date]") and the note on what signing confirms, with kickoff
-  within 5 days. The proposal is **8 slides** (7 without Relevant work).
+### Flow
 
-### Case study
-- Length: **depends on use** (short inside a proposal, medium/long as a standalone presentation)
-- **Every case has a Results slide** (placeholder + flag when data is missing)
+| # | Section | Layout | Content | Required |
+|---|---|---|---|---|
+| 1 | Intro | Cover | "We are / Kanso" · footer "*formerly Echo Studio" | Yes |
+| 2 | Intro | Index | Intro · Services · Work · Proof · Next steps | Yes |
+| 3 | Intro | Statement | Title "Who we are" · positioning line | Yes |
+| 4 | Intro | Name meaning | Title · definition of 簡素 + how it shapes our work | Yes |
+| 5 | Intro | Logo wall | Established clients and founders (one sentence, two logo rows) | Yes |
+| 6 | Intro | Split text + image | Studio: independent, Istanbul, since 2020, team size `[x]` | Yes |
+| 7 | Services | Section opener | "Services and approach" | Optional (decks > 20 slides) |
+| 8 | Services | Three columns | Design · Experience · Development with sub-services; on this slide only, brand identity is listed under Design | Yes |
+| 9 | Services | Stats *(as rows)* or Four columns | Process: Strategy · Design · Development · Support | Yes |
+| 10 | Services | Mark statement | Design and code at the same table | Yes |
+| 11 | Work | Section opener | "Case studies" | Optional |
+| 12–16 | Work | Case study block (§3, intro length) | Case cover · Challenge & idea · Visual grid · **Stats (results)** | Yes (≥ 1 case) |
+| 17 | Proof | Testimonials | Three quotes, verbatim | Yes |
+| 18 | Proof | Stats | Verified numbers only; placeholders flagged | Optional |
+| 19 | Next steps | Three columns | Discovery call · Workshop · Proposal (first column is "Now") | Yes |
+| 20 | Next steps | Contact | Title "Let's make something that outlives the brief." · presenter + hello@ | Yes |
 
-### Kickoff
-- **11 slides (2026-09-16):** Cover · Why we're here · Goals & success · Team · Scope recap · Plan (variant) ·
-  How we work together · Reviews & approvals · What we need from you (variant) · First two weeks · Contact
-- Held within **5 days** of signing; no fee, signing or case studies; no separate risks slide (late inputs, feedback
-  timing and approvals cover them)
-- Tools: **Slack, Google Docs**; cadence asked per project
+---
 
-### Proforma invoice (2026-09-17)
-- A4 payment request per proposal milestone, USD, sent as PDF; the official invoice comes from accounting after payment
-- Numbering `KNS-YYYY-NNN` (the user gives the last number) · due = issue + 14 days · bank fees paid by the sender
-- Retainer mode (2026-09-17): fixed monthly fee billed in advance; same design without the payment schedule; an
-  Outstanding line only when a month is unpaid; work outside the retainer is invoiced separately
-- Source: `Invoice` page of the Client Introduction file, Proforma and Retainer frames in Light (default) and Dark; Kanso company and bank
-  details live only there, never in this repo
+## 2. Proposal deck — 8 slides
 
-### Scoping and discovery (2026-09-17)
-- **Before the proposal:** a scoping call. Kanso fills the sheets — context, what we would deliver (one page per
-  service), decisions, practicalities, and a sales read the client never sees. No homework for a prospect.
-- **After signing:** the client fills a discovery form (brand first) before the workshop: positioning, audience,
-  tone, references. That work is paid, so it happens after the signature, not before.
+Presented after the scoping call. Goal: the client can decide and sign — what we'll do, when, what's in, what it costs.
+How we work together after signing (the people and their roles, communication, first two weeks) belongs in the kickoff deck.
+Every slide except the cover: `addConfidential(frame, client)` → footer reads `Confidential — prepared for [Client]`.
 
-### Workshop (2026-09-21)
-- Two run sheets, not four: **Brand** (positioning) and **Product** (mobile app, website, end-to-end), plus a
-  90-minute cut of the product script for small jobs. Services differ in emphasis, not in the decisions taken, so the
-  differences are facilitator notes rather than separate scripts.
-- Each service has an internal run sheet (agenda, rules, the questions in order, what each block must produce) and a
-  client preparation form that asks only for judgement — it plays the scoping answers back for correction instead of
-  asking them again.
-- Where a question belongs: a fact → the scoping call; answerable alone in writing → the preparation form; needs a
-  trade-off or the room to agree → the workshop; our synthesis → the document we write afterwards.
+### Extra intake (proposal only)
 
-### Gate 1 documents (2026-09-22)
-- The workshop is written up within two working days: a **positioning document** for brand, a **scope note** for
-  product. Approving it starts design; reopening it later costs time or fee, and the document says so.
-- Two pages, decision first: everything to approve sits on page 1 with the approval block, and the reasoning follows
-  on page 2 — a client who reads one page still approves the right thing.
-- Our process words (`Gate 1`, not-list, day-one line, run sheet) never appear on a client-facing page. Clients are
-  told the consequence of their decision, not the mechanism behind it.
+The answers come from the **scoping call**, held before the proposal: Kanso fills the scoping sheets in the call, so
+the client gets no homework at this stage (source file, `Discovery & Workshop` page: `Scoping — Shared` pages 1 and 3,
+plus the `Scoping — Variant · [Service]` page). Ask the user for the filled sheets, or work through these questions.
 
-### Brand service defaults (2026-09-22)
-- **Three concept routes**, each shown in at least three real applications, so the third route is not the weak one.
-  Timeline moves to 9–10 weeks: route chosen W5, guidelines delivered W9.
-- **Five core applications** in the standard package; more is a separate line in the fee.
-- **Guidelines = core guide + live files**: a Figma library and the templates the client will actually use. The test
-  is what they can produce in their first three months, not the page count.
-- **No naming.** Kanso does not do naming work. If the name must change, it is out of scope and the client brings
-  their own. Scoping asks whether the name is staying, not whether we should change it.
+| # | Question | Default |
+|---|---|---|
+| 1 | Project fee (single fee, USD) | none — ask |
+| 2 | Payment schedule | none — ask |
+| 3 | Proposal validity | 15 days — confirm |
+| 4 | Timeline: start date and duration per phase, key milestones | none — ask |
+| 5 | Which phases are in scope, and what Support covers | Strategy · Design · Development · Support — confirm |
+| 6 | Revision rounds | none — ask |
+| 7 | Out-of-scope items | none — ask (suggest candidates from the brief) |
+| 8 | Relevant case (optional slide) | Only if close to this project or read by people who missed the intro; Dataland for app / end-to-end |
+| 9 | Google Docs signing link for this proposal (Kanso signs proposals with Google Docs eSignature) | none — keep `[e-sign link]` and list it under Open items |
 
-### Services (2026-09-22)
-- The intro deck's services slide shows three columns — **Design**, **Experience**, **Development** — with brand
-  identity listed under Design. This is a slide-level presentation choice, taken to keep the slide to three columns.
-- **Brand is still its own service** everywhere else: it has its own scoping page, its own workshop, its own proposal
-  and kickoff variant, and it is sold and priced on its own.
+**Never ask the client the deep questions before signing.** Audience, positioning, tone and references are the work
+itself — they belong to the discovery form the client fills after signing (see the kickoff flow).
 
-## 5. Workflow
+### Flow
 
-1. **Brief** — required: client name / industry / website · meeting type and presenter · client goal / problem
-   (budget and timeline are asked only in the proposal flow)
-2. **Outline** (slide list) → **approval**
-3. **Copy** → **approval**
-4. **Figma** — new file duplicated from the source file, slides built
-5. **Review** — screenshots, overlap/overflow scan, list of open `[placeholder]`s
+| # | Layout | Content | Required |
+|---|---|---|---|
+| 1 | Cover | Client name + project title; footer meta = date | Yes |
+| 2 | Challenge & idea | **How we understand the brief** — situation · problem · goals · success criteria | Yes |
+| 3 | Proposal / What we propose | **What we propose** — one sentence, then "Our approach": a Lastik 42 line and a short body. Note = service | Yes |
+| 4 | Proposal / Process & timeline | **Process & timeline** — title "[x] weeks from kickoff to launch."; four phase rows, each with a key deliverable under the phase name and a bar across 12 weeks; milestones line | Yes |
+| 5 | Proposal / Scope | **Scope** — "What's in, and what's not.": In scope · Assumptions · Out of scope · Risks (3–5 short items each). No team line | Yes |
+| 6 | Case cover + result row + optional quote | **Relevant work** — one case close to this project, one result, an optional verbatim quote (25 words or fewer) | Optional |
+| 7 | Investment | **Investment & signing** — payment schedule, single fee in USD with what it covers, **Sign button** (helper: validity), Note: what signing confirms + kickoff within 5 days | Yes |
+| 8 | Contact | Presenter + hello@ | Yes |
 
-## 6. Visual system (Figma)
+**Short by design.** No separate Approach, Process, Team, Assumptions or Next steps slides: approach sits on What
+we propose, process and timeline are one slide, assumptions and risks are short columns on Scope, and the Investment
+note says what happens after signing. The proposal names no people: the team (names, roles, faces), communication
+cadence and the first two weeks go to the kickoff deck.
 
-| Topic | Decision |
-|---|---|
-| Source file | **Client Introduction** Figma file (intro, proposal and kickoff pages), shared by link. The "Kanso Deck Template" was archived on 2026-09-16 |
-| Each deck | A separate file duplicated from the source file; slides are cloned from its pages |
-| Default theme | **Dark**: gradient #000000 → #141414 (top → bottom); light as an alternative |
-| UI version | **v2 (2026-09-15)** — follows the redesigned Client Introduction deck (UI only, copy unchanged) |
-| Header / footer | Full-width bars: header 1920 × 105 (logo + UPPERCASE section label + rule), footer 1920 × 102 (meta + page number) |
-| Grid | Title column 432 + content column 1360, or four 432 columns with rules; all auto-layout |
-| Typography | Headings: Lastik (via Typography variables) 150 / 96 / 60 / 42 / 32 · Body: Geist Medium, UPPERCASE labels and body |
-| Lastik | Variable method: build with Instrument Serif, the user switches the variable to Lastik, the skill then checks for overflow |
+**Proof.** The intro deck already shows Kanso's work and testimonials, so a proposal doesn't repeat them: no
+testimonials slide, and slide 6 only when the case is close to this project or the proposal will reach people who
+didn't see the intro.
 
-## 7. Research
+**Brand service defaults.** Three concept routes, each shown in at least three real applications. Five core
+applications in the standard package; anything beyond that is a separate line. Guidelines are the core guide plus the
+live files — a Figma library and the templates the client will actually use — not a 60-page system. **We do not do
+naming**: if the name has to change, it is out of scope and the client brings their own. Brand timeline runs 9–10
+weeks, with the identity route chosen in W5 and guidelines delivered in W9.
 
-- Source: deck.gallery public API (`/api/catalog/decks.json`), slide-level captions from 50 decks
-- Use: **embedded patterns** (`references/deck-patterns.md`) — no live lookups
-- Rule: structure only; no copy or imagery reproduced; sources credited
+**Service variants.** Slides 3–5 change with the service (brand, mobile app / digital product, end-to-end,
+website): the approach line, key deliverables, timeline length and bars, milestones and scope columns.
+Phase names never change. Reference build: the Proposal page of the Client Introduction file (sections Shared and
+Variant — Brand / Mobile app / End-to-end / Website).
 
-## 8. Distribution
+**Signing.** The fee and the way to sign sit on the same slide: Investment ends with the Sign button
+("Signed in Google Docs · valid until [date]"), linked with `setSignLink` to the Google Docs signing link. There is no
+separate Acceptance slide and no signature block — the signature lives in the Google Doc. Only the client signs.
+Footers read `NN / 08` (`NN / 07` without Relevant work); renumber if slides are removed.
 
-- **Public** repo: `github.com/alicorak/kanso-decks` (the repo doubles as the marketplace). Changed from private on
-  2026-09-15 so teammates can install without invites. Nothing secret lives in the repo; keep it that way
-  (no prices, credentials, or unpublished client work).
-- Install (desktop / CLI): `claude plugin marketplace add alicorak/kanso-decks` → `claude plugin install kanso-decks@kanso`
-- Figma: the source file is shared by link (view access); each teammate duplicates it into drafts on a team where they
-  have a Full seat
-- claude.ai web: skill upload — steps to be verified during packaging
+---
 
-## 9. First test
+## 3. Case study — length depends on use
 
-Regenerate the Client Introduction deck from scratch with the skill and compare it with the hand-built version.
+| Use | Length | Layouts |
+|---|---|---|
+| Inside a proposal | 2–3 | Case cover · Visual grid · **Stats** |
+| Inside an intro deck | 4–5 | Case cover · Challenge & idea · Visual grid · **Stats** |
+| Standalone presentation | 8–12 | Full flow below |
 
-**Result (2026-09-14): passed.**
+### Extra intake
+- Which project? (v1 library: Dataland. Other projects need a brief from the user — all facts become placeholders otherwise.)
+- Audience: prospective client in the same industry, or general?
 
-- File: "Kanso — Intro — 2026-09-14" (duplicate of the template), page "Deck — Kanso — Intro".
-- Flow followed as written: brief → outline (18 slides, approved) → copy (approved) → build in 3 scripts → review.
-- Review scan in Instrument Serif: 18 slides, 0 overlaps / overflow / footer-zone / empty text; 15 expected placeholders.
-- After the Lastik switch: overlaps on slides 10 and 12 (body under wrapped headlines) and the Index's last row
-  2 px into the footer zone. Fixed with position moves only; rescan clean. Template Index layout moved up 12 px.
-- Compared with the hand-built deck (22 slides): same structure and voice; placeholder-only Derimod case and the
-  empty stats slide dropped (v1 case library = Dataland); process uses the new phase names; Dataland gains a
-  Results slide.
+### Standalone flow
 
-**Changes made to the skill because of the test**
+| # | Layout | Content | Required |
+|---|---|---|---|
+| 1 | Case cover | Client name · one-line headline · location, year · platforms | Yes |
+| 2 | Challenge & idea | The challenge · The idea · Deliverables & services · In numbers | Yes |
+| 3 | Visual grid | Hero visuals | Yes |
+| 4 | Split text + image | Signature detail (e.g. boot sequence) | Optional |
+| 5 | Visual grid | Design system | Optional |
+| 6 | Three columns | Key features / screens | Yes |
+| 7 | Visual grid | Product screens | Optional |
+| 8 | Stats | **Results** — verified numbers or placeholders | **Always** |
+| 9 | Testimonials | Client quote (verbatim) | If available |
+| 10 | Contact | Presenter + hello@ | Standalone only |
 
-- `build-helpers.js`: `setText(…, 'x')` for side-by-side layers, `setCaptions`, `anchorBottom`, `removeAll`.
-- `figma-system.md`: build procedure now spells out which helper to use for each kind of layer.
-- `SKILL.md` troubleshooting: switch not yet visible to the MCP; one-word last lines after the Lastik switch.
+---
 
-**Known follow-ups**
+## 4. Kickoff deck — 11 slides
 
-- ~~In Lastik, headlines on slides 06, 10, 12 and 18 leave a single word on their last line.~~ Fixed 2026-09-15:
-  a full Lastik screenshot pass found six such headlines (06, 07, 10 ×2, 12, 18). Heading variables were set to
-  Instrument Serif through the API, manual line breaks were added without changing the words, the user switched
-  back to Lastik, and the rescan was clean with every headline on balanced lines. Method documented in SKILL.md.
-- Lastik draws the curly double quotes on slide 16 like single quotes (font glyph). Check with the type designer
-  or use straight quotes in Lastik headings.
-- claude.ai web installation is still unverified.
+First meeting after signing, held within **5 days** of signing. Goal: both teams leave aligned on goals, people,
+rhythm, and the next two weeks. The kickoff doesn't sell again: no fee, no signing, no case studies; scope and
+timeline come from the signed proposal. Every slide except the cover: `addConfidential(frame, client)`.
+
+### Extra intake (kickoff only)
+
+| # | Question | Default |
+|---|---|---|
+| 1 | The signed proposal (or its scope, timeline and service) and the signing date | none — ask |
+| 2 | Goals and how success will be measured (metric, target, date) | none — ask |
+| 3 | Team on both sides: names, roles, decision-maker, day-to-day contact | none — ask |
+| 4 | Communication: check-in day and time, response time, design files link | Slack, Google Docs · weekly check-in · messages answered within one working day — confirm |
+| 5 | Feedback: days to reply, revision rounds, who signs off | From the proposal — confirm |
+| 6 | What we need from the client, with owner and date | Service defaults — confirm |
+| 7 | First two weeks: workshop, research, first deliverable | Service defaults — confirm |
+| 8 | Has the client filled the discovery form yet? | Send it with the kickoff invite; it prepares the workshop |
+
+**Workshop (after signing).** Two scripts cover every service — `Workshop — Brand` and `Workshop — Product` (mobile
+app, website, end-to-end; a 90-minute cut for small jobs) — on the source file's `Workshop` page. Each has an internal
+run sheet and a client preparation form, sent with the kickoff invite.
+
+The split that keeps them apart: **scoping collects facts** (what exists, what connects, what dates, who signs),
+**preparation asks for judgement** (what you believe, who you would choose, what you would give up), **the workshop
+takes the decisions** (primary audience, promise, not-list, or journeys, day-one line, metric), and **we write the
+document** — positioning for brand, a scope note for product. That document is Gate 1; design starts once it is
+approved. Never move a question up a stage: a prospect gets no homework, and nothing answerable in writing eats
+workshop time.
+
+**The Gate 1 document.** Written within two working days of the workshop, from the source file's `Workshop` page:
+`Gate 1 — Positioning document` for brand, `Gate 1 — Scope note` for product. Two pages each — the decision and its
+approval first, the reasoning second. Fill every `[placeholder]` from what the room actually decided; anything the
+workshop left open goes in the open-questions rows with an owner and a date, never quietly resolved by us. The scope
+note outranks the signed proposal where they disagree, because it is the later decision.
+
+**After the workshop.** Same day: boards into Drive `00 Brief`, notes cleaned into decisions, and a three-line recap
+in the Slack channel saying when the document lands. Days 1–2: write it, with a second pair of Kanso eyes before it
+goes out. Day 2: sent as a Google Doc, comments on, carrying the reply-by date from the proposal. Days 3–5: one
+revision round, then approval — name and date on page 1, PDF into Drive, the canvas stage moves to Design, Linear
+issues open, gate dates go in the calendar. If approval does not come, design does not start: say in writing that
+the timeline is paused and every day of silence moves the launch by a day.
+
+**Say the consequence, not the mechanism.** In anything a client reads, write “once you approve the positioning we
+start design”, never “Gate 1”. The same goes for `not-list`, `day-one line` and `run sheet`: useful between us,
+bureaucratic in front of them.
+
+### Flow
+
+| # | Layout | Content | Required |
+|---|---|---|---|
+| 1 | Cover | "Kickoff for" + project name; footer meta = client · kickoff date | Yes |
+| 2 | Kickoff / Statement | **Why we're here** — the project goal in one sentence; Note: proposal signed on [date] | Yes |
+| 3 | Kickoff / Three columns | **What success looks like.** — three goals, each with measure · target · by | Yes |
+| 4 | Kickoff / Team | **Who you'll work with.** — Kanso (photos) and client (no photos), roles, decision-maker, day-to-day contact | Yes |
+| 5 | Kickoff / Scope recap | **What we agreed.** — in / out from the signed proposal; "Anything new is scoped and priced separately." | Yes |
+| 6 | Kickoff / Rows | **Plan** — "[x] weeks, phase by phase.": four phase rows with the work inside, weeks and sign-off | Yes · variant |
+| 7 | Kickoff / Three columns | **How we work together.** — channels (Slack, Google Docs) · meetings · response times | Yes |
+| 8 | Kickoff / Rows | **How feedback and sign-off work.** — Review → Feedback → Revise → Sign-off | Yes |
+| 9 | Kickoff / Rows | **What we need from you.** — six inputs with owner and date; Note: late inputs move the dates after them | Yes · variant |
+| 10 | Kickoff / Rows | **The first two weeks.** — W1/W2 rows: kickoff, access, workshop, research, check-in, first deliverable | Yes |
+| 11 | Contact | **Let's get started.** — Studio hello@, Kanso project lead, client contact | Yes |
+
+**Risks.** No separate slide: the proposal already lists them. Late inputs are covered on 9, feedback timing on 7 and 8.
+
+**Service variants.** Slides 6 and 9 change with the service (brand, mobile app, end-to-end, website); slide 10's
+workshop, research and first deliverable follow the service too. Reference build: the Kickoff page of the Client
+Introduction file.
+
+---
+
+## 5. Proforma invoice — 1 A4 page
+
+A payment request sent as a PDF for one milestone of a signed proposal. It is **not** the official invoice — that one
+is issued from the accounting system once payment is received. One proforma per payment milestone, in USD.
+No outline or copy step: fill the intake, show the filled values for approval ⏸, then build and review.
+
+### Intake (invoice only)
+
+| # | Question | Default |
+|---|---|---|
+| 1 | Invoice number — the last KNS number used (the skill can't know it) | none — ask; next = last + 1, format `KNS-YYYY-NNN` |
+| 2 | Client legal name, address, VAT / tax ID, contact name and email | none — ask |
+| 3 | Project name, proposal signing date, project fee | From the signed proposal |
+| 4 | Which milestone this invoice is for, with a one-line description | none — ask |
+| 5 | The full payment schedule (milestone · share) and which milestones are already paid | From the proposal — confirm paid ones |
+| 6 | Issue date | Today |
+| 7 | Theme | Light (print) · Dark on request |
+
+Due date = issue date + **14 days**. Amount = share × project fee. Subtotal = amount. Total due = amount + VAT.
+VAT line stays as it is in the source file unless the user gives the wording.
+
+### Sections (top to bottom)
+
+| # | Section | Content |
+|---|---|---|
+| 1 | Header | Logo · Invoice no. · Issue date · Due date |
+| 2 | Title | Proforma invoice *(fixed)* |
+| 3 | Parties | Project (name, signed on, fee) · From (Kanso — prefilled in the source file) · Bill to (client) |
+| 4 | Line item | Milestone · description · share of fee · amount |
+| 5 | Totals | Subtotal · VAT · Total due (USD) |
+| 6 | Payment schedule | Every milestone with share, amount and status: Paid · This invoice · Upcoming |
+| 7 | Pay by bank transfer | Bank details prefilled in the source file · Reference = invoice number |
+| 8 | Footer | Proforma note *(fixed)* · kanso.solutions · hello@kanso.solutions · Page 1 / 1 |
+
+### Retainer mode
+
+For clients on a **fixed monthly fee, billed in advance** at the start of each month. Same A4 design without the
+payment schedule; the source frame is `Invoice — Retainer`.
+
+| # | Question | Default |
+|---|---|---|
+| 1 | Invoice number — the last KNS number used | none — ask |
+| 2 | Client legal name, address, VAT / tax ID, contact | From the previous retainer invoice if the user has it |
+| 3 | Retainer name, start date, monthly fee | none — ask |
+| 4 | Month billed | The current month |
+| 5 | Scope line (one line on what the retainer covers) | none — ask |
+| 6 | Is any earlier month unpaid? | No — add an Outstanding line only if the user says yes |
+| 7 | Theme | Light |
+
+Retainer invoice sections: Header · Title · Retainer (name, since, monthly fee) · From · Bill to · Line item
+(Retainer — Month YYYY · scope · period 1–last day of the month · fee) · Totals (Subtotal · VAT · optional Outstanding ·
+Total due) · Pay by bank transfer · Note. Work outside the retainer is invoiced separately, never added to this one.
+
+**Kanso's company and bank details are entered only in the Figma source file.** Never ask for them, never write them
+into chat copy, files, or this repo — the build copies them from the source frame.
+
+---
+
+## Rules for all flows
+
+- One idea per slide. If a slide needs two headlines, split it.
+- Section openers only in decks over 20 slides, at most one per chapter.
+- Never repeat the positioning statement.
+- The contact slide is the last slide — no separate thank-you slide.
+- Every case study shown anywhere has a Results (Stats) slide or result row.
+- Use Stats as rows for any numbered list with a label and a right-aligned meta (process with durations, proof, approvals).

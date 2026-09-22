@@ -122,10 +122,12 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
   their own. Scoping asks whether the name is staying, not whether we should change it.
 
 ### Services (2026-09-22)
-- Three services on the intro deck, not four: **Design**, **Experience**, **Development**. Brand identity is a
-  sub-service of Design, because the brand and the interface are designed by the same team.
-- Brand remains a project type we propose for — the proposal and kickoff keep their Brand variant — but it is never
-  presented as a separate service column.
+- The intro deck's services slide shows three columns — **Design**, **Experience**, **Development** — with brand
+  identity listed under Design. This is a slide-level presentation choice, taken to keep the slide to three columns.
+- **Brand is still its own service** everywhere else: it has its own scoping page, its own workshop, its own proposal
+  and kickoff variant, and it is sold and priced on its own.
+- After the workshop: recap the same day, document within two working days, approval by day five. No approval, no
+  design — and we say so in writing rather than absorbing the delay.
 
 ## 5. Workflow
 
