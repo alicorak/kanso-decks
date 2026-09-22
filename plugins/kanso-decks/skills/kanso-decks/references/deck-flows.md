@@ -105,6 +105,12 @@ cadence and the first two weeks go to the kickoff deck.
 testimonials slide, and slide 6 only when the case is close to this project or the proposal will reach people who
 didn't see the intro.
 
+**Brand service defaults.** Three concept routes, each shown in at least three real applications. Five core
+applications in the standard package; anything beyond that is a separate line. Guidelines are the core guide plus the
+live files — a Figma library and the templates the client will actually use — not a 60-page system. **We do not do
+naming**: if the name has to change, it is out of scope and the client brings their own. Brand timeline runs 9–10
+weeks, with the identity route chosen in W5 and guidelines delivered in W9.
+
 **Service variants.** Slides 3–5 change with the service (brand, mobile app / digital product, end-to-end,
 website): the approach line, key deliverables, timeline length and bars, milestones and scope columns.
 Phase names never change. Reference build: the Proposal page of the Client Introduction file (sections Shared and

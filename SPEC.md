@@ -112,6 +112,15 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 - Our process words (`Gate 1`, not-list, day-one line, run sheet) never appear on a client-facing page. Clients are
   told the consequence of their decision, not the mechanism behind it.
 
+### Brand service defaults (2026-09-22)
+- **Three concept routes**, each shown in at least three real applications, so the third route is not the weak one.
+  Timeline moves to 9–10 weeks: route chosen W5, guidelines delivered W9.
+- **Five core applications** in the standard package; more is a separate line in the fee.
+- **Guidelines = core guide + live files**: a Figma library and the templates the client will actually use. The test
+  is what they can produce in their first three months, not the page count.
+- **No naming.** Kanso does not do naming work. If the name must change, it is out of scope and the client brings
+  their own. Scoping asks whether the name is staying, not whether we should change it.
+
 ## 5. Workflow
 
 1. **Brief** — required: client name / industry / website · meeting type and presenter · client goal / problem

@@ -41,7 +41,10 @@ left — then we build it properly.*
 
 | # | Service | Sub-services | One-liner |
 |---|---|---|---|
-| 01 | Brand | Identity systems · Naming & verbal · Brand guidelines · Art direction | Logos, marks, and the rules that keep them consistent everywhere they appear. |
+| 01 | Brand | Identity systems · Verbal direction · Brand guidelines · Art direction | Logos, marks, and the rules that keep them consistent everywhere they appear. |
+
+**Kanso does not do naming.** If a client needs a new name, it is out of scope — say so plainly and never
+list naming as a sub-service.
 | 02 | Design | Mobile app design · Design systems · Web design · Motion & animation | iOS and Android interfaces designed for how people actually hold and use their phones. |
 | 03 | Experience | Interaction design · Prototyping · Content strategy · Accessibility | How a product responds to every tap, swipe, and gesture. |
 | 04 | Development | Engineering · Front-end development · Systems architecture · QA & handoff | Apps built the way each platform expects them to be built. |

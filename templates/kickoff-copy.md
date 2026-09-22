@@ -120,9 +120,9 @@ Suggested per service:
 ### Brand
 | # | Phase | Work | Weeks · sign-off |
 |---|---|---|---|
-| 01 | Strategy | Positioning · Audience and competitors · Naming and verbal · [Workshop] | W1–W2 · [Positioning sign-off] |
-| 02 | Design | Identity concepts · Logo and marks · Typography and colour · [x] concept routes | W3–W6 · [Identity route chosen — W4] |
-| 03 | Development | Brand guidelines · Templates · Asset production | W6–W8 · [Guidelines delivered] |
+| 01 | Strategy | Positioning · Audience and competitors · Verbal direction · [Workshop] | W1–W2 · [Positioning sign-off] |
+| 02 | Design | Identity concepts · Logo and marks · Typography and colour · 3 concept routes | W3–W7 · [Identity route chosen — W5] |
+| 03 | Development | Brand guidelines · Figma library · Templates · 5 core applications | W7–W9 · [Guidelines delivered] |
 | 04 | Support | Rollout support · Asset updates · Handoff | W9 · [x] weeks included |
 
 ### Mobile app

@@ -114,21 +114,21 @@ Brand and Website: keep the placeholder until a published Kanso case exists for 
 
 | Column number | Column title | Column items |
 |---|---|---|
-| 01 | Strategy | Positioning · Audience and competitors · Naming and verbal · [Workshop] |
-| 02 | Design | Identity concepts · Logo and marks · Typography and colour · [x] concept routes |
-| 03 | Development | Brand guidelines · Templates · Asset production · Art direction |
+| 01 | Strategy | Positioning · Audience and competitors · Verbal direction · [Workshop] |
+| 02 | Design | Identity concepts · Logo and marks · Typography and colour · 3 concept routes |
+| 03 | Development | Brand guidelines · Figma library · Templates · Asset production |
 | 04 | Support | Rollout support · [x] weeks included · Asset updates · Handoff |
 
 ## 06 — Timeline · Brand · `Layout / Timeline`
 - **Header:** Timeline
-- **Title:** [x] weeks from kickoff to guidelines.
+- **Title:** [9] weeks from kickoff to guidelines.
 - **Phase bars (suggested, confirm):** Strategy [W1–W2] · Design [W3–W6] · Development [W6–W8] · Support [W9+]
-- **Milestones:** [Positioning sign-off — W2] · [Identity route chosen — W4] · [Guidelines delivered — W8]
+- **Milestones:** [Positioning sign-off — W2] · [Identity route chosen — W5] · [Guidelines delivered — W9]
 
 ## 07 — Scope · Brand · `Layout / Scope in-out`
 - **Header:** Scope
 - **Title:** What’s in, and what’s not.
-- **In scope:** Positioning and naming · Logo and marks · Typography and colour · Brand guidelines · [x] templates
+- **In scope:** Positioning · Logo and marks · Typography and colour · Brand guidelines · Figma library · 5 core applications
 - **Out of scope:** Printing and production · Photo and video shoots · Trademark registration · Website build · [Other]
 
 ## 08 — Team · Brand · `Layout / Team grid`
@@ -139,7 +139,7 @@ Brand and Website: keep the placeholder until a published Kanso case exists for 
 ## 12 — Assumptions & risks · Brand · `Layout / Scope in-out`
 - **Header:** Assumptions
 - **Title:** What this proposal assumes.
-- **Column label 1 — Assumptions:** [x] concept routes · [x] revision rounds per phase · Brand inputs by kickoff · One decision-maker · Feedback within [x] days
+- **Column label 1 — Assumptions:** 3 concept routes · 5 core applications · [x] revision rounds per phase · Brand inputs by kickoff · One decision-maker · Feedback within [x] days
 - **Column label 2 — Risks:** Late feedback moves dates · Trademark conflicts · New stakeholders mid-project · Scope added after sign-off · [Other]
 
 ---
@@ -286,7 +286,7 @@ Brand and Website: keep the placeholder until a published Kanso case exists for 
 5. **Support:** what Support includes is decided per proposal; the lists show typical items.
 
 **Filled per client (all remaining brackets)**
-Client name, month, what we propose, brief (situation, problem, goals, success measures), fee, payment milestones, dates, team names, presenter and contact details, integrations, platforms, CMS, device range, concept routes, revision rounds, feedback days.
+Client name, month, what we propose, brief (situation, problem, goals, success measures), fee, payment milestones, dates, team names, presenter and contact details, integrations, platforms, CMS, device range, revision rounds, feedback days.
 
 ---
 
@@ -452,9 +452,9 @@ Copy unchanged from 03. Footer `02 / 09`.
 
 | Phase | Brand | Mobile app | End-to-end | Website |
 |---|---|---|---|---|
-| Strategy | Positioning and naming | User flows and scope | Positioning and product definition | Sitemap and wireframes |
+| Strategy | Positioning | User flows and scope | Positioning and product definition | Sitemap and wireframes |
 | Design | Identity system | UI&UX and design system | Identity and product UI&UX | Responsive UI |
-| Development | Guidelines and templates | iOS and Android | [Platform] build and QA | Front-end and CMS |
+| Development | Guidelines, library and templates | iOS and Android | [Platform] build and QA | Front-end and CMS |
 | Support | Rollout support | Store release and fixes | Launch and iteration | Launch and support |
 
 - **Bars (suggested, confirm):** as in v1.0 per service.
@@ -469,9 +469,9 @@ Copy unchanged from 03. Footer `02 / 09`.
 
 | | Brand | Mobile app | End-to-end | Website |
 |---|---|---|---|---|
-| **In scope** | Positioning and naming · Logo and marks · Typography and colour · Brand guidelines · [x] templates | User flows and prototypes · UI and design system · iOS and Android · QA and testing · Store release | Brand identity and guidelines · Product UX and UI · [App / web] development · QA and launch · [x] weeks of support | Sitemap and wireframes · Responsive UI design · Front-end development · CMS setup: [platform] · QA and launch |
+| **In scope** | Positioning · Logo and marks · Typography and colour · Brand guidelines · Figma library · 5 core applications | User flows and prototypes · UI and design system · iOS and Android · QA and testing · Store release | Brand identity and guidelines · Product UX and UI · [App / web] development · QA and launch · [x] weeks of support | Sitemap and wireframes · Responsive UI design · Front-end development · CMS setup: [platform] · QA and launch |
 | **Out of scope** | Printing and production · Photo and video shoots · Trademark registration · Website build · [Other] | Backend and APIs, unless scoped · Store and developer fees · Content production · Hosting and licences · [Other] | Marketing campaigns · Content and photography · Backend, unless scoped · Third-party fees · [Other] | Copywriting and translation · Photography · Hosting and domain · SEO campaigns · [Other] |
-| **Assumptions** | [x] concept routes · [x] revision rounds per phase · Brand inputs by kickoff · Feedback within [x] days | API access by kickoff · Devices: [iOS x+ / Android x+] · Client-owned store accounts · [x] revision rounds per phase | One decision-maker · Sign-off before each phase · [x] revision rounds per phase · API and content access | Content ready by [date] · CMS: [platform] · Client provides hosting · [x] revision rounds per phase |
+| **Assumptions** | 3 concept routes · 5 core applications · [x] revision rounds per phase · Brand inputs by kickoff · Feedback within [x] days | API access by kickoff · Devices: [iOS x+ / Android x+] · Client-owned store accounts · [x] revision rounds per phase | One decision-maker · Sign-off before each phase · [x] revision rounds per phase · API and content access | Content ready by [date] · CMS: [platform] · Client provides hosting · [x] revision rounds per phase |
 | **Risks** | Late feedback moves dates · Trademark conflicts · Scope added after sign-off | Third-party API changes · Store review delays · Scope added after sign-off | Scope growing across phases · Late brand sign-off · Third-party API changes | Late content · Integration limits · New pages after sign-off |
 
 ## 06 — Relevant work *(optional, shared)*
