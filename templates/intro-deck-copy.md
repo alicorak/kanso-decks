@@ -67,7 +67,7 @@ Layer names match `references/figma-system.md`. `[brackets]` = open items. **Hea
   |---|---|---|
   | 01 | Strategy | [We learn your product, your users and your business, and agree on what to build] |
   | 02 | Design | [Brand, flows and interfaces, tested as we go] |
-  | 03 | Development | [Native apps, built by the team that designed them] |
+  | 03 | Development | [iOS, Android and web, built by the team that designed them] |
   | 04 | Support | [Scope agreed per project] |
 - **Note:** *remove* (the line is already on slide 08)
 
