@@ -11,7 +11,7 @@ footer bars, a title column + content column grid, uppercase Geist labels, and a
 | | |
 |---|---|
 | File | **Client Introduction** — https://www.figma.com/design/q6Quf4V8CXEKlCLrmrQ6zb/Client-Introduction |
-| Pages | `01 - Introduction Slide` · `02 - Discovery & Scoping` (internal scoping sheets) · `03 - Proposal` · `04 - Invoice` · `05 - Kickoff` · `06 - Workshop` (run sheets, client preparation forms, and the positioning document or scope note written afterwards) · `07 - Design presentations` (the direction and route decks, each with the decision sheet signed after it). The helpers match a page name without its order prefix |
+| Pages | `01 - Introduction Slide` · `02 - Discovery & Scoping` (internal scoping sheets) · `03 - Proposal` · `04 - Invoice` · `05 - Kickoff` · `06 - Workshop` (run sheets, client preparation forms, and the positioning document or scope note written afterwards) · `07 - Design presentations` (the direction and route decks, each with the decision sheet signed after it) · `08 - Design process` (the one-page internal sheet). The helpers match a page name without its order prefix |
 | Sections | Intro: the `0N - …` sections. Proposal and kickoff: `Shared` + `Variant — Brand / Mobile app / End-to-end / Website` |
 | Rule | Never build a client deck inside the source file. Only slides inside sections are sources |
 

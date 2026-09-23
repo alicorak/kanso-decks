@@ -195,6 +195,19 @@ revision round, then approval — name and date on page 1, PDF into Drive, the c
 issues open, gate dates go in the calendar. If approval does not come, design does not start: say in writing that
 the timeline is paused and every day of silence moves the launch by a day.
 
+**The design process (what happens after Gate 1).** Fourteen steps, in order: 01 understand the job · 02 user
+journey · 03 screen list · 04 flow · 05 wireframes · 06 internal review · 07 client presentation of flow and
+wireframes · 08 moodboard, two directions · 09 three key screens in the chosen direction · 10 all screens and
+states · 11 components · 12 prototype · 13 developer handover · 14 design QA. Brand work replaces 02–05 with
+positioning, moodboard, concept routes and the system built from the chosen route. The one-page sheet lives on the
+source file's `Design process` page, and the playbook carries the same list for the team.
+
+The client approves twice inside this stretch — step 07 (flow and wireframes) and step 09 (visual direction) — which
+are gates 2 and 3 for product work. Everything else is ours: nothing reaches the client without an internal review,
+wireframes carry real words, every screen has four states, and the numbering stays the same from the screen list to
+the flow to the file names. When a kickoff deck lists the first two weeks, it describes steps 01–04, never the whole
+process.
+
 **Say the consequence, not the mechanism.** In anything a client reads, write “once you approve the positioning we
 start design”, never “Gate 1”. The same goes for `not-list`, `day-one line` and `run sheet`: useful between us,
 bureaucratic in front of them.

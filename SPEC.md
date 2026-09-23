@@ -129,6 +129,14 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 - After the workshop: recap the same day, document within two working days, approval by day five. No approval, no
   design — and we say so in writing rather than absorbing the delay.
 
+### Design process (2026-09-23)
+- Fourteen steps after Gate 1, kept on one internal page: understand the job, user journey, screen list, flow,
+  wireframes, internal review, client presentation, moodboard, key screens, all screens, components, prototype,
+  developer handover, design QA.
+- **Product gates are now:** 1 scope note · 2 flow and wireframes · 3 visual direction (moodboard, then three key
+  screens). What the client accepts at delivery is an acceptance, not a gate — nothing new is decided there.
+- Brand keeps its three: positioning · direction · route.
+
 ## 5. Workflow
 
 1. **Brief** — required: client name / industry / website · meeting type and presenter · client goal / problem
