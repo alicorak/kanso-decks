@@ -137,6 +137,22 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
   screens). What the client accepts at delivery is an acceptance, not a gate — nothing new is decided there.
 - Brand keeps its three: positioning · direction · route.
 
+### Workshop, final form (2026-09-23)
+- One question set per service (Brand, Product), sent with the kickoff invite, in two identical formats: a document
+  the client fills alone, and a deck (`Live · Brand` / `Live · Product`) we present if they'd rather talk it
+  through. Same questions, same notes, word for word — nothing asked twice.
+- No internal run sheet. The document is the script; a follow-up call (30–45 min) only happens if an answer is
+  vague, missing, or contradicts another, and it reviews what was already written rather than generating new answers.
+- No separate approved positioning document or scope note. Both are synthesised from the questionnaire, but neither
+  is a file the client signs before work continues — the synthesis shows up directly in gate 1 (Direction for
+  brand, flow and wireframes for product). Gates renumber: what was gate 2/3 is now gate 1/2.
+- Brand question set: 8 sections, 22 questions, plus a competitive-map section and a legacy-visual-asset question
+  added, one redundant question ("what do people get wrong about you today") removed.
+- Product question set: 5 sections became 6 — added a References section (admired/disliked products), mirroring
+  Brand's, so Product's moodboard step also gets primed by the questionnaire.
+- Source pages get renamed often; `build-helpers.js` now falls back to a substring match on page name so a rename
+  doesn't break a build.
+
 ## 5. Workflow
 
 1. **Brief** — required: client name / industry / website · meeting type and presenter · client goal / problem

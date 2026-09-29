@@ -81,7 +81,7 @@ plus the `Scoping — Variant · [Service]` page). Ask the user for the filled s
 | 9 | Google Docs signing link for this proposal (Kanso signs proposals with Google Docs eSignature) | none — keep `[e-sign link]` and list it under Open items |
 
 **Never ask the client the deep questions before signing.** Audience, positioning, tone and references are the work
-itself — they belong to the discovery form the client fills after signing (see the kickoff flow).
+itself — they belong to the workshop questionnaire the client fills after signing (see the kickoff flow).
 
 ### Flow
 
@@ -169,47 +169,43 @@ timeline come from the signed proposal. Every slide except the cover: `addConfid
 | 5 | Feedback: days to reply, revision rounds, who signs off | From the proposal — confirm |
 | 6 | What we need from the client, with owner and date | Service defaults — confirm |
 | 7 | First two weeks: workshop, research, first deliverable | Service defaults — confirm |
-| 8 | Has the client filled the discovery form yet? | Send it with the kickoff invite; it prepares the workshop |
+| 8 | Has the client answered the workshop questionnaire yet? | Send it with the kickoff invite |
 
-**Workshop (after signing).** Two scripts cover every service — `Workshop — Brand` and `Workshop — Product` (mobile
-app, website, end-to-end; a 90-minute cut for small jobs) — on the source file's `Workshop` page. Each has an internal
-run sheet and a client preparation form, sent with the kickoff invite.
+**Workshop (after signing).** One question set per service — `Workshop · Brand` and `Workshop · Product` (mobile
+app, website, end-to-end) — on the source file's `Workshop` page. Two identical formats, same questions and
+explanatory notes word for word: a document the client fills alone, and a deck (`Live · Brand` / `Live · Product`)
+we present if they'd rather talk it through. Sent with the kickoff invite, not before it and not after the kickoff
+meeting. There is no internal run sheet — the document is the script.
 
-The split that keeps them apart: **scoping collects facts** (what exists, what connects, what dates, who signs),
-**preparation asks for judgement** (what you believe, who you would choose, what you would give up), **the workshop
-takes the decisions** (primary audience, promise, not-list, or journeys, day-one line, metric), and **we write the
-document** — positioning for brand, a scope note for product. That document is Gate 1; design starts once it is
-approved. Never move a question up a stage: a prospect gets no homework, and nothing answerable in writing eats
-workshop time.
+The split that still matters: **scoping collects facts** (what exists, what connects, what dates, who signs, filled
+by us in the call), **the workshop questionnaire asks for judgement** (what you believe, who you would choose, what
+you would give up, filled by the client). Never move a question up a stage: a prospect gets no homework, and nothing
+factual gets asked twice.
 
-**The Gate 1 document.** Written within two working days of the workshop, from the source file's `Workshop` page:
-`Gate 1 — Positioning document` for brand, `Gate 1 — Scope note` for product. Two pages each — the decision and its
-approval first, the reasoning second. Fill every `[placeholder]` from what the room actually decided; anything the
-workshop left open goes in the open-questions rows with an owner and a date, never quietly resolved by us. The scope
-note outranks the signed proposal where they disagree, because it is the later decision.
+**Whether to call.** Skip it if every answer is specific and none contradict each other. Call for 30–45 minutes,
+whoever wrote the answers plus the decision-maker if anything is contested, only when something is vague, missing,
+or contradicts another answer — and the call reviews what they already wrote, it does not generate new answers live.
 
-**After the workshop.** Same day: boards into Drive `00 Brief`, notes cleaned into decisions, and a three-line recap
-in the Slack channel saying when the document lands. Days 1–2: write it, with a second pair of Kanso eyes before it
-goes out. Day 2: sent as a Google Doc, comments on, carrying the reply-by date from the proposal. Days 3–5: one
-revision round, then approval — name and date on page 1, PDF into Drive, the canvas stage moves to Design, Linear
-issues open, gate dates go in the calendar. If approval does not come, design does not start: say in writing that
-the timeline is paused and every day of silence moves the launch by a day.
+**No separate approval document.** A positioning (brand) and a scope (product) both exist — synthesised from the
+questionnaire — but neither is a file the client signs before work continues. The synthesis shows up directly in the
+next deliverable: Direction for brand, flow and wireframes for product. That is gate 1; there is no written, signed
+gate before it.
 
-**The design process (what happens after Gate 1).** Fourteen steps, in order: 01 understand the job · 02 user
-journey · 03 screen list · 04 flow · 05 wireframes · 06 internal review · 07 client presentation of flow and
+**The design process (what happens after the questionnaire).** Fourteen steps, in order: 01 understand the job · 02
+user journey · 03 screen list · 04 flow · 05 wireframes · 06 internal review · 07 client presentation of flow and
 wireframes · 08 moodboard, two directions · 09 three key screens in the chosen direction · 10 all screens and
 states · 11 components · 12 prototype · 13 developer handover · 14 design QA. Brand work replaces 02–05 with
 positioning, moodboard, concept routes and the system built from the chosen route. The one-page sheet lives on the
 source file's `Design process` page, and the playbook carries the same list for the team.
 
-The client approves twice inside this stretch — step 07 (flow and wireframes) and step 09 (visual direction) — which
-are gates 2 and 3 for product work. Everything else is ours: nothing reaches the client without an internal review,
-wireframes carry real words, every screen has four states, and the numbering stays the same from the screen list to
-the flow to the file names. When a kickoff deck lists the first two weeks, it describes steps 01–04, never the whole
-process.
+The client approves twice inside this stretch — step 07 (flow and wireframes) and step 09 (visual direction) for
+product, or Direction and Route for brand — gates 1 and 2. Everything else is ours: nothing reaches the client
+without an internal review, wireframes carry real words, every screen has four states, and the numbering stays the
+same from the screen list to the flow to the file names. When a kickoff deck lists the first two weeks, it describes
+steps 01–04, never the whole process.
 
-**Say the consequence, not the mechanism.** In anything a client reads, write “once you approve the positioning we
-start design”, never “Gate 1”. The same goes for `not-list`, `day-one line` and `run sheet`: useful between us,
+**Say the consequence, not the mechanism.** In anything a client reads, write “once you approve the direction we
+build the identity”, never “gate 1”. The same goes for `not-list`, `day-one line` and `run sheet`: useful between us,
 bureaucratic in front of them.
 
 ### Flow

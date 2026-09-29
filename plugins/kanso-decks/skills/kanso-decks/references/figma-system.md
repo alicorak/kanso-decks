@@ -11,7 +11,7 @@ footer bars, a title column + content column grid, uppercase Geist labels, and a
 | | |
 |---|---|
 | File | **Client Introduction** — https://www.figma.com/design/q6Quf4V8CXEKlCLrmrQ6zb/Client-Introduction |
-| Pages | `01 - Introduction Slide` · `02 - Discovery & Scoping` (internal scoping sheets) · `03 - Proposal` · `04 - Invoice` · `05 - Kickoff` · `06 - Workshop` (run sheets, client preparation forms, and the positioning document or scope note written afterwards) · `07 - Design presentations` (the direction and route decks, each with the decision sheet signed after it) · `08 - Design process` (the one-page internal sheet). The helpers match a page name without its order prefix |
+| Pages | `01 - Introduction Slide` · `02 - Discovery & Scoping Call` (internal scoping sheets) · `03 - Proposal` · `04 - Invoice` · `05 - Onboarding Client & Kickoff` · `06 - Workshop` (the workshop questionnaire, document and deck) · `07 - Direction & Strategy Call` (gate 1 and gate 2 decks, once built) · `00 - Design process` (the one-page internal sheet). Page names get renamed often — the helpers match a page without its order prefix, and fall back to a substring match, so a rename like "Kickoff" → "Onboarding Client & Kickoff" does not break a build |
 | Sections | Intro: the `0N - …` sections. Proposal and kickoff: `Shared` + `Variant — Brand / Mobile app / End-to-end / Website` |
 | Rule | Never build a client deck inside the source file. Only slides inside sections are sources |
 
@@ -143,31 +143,26 @@ Same A4 build as the invoice: 1240 × 1754, Light theme, auto-layout top to bott
 |---|---|---|
 | `Scoping — Shared` | `Discovery & Workshop` page | `01 — Context` (client meta + what they need) and `03 — Decisions & practicalities` (decisions, practicalities, `Sales read` block in `color/accent`, open items) |
 | `Scoping — Variant · [Service]` | `Discovery & Workshop` page | `02 — What we would deliver · [Service]`, one page per service |
-| `Workshop — Brand` | `Workshop` page | `Run sheet · Brand · 1–3` (internal) and `Workshop prep · Brand · 1–3` (client) |
-| `Workshop — Product` | `Workshop` page | `Run sheet · Product · 1–4` (internal, covers mobile app, website and end-to-end) and `Workshop prep · Product · 1–3` (client) |
-| `Gate 1 — Positioning document` | `Workshop` page | 2 client pages: the decision and its approval, then the reasoning |
-| `Direction — Gate 2` · `Routes — Gate 3` | `Design presentations` page | The deck that presents the choice, plus a one-page decision sheet signed after the meeting |
-| `Gate 1 — Scope note` | `Workshop` page | 2 client pages: the decision and its approval, then the detail |
+| `Workshop · Brand` | `Workshop` page | The questionnaire document, 3 pages: judgement questions, a `What we need from you` checklist, what happens next |
+| `Workshop · Product` | `Workshop` page | Same shape, 3 pages, covering mobile app, website and end-to-end |
+| `Live · Brand` · `Live · Product` | `Workshop` page | The same questions and explanatory notes as the document above, word for word, as a dark 1920×1080 deck we present if the client would rather talk it through |
 
 A scoping pack = shared page 1 + the service's page 2 + shared page 3, in that order; the footers already read
 `Page 1 / 3`, `Page 2 / 3`, `Page 3 / 3`.
 
-The two approval documents share one rule: **page 1 carries everything the client has to approve** — the statement
-or the job, who it is for, what we promise or what ships on day one, and the approval block — and page 2 carries the
-reasoning. A client who reads only the first page still approves the right thing. The approval block states what
-approving means and, in `color/accent`, what reopening it costs.
+**Document and deck are one question set in two formats, not two different steps.** Every section's label, its
+one-line note, and its questions appear identically in both — when one changes, change the other in the same pass.
+There is no internal run sheet: the document is what a facilitator reads from if a call happens, and most of the
+time no call happens at all.
 
-Every approval document sits on the page of the moment it belongs to — the write-up with the workshop, a decision
-sheet with the deck that earns it. There is no separate page for sign-offs.
+The questionnaire opens with a `What we already have` block (accent label) that plays the scoping answers back for
+correction, never re-asking them. It closes with `What we need from you` (a checklist of files/access the client
+owns) and `What happens next`, which says plainly that there is no separate sign-off — the next thing the client
+sees is Direction (brand) or flow and wireframes (product), gate 1.
 
-Client-facing pages never carry our internal words: no `Gate 1`, no `not-list`, no `day-one line`, no `run sheet`.
-The band reads `Positioning` or `Scope note`; the gate language stays on the run sheets and in these references.
-
-A run sheet is page 1 setup (length, preconditions, agenda, six rules), then the blocks: number, title, minutes, one
-line of facilitation, the questions in quotes, and an `Out` line in `color/accent`. The product run sheet closes with
-a page of service notes and the 90-minute cut. A preparation form is client-facing: an accent header band, a
-`What we already have` block that plays the scoping answers back for correction, then judgement questions in the same
-order as the workshop blocks, each with a 46px writing space.
+Client-facing pages never carry our internal words: no `gate`, no `not-list`, no `day-one line`, no `run sheet`. The
+document's band reads `Workshop · [Service]`; the deck's chrome reads `Workshop`. The gate language stays in these
+references and in the playbook.
 
 ## Invoice source (`Invoice` page)
 

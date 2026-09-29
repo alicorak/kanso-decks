@@ -43,11 +43,14 @@ function assertHeadingsEditable() {
 // Intro and case slides: the "0N - …" sections of "Introduction Slide".
 // Proposal and kickoff: sections "Shared" and "Variant — Brand | Mobile app | End-to-end | Website".
 // Only slides inside sections are sources.
-const SOURCE_PAGES = { intro: 'Introduction Slide', proposal: 'Proposal', kickoff: 'Kickoff', invoice: 'Invoice', scoping: 'Discovery & Workshop', workshop: 'Workshop' };
+// Values are lowercase keywords, not full names — page names get renamed often (e.g. "Discovery & Scoping"
+// becomes "Discovery & Scoping Call"), so matching is by substring, not equality.
+const SOURCE_PAGES = { intro: 'introduction slide', proposal: 'proposal', kickoff: 'kickoff', invoice: 'invoice', scoping: 'discovery', workshop: 'workshop', design_presentations: 'direction', design_process: 'design process' };
 // Page names may carry an order prefix ("03 - Proposal") — match on the name without it.
 const pageKey = name => name.replace(/^\s*\d+\s*[-—–.]\s*/, '').trim().toLowerCase();
 const PAGE = name => figma.root.children.find(p => p.name === name)
-  || figma.root.children.find(p => pageKey(p.name) === pageKey(name));
+  || figma.root.children.find(p => pageKey(p.name) === pageKey(name))
+  || figma.root.children.find(p => pageKey(p.name).includes(pageKey(name)));
 async function sourcePage(kind) {
   const p = PAGE(SOURCE_PAGES[kind] || kind);
   if (!p) throw new Error(`Source page for "${kind}" not found. Is this a copy of the Kanso deck source file?`);
