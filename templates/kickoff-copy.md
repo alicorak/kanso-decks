@@ -120,15 +120,15 @@ Suggested per service:
 ### Brand
 | # | Phase | Work | Weeks · sign-off |
 |---|---|---|---|
-| 01 | Strategy | Positioning · Audience and competitors · Verbal direction · [Workshop] | W1–W2 · [Positioning sign-off] |
+| 01 | Strategy | Positioning · Audience and competitors · Verbal direction · [Workshop] | W1–W2 · [Positioning agreed] |
 | 02 | Design | Identity concepts · Logo and marks · Typography and colour · 3 concept routes | W3–W7 · [Identity route chosen — W5] |
 | 03 | Development | Brand guidelines · Figma library · Templates · 5 core applications | W7–W9 · [Guidelines delivered] |
-| 04 | Support | Rollout support · Asset updates · Handoff | W9 · [x] weeks included |
+| 04 | Support | Rollout support · Asset updates · Handoff | W10 · [x] weeks included |
 
 ### Mobile app
 | # | Phase | Work | Weeks · sign-off |
 |---|---|---|---|
-| 01 | Strategy | Discovery workshop · User flows · Scope and priorities · Technical approach | W1–W2 · [Flows sign-off] |
+| 01 | Strategy | Discovery workshop · User flows · Scope and priorities · Technical approach | W1–W2 · [Flows agreed] |
 | 02 | Design | UX and prototypes · UI and design system · Motion and interaction · Accessibility | W3–W6 · [Design sign-off] |
 | 03 | Development | iOS and Android · [Integrations] · QA and testing | W6–W11 · [Store release — W11] |
 | 04 | Support | Store release · Fixes · [Analytics setup] · Handoff | W12 · [x] weeks of fixes |
@@ -136,7 +136,7 @@ Suggested per service:
 ### End-to-end
 | # | Phase | Work | Weeks · sign-off |
 |---|---|---|---|
-| 01 | Strategy | Positioning · Product definition · User flows · Roadmap | W1–W3 · [Brand sign-off — W4] |
+| 01 | Strategy | Positioning · Product definition · User flows · Roadmap | W1–W3 · [Brand agreed — W4] |
 | 02 | Design | Identity system · UX and UI · Design system · Prototypes | W3–W7 · [Product design sign-off] |
 | 03 | Development | [iOS / Android / Web] build · [Integrations] · QA and testing | W7–W11 · [Launch — W11] |
 | 04 | Support | Fixes · Iteration · Brand rollout · Handoff | W12 · [x] weeks of support |
@@ -144,7 +144,7 @@ Suggested per service:
 ### Website
 | # | Phase | Work | Weeks · sign-off |
 |---|---|---|---|
-| 01 | Strategy | Sitemap · Content structure · Search-friendly structure · Wireframes | W1–W2 · [Sitemap sign-off] |
+| 01 | Strategy | Sitemap · Content structure · Search-friendly structure · Wireframes | W1–W2 · [Sitemap agreed] |
 | 02 | Design | UX and UI · Responsive layouts · Motion · Design system | W2–W5 · [Design sign-off] |
 | 03 | Development | Front-end build · CMS: [platform] · [Integrations] · QA and performance | W5–W8 · [Launch — W8] |
 | 04 | Support | Launch · CMS training · Handoff | W9 · [x] weeks of support |

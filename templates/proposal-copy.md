@@ -122,8 +122,8 @@ Brand and Website: keep the placeholder until a published Kanso case exists for 
 ## 06 — Timeline · Brand · `Layout / Timeline`
 - **Header:** Timeline
 - **Title:** [9] weeks from kickoff to guidelines.
-- **Phase bars (suggested, confirm):** Strategy [W1–W2] · Design [W3–W6] · Development [W6–W8] · Support [W9+]
-- **Milestones:** [Positioning sign-off — W2] · [Identity route chosen — W5] · [Guidelines delivered — W9]
+- **Phase bars (suggested, confirm):** Strategy [W1–W2] · Design [W3–W7] · Development [W7–W9] · Support [W10+]
+- **Milestones:** [Positioning agreed — W2] · [Identity route chosen — W5] · [Guidelines delivered — W9]
 
 ## 07 — Scope · Brand · `Layout / Scope in-out`
 - **Header:** Scope
@@ -167,7 +167,7 @@ Brand and Website: keep the placeholder until a published Kanso case exists for 
 - **Header:** Timeline
 - **Title:** [x] weeks from kickoff to launch.
 - **Phase bars (suggested, confirm):** Strategy [W1–W2] · Design [W3–W6] · Development [W6–W11] · Support [W12+]
-- **Milestones:** [Flows sign-off — W2] · [Design sign-off — W6] · [Store release — W11]
+- **Milestones:** [Flows agreed — W2] · [Design sign-off — W6] · [Store release — W11]
 
 ## 07 — Scope · Mobile app · `Layout / Scope in-out`
 - **Header:** Scope
@@ -211,7 +211,7 @@ Brand and Website: keep the placeholder until a published Kanso case exists for 
 - **Header:** Timeline
 - **Title:** [x] weeks from brand to launch.
 - **Phase bars (suggested, confirm):** Strategy [W1–W3] · Design [W3–W7] · Development [W7–W11] · Support [W12+]
-- **Milestones:** [Brand sign-off — W4] · [Product design sign-off — W7] · [Launch — W11]
+- **Milestones:** [Brand agreed — W4] · [Product design sign-off — W7] · [Launch — W11]
 
 ## 07 — Scope · End-to-end · `Layout / Scope in-out`
 - **Header:** Scope
@@ -255,7 +255,7 @@ Brand and Website: keep the placeholder until a published Kanso case exists for 
 - **Header:** Timeline
 - **Title:** [x] weeks from kickoff to launch.
 - **Phase bars (suggested, confirm):** Strategy [W1–W2] · Design [W2–W5] · Development [W5–W8] · Support [W9+]
-- **Milestones:** [Sitemap sign-off — W2] · [Design sign-off — W5] · [Launch — W8]
+- **Milestones:** [Sitemap agreed — W2] · [Design sign-off — W5] · [Launch — W8]
 
 ## 07 — Scope · Website · `Layout / Scope in-out`
 - **Header:** Scope
@@ -458,7 +458,7 @@ Copy unchanged from 03. Footer `02 / 09`.
 | Support | Rollout support | Store release and fixes | Launch and iteration | Launch and support |
 
 - **Bars (suggested, confirm):** as in v1.0 per service.
-- **Milestones:** as in v1.0 per service (e.g. Mobile app: [Flows sign-off — W2] · [Design sign-off — W6] · [Store release — W11]).
+- **Milestones:** as in v1.0 per service (e.g. Mobile app: [Flows agreed — W2] · [Design sign-off — W6] · [Store release — W11]).
 
 ## 05 — Scope *(variant)* · four short columns
 - **Header:** Scope
