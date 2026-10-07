@@ -36,8 +36,8 @@ Layer names match `references/figma-system.md`. `[brackets]` = open items. **Hea
 ## 06 — Clients · founders · `Layout / Logo wall`
 - **Header:** Intro
 - **Eyebrow:** Clients
-- **Headline:** …and the founders building what comes next.
-- **Image placeholder ×4:** Pro Legacy · [Client logo] · [Client logo] · [Client logo]
+- **Headline:** …and the executives and founders building what comes next.
+- **Caption ×3 (one row):** Refik Anadol · Dataland — Altuğ Öztürk · Chiliz — Oğuz Yatıkçı · Derimod. Name first, then the brand. Only people published on kanso.solutions; Altuğ and Oğuz are executives, not founders, which is why the sentence says both
 
 ## 08 — Services · `Layout / Four columns`
 - **Header:** Services
@@ -155,7 +155,7 @@ Layer names match `references/figma-system.md`. `[brackets]` = open items. **Hea
 5. **Dataland outcomes** (slide 15): the verified numbers describe the system's scale, not business results. If there are outcome figures (downloads, ratings, visitors, press), add them; otherwise these four stay.
 
 **Assets to add in Figma**
-6. Client logos: Dataland, Chiliz, Derimod on slide 05 (one row of three); Pro Legacy and the empty `Founder name` slots on slide 06 — fill them or remove the empty slots.
+6. Client logos: Dataland, Chiliz, Derimod on slide 05 (one row of three); slide 06 names the three people behind them, one caption each — add a caption only for a person we may name.
 7. Photos and visuals: studio photo (07), Dataland hero (11), boot sequence, icon system, out-of-home (13).
 
 **After the build**

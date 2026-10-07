@@ -43,7 +43,7 @@ Make a claim, not a label. The headline is the takeaway if someone reads nothing
 | Results | [Metric] in the first [period]. |
 
 Techniques that fit the brand:
-- **Split one sentence across two slides** for emphasis ("We partner with established brands…" → "…and the founders building what comes next.").
+- **Split one sentence across two slides** for emphasis ("We partner with established brands…" → "…and the executives and founders building what comes next.").
 - **Contrast** the usual way with our way, in two columns.
 - **Questions** only when they frame a real problem the next slide answers.
 

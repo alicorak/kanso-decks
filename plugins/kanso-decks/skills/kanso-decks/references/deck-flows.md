@@ -41,7 +41,7 @@ First-contact meeting. Goal: the client understands who we are, what we do, and 
 | 2 | Intro | Index | Intro · Services · Work · Proof · Next steps | Yes |
 | 3 | Intro | Statement | Title "Who we are" · positioning line | Yes |
 | 4 | Intro | Name meaning | Title · definition of 簡素 + how it shapes our work | Yes |
-| 5 | Intro | Logo wall | Established clients and founders (one sentence, two logo rows) | Yes |
+| 5 | Intro | Logo wall | Established clients, then the executives and founders behind them (one sentence split over two slides, one row of three each) | Yes |
 | 6 | Services | Section opener | "Services and approach" | Optional (decks > 20 slides) |
 | 7 | Services | Three columns | Design · Experience · Development with sub-services; on this slide only, brand identity is listed under Design | Yes |
 | 8 | Services | Stats *(as rows)* or Four columns | Process: Strategy · Design · Development · Support | Yes |
