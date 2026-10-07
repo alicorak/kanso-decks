@@ -160,6 +160,10 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
   sold.
 - `applyCleanup` refuses in a file with no `Deck — …` page, so it cannot run in the source file.
 
+### Intro deck without the studio slide (2026-10-07)
+- The "07 — The studio" slide is removed from the intro deck: the flow runs 17–23 slides, the Split text + image
+  layout has no source slide any more, and the optional signature-detail slide in the case-study flow is skipped.
+
 ## 5. Workflow
 
 1. **Brief** — required: client name / industry / website · meeting type and presenter · client goal / problem

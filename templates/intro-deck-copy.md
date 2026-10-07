@@ -39,13 +39,6 @@ Layer names match `references/figma-system.md`. `[brackets]` = open items. **Hea
 - **Headline:** …and the founders building what comes next.
 - **Image placeholder ×4:** Pro Legacy · [Client logo] · [Client logo] · [Client logo]
 
-## 07 — The studio · `Layout / Split text + image`
-- **Header:** Intro
-- **Eyebrow:** The studio
-- **Headline:** An independent studio working across brand, product, experience and technology.
-- **Meta:** Istanbul · Since 2020 · [x] people
-- **Image placeholder:** Team / studio photo
-
 ## 08 — Services · `Layout / Four columns`
 - **Header:** Services
 - **Eyebrow:** Services

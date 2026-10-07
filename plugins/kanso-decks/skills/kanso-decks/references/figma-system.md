@@ -89,7 +89,6 @@ source slide with `cloneSlide(kind, name, deckPage, index, { sectionName, sectio
 | Statement | intro `Positioning` · kickoff `Why we’re here` | intro: `replaceText` · kickoff: `setText` (`Title`, `Statement`, `Note`) |
 | Name meaning | intro `The name` | `replaceText` |
 | Logo wall | intro `Clients · Established` / `Clients · Founders` | `replaceText`, `setCaptions` |
-| Split text + image | intro `The studio` | `replaceText` |
 | Four columns (services, process) | intro `Services` / `Process` | `replaceText` |
 | Mark statement | intro `How we're different` | `replaceText` |
 | Case cover | intro `Dataland · Cover` | `replaceText` |

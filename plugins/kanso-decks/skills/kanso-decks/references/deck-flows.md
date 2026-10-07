@@ -25,7 +25,7 @@ If a website is given, read it to understand the client before drafting. Never c
 
 ---
 
-## 1. Intro deck — 18–24 slides
+## 1. Intro deck — 17–23 slides
 
 First-contact meeting. Goal: the client understands who we are, what we do, and what happens next.
 
@@ -42,17 +42,16 @@ First-contact meeting. Goal: the client understands who we are, what we do, and 
 | 3 | Intro | Statement | Title "Who we are" · positioning line | Yes |
 | 4 | Intro | Name meaning | Title · definition of 簡素 + how it shapes our work | Yes |
 | 5 | Intro | Logo wall | Established clients and founders (one sentence, two logo rows) | Yes |
-| 6 | Intro | Split text + image | Studio: independent, Istanbul, since 2020, team size `[x]` | Yes |
-| 7 | Services | Section opener | "Services and approach" | Optional (decks > 20 slides) |
-| 8 | Services | Three columns | Design · Experience · Development with sub-services; on this slide only, brand identity is listed under Design | Yes |
-| 9 | Services | Stats *(as rows)* or Four columns | Process: Strategy · Design · Development · Support | Yes |
-| 10 | Services | Mark statement | Design and code at the same table | Yes |
-| 11 | Work | Section opener | "Case studies" | Optional |
-| 12–16 | Work | Case study block (§3, intro length) | Case cover · Challenge & idea · Visual grid · **Stats (results)** | Yes (≥ 1 case) |
-| 17 | Proof | Testimonials | Three quotes, verbatim | Yes |
-| 18 | Proof | Stats | Verified numbers only; placeholders flagged | Optional |
-| 19 | Next steps | Three columns | Discovery call · Workshop · Proposal (first column is "Now") | Yes |
-| 20 | Next steps | Contact | Title "Let's make something that outlives the brief." · presenter + hello@ | Yes |
+| 6 | Services | Section opener | "Services and approach" | Optional (decks > 20 slides) |
+| 7 | Services | Three columns | Design · Experience · Development with sub-services; on this slide only, brand identity is listed under Design | Yes |
+| 8 | Services | Stats *(as rows)* or Four columns | Process: Strategy · Design · Development · Support | Yes |
+| 9 | Services | Mark statement | Design and code at the same table | Yes |
+| 10 | Work | Section opener | "Case studies" | Optional |
+| 11–15 | Work | Case study block (§3, intro length) | Case cover · Challenge & idea · Visual grid · **Stats (results)** | Yes (≥ 1 case) |
+| 16 | Proof | Testimonials | Three quotes, verbatim | Yes |
+| 17 | Proof | Stats | Verified numbers only; placeholders flagged | Optional |
+| 18 | Next steps | Three columns | Discovery call · Workshop · Proposal (first column is "Now") | Yes |
+| 19 | Next steps | Contact | Title "Let's make something that outlives the brief." · presenter + hello@ | Yes |
 
 ---
 
@@ -142,7 +141,7 @@ Footers read `NN / 08` (`NN / 07` without Relevant work); renumber if slides are
 | 1 | Case cover | Client name · one-line headline · location, year · platforms | Yes |
 | 2 | Challenge & idea | The challenge · The idea · Deliverables & services · In numbers | Yes |
 | 3 | Visual grid | Hero visuals | Yes |
-| 4 | Split text + image | Signature detail (e.g. boot sequence) | Optional |
+| 4 | Split text + image | Signature detail (e.g. boot sequence) | Optional — no source slide since the studio slide was removed; skip it |
 | 5 | Visual grid | Design system | Optional |
 | 6 | Three columns | Key features / screens | Yes |
 | 7 | Visual grid | Product screens | Optional |
