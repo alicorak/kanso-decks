@@ -161,14 +161,14 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 - `applyCleanup` refuses in a file with no `Deck — …` page, so it cannot run in the source file.
 
 ### Intro deck without the studio slide (2026-10-07)
-- The "07 — The studio" slide is removed from the intro deck: the flow runs 17–23 slides, the Split text + image
+- The "07 — The studio" slide is removed from the intro deck: the flow runs 17–24 slides, the Split text + image
   layout has no source slide any more, and the optional signature-detail slide in the case-study flow is skipped.
 
 ### Intro case slides and page counters (2026-10-07)
-- Source file case section: Dataland cover and two Visuals slides carry UI-heavy stills from kanso.solutions; the
+- Source file case section: Dataland cover and three Visuals slides carry UI-heavy stills from kanso.solutions; the
   Derimod cover carries its one available image (a shopping-app screen). The Derimod Visuals slide was removed —
   no Derimod gallery exists yet, so Derimod stays a cover plus Idea & process until its case images are published.
-- The intro source file now counts 23 slides, so counters read `NN / 23`. A build recounts them with
+- The intro source file now counts 24 slides (two full cases), so counters read `NN / 24`. A build recounts them with
   `setPageNumbers`; the source counters are renumbered by hand whenever a source slide is added or removed.
 
 ## 5. Workflow

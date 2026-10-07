@@ -25,7 +25,7 @@ If a website is given, read it to understand the client before drafting. Never c
 
 ---
 
-## 1. Intro deck — 17–23 slides
+## 1. Intro deck — 17–24 slides
 
 First-contact meeting. Goal: the client understands who we are, what we do, and what happens next.
 
