@@ -104,16 +104,17 @@ Once the user has approved the review, move on to cleaning up the copy. The Last
 
 ### 7. Clean up the copy ⏸
 
-The copy still carries every internal page of the source file — scoping sheets with the sales read, the design
-process, working notes — and the sources of deck types this client doesn't need. A client who opens the file must not
-find any of it.
+The copy still carries every page of the source file — scoping sheets with the sales read, the design process,
+working notes, sources of deck types this client may not need. A client who opens the file must not find any of it.
+**The user decides what stays; everything else is deleted.**
 
-1. Run `planCleanup({ built, service })` (`build-helpers.js`) — `built` is the deck types built so far, `service`
-   is what the client bought. It is read-only.
-2. Show the user exactly what it would delete and what it keeps, and wait for a yes. What it keeps is deliberate:
-   the Kickoff, Invoice and Workshop pages stay (this client still needs them later), trimmed to the service they
-   bought. Internal pages, the source page of the deck just built, and the intro slides go.
-3. Run `applyCleanup(plan)`. It refuses in any file with no `Deck — …` page, which is how it stays out of the
+1. Run `cleanupChoices()` (`build-helpers.js`) and ask: "Which pages should stay in this file?" List them, marking
+   the internal-only ones. Say what is usual: if kickoff and invoices will be built in this same copy, keep those two;
+   if the deck is exported and the file is done, keep nothing.
+2. Run `planCleanup({ keep, service })` with the pages they named — `service` is what the client bought; it trims
+   the unsold services inside a kept Kickoff or Workshop page. It is read-only.
+3. Show exactly what it keeps and deletes (and any `warnings`), and wait for a yes.
+4. Run `applyCleanup(plan)`. It refuses in any file with no `Deck — …` page, which is how it stays out of the
    source file. Screenshot the page list afterwards.
 
 ### 8. Hand over

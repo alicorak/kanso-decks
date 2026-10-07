@@ -372,36 +372,39 @@ function setPageNumbers(deckPage) {
 function stackBelow(above, below, gap = 32) { below.y = Math.round(above.y + above.height + gap); return below; }
 
 // ---------- Clean up the client's copy ----------
-// After the review, before the Lastik switch. The copy still carries every internal page of the source file —
-// scoping sheets (with the sales read), the design process, working notes — and the sources of deck types this
-// client doesn't need. None of that should reach a client who opens the file.
+// After the review, before the Lastik switch. The copy still carries every page of the source file — scoping sheets
+// (with the sales read), the design process, working notes, sources of deck types this client may not need. The
+// USER decides what stays; everything else is deleted.
 //
-// planCleanup is read-only: call it, show the user what it returns, wait for a yes, then applyCleanup.
-//   built:   deck types built in this copy so far, e.g. ['proposal'] (keys of SOURCE_PAGES)
-//   service: 'Brand' | 'Mobile app' | 'End-to-end' | 'Website' — the service the client bought
+//   cleanupChoices()  — the pages the user can choose to keep, with a flag on the internal-only ones. Read-only.
+//   planCleanup({ keep, service }) — keep: keywords of the pages the user chose, e.g. ['kickoff', 'invoice'];
+//     service: 'Brand' | 'Mobile app' | 'End-to-end' | 'Website', used only to trim unsold services inside a kept
+//     Kickoff or Workshop page. Read-only: show the result, wait for a yes, then applyCleanup.
+// The Thumbnail page, separator pages and every "Deck — …" page always stay.
 const INTERNAL_PAGE_KEYWORDS = ['discovery', 'design process', 'final check', 'direction'];
-function planCleanup({ built, service }) {
-  const plan = { deletePages: [], deleteSections: [], keep: [] };
+const alwaysKept = p => p.name.startsWith('Deck —') || pageKey(p.name).startsWith('thumbnail') || /^[-\s]+$/.test(p.name);
+function cleanupChoices() {
+  return figma.root.children.filter(p => !alwaysKept(p)).map(p => ({
+    page: p.name, internal: INTERNAL_PAGE_KEYWORDS.some(k => pageKey(p.name).includes(k)),
+  }));
+}
+function planCleanup({ keep = [], service }) {
+  const plan = { deletePages: [], deleteSections: [], keep: [], warnings: [] };
   const dash = n => dashless(n).toLowerCase();
   for (const p of figma.root.children) {
+    if (alwaysKept(p)) { plan.keep.push(p.name); continue; }
     const key = pageKey(p.name);
-    const keepAlways = p.name.startsWith('Deck —') || key.startsWith('thumbnail') || /^[-\s]+$/.test(p.name);
-    if (keepAlways) { plan.keep.push(p.name); continue; }
-    if (INTERNAL_PAGE_KEYWORDS.some(k => key.includes(k))) { plan.deletePages.push({ page: p.name, why: 'internal only' }); continue; }
-    const builtHere = built.find(t => key.includes(SOURCE_PAGES[t]));
-    if (builtHere) { plan.deletePages.push({ page: p.name, why: `${builtHere} is built — its source is no longer needed` }); continue; }
-    if (key.includes('introduction slide') && !built.includes('intro')) { plan.deletePages.push({ page: p.name, why: 'intro and case slides are not part of this deck set' }); continue; }
-    plan.keep.push(p.name + ' (needed for later deck types)');
-    // unsold services inside the pages we keep
+    if (!keep.some(k => key.includes(String(k).toLowerCase()))) { plan.deletePages.push({ page: p.name }); continue; }
+    plan.keep.push(p.name);
+    if (INTERNAL_PAGE_KEYWORDS.some(k => key.includes(k))) plan.warnings.push(`${p.name} is internal-only — the client will see it if the file is shared`);
     for (const s of p.children.filter(n => n.type === 'SECTION')) {
       const sn = dash(s.name);
       if (key.includes('kickoff') && sn.startsWith('variant - ') && sn !== dash(`Variant - ${service}`))
-        plan.deleteSections.push({ page: p.name, section: s.name, why: 'a service this client did not buy' });
+        plan.deleteSections.push({ page: p.name, section: s.name });
       if (key.includes('workshop') && service !== 'End-to-end') {
         const wantsBrand = service === 'Brand';
         const isBrand = /brand/i.test(s.name), isProduct = /product/i.test(s.name);
-        if ((wantsBrand && isProduct) || (!wantsBrand && isBrand))
-          plan.deleteSections.push({ page: p.name, section: s.name, why: 'a service this client did not buy' });
+        if ((wantsBrand && isProduct) || (!wantsBrand && isBrand)) plan.deleteSections.push({ page: p.name, section: s.name });
       }
     }
   }
