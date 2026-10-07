@@ -19,7 +19,8 @@ The Kanso Deck Template (layout library + components) was archived on 2026-09-16
 
 **The Figma MCP cannot duplicate files.** Every deck starts with the user duplicating the source file in Figma
 (⋯ → Duplicate), renaming it `[Client] — [Deck type] — [YYYY-MM-DD]`, and pasting the link. Build in that copy on a
-new page, then delete the source pages the deck doesn't use once the review is done.
+new page. Once the review is done, clean the copy with `planCleanup` / `applyCleanup` (`build-helpers.js`) — internal
+pages and unused sources go, before the Lastik switch.
 
 ## Canvas and grid
 

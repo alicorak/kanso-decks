@@ -99,9 +99,28 @@ Run `scripts/review-scan.js`. Fix overlaps, overflow, footer-zone hits, and empt
 1. Link to the deck page.
 2. What was built (slide count, layouts used).
 3. **Open items**: remaining placeholders, facts to confirm, images to add.
-4. **Final step for the user:** switch `font/heading-family` to `Lastik` and `font/heading-style` to `Free`
-   in the Typography variables — then ask you to run the scan again. After the switch, headings are wider:
-   move text below headings with `stackBelow`; never try to resize Lastik text.
+
+Once the user has approved the review, move on to cleaning up the copy. The Lastik switch comes after it.
+
+### 7. Clean up the copy ⏸
+
+The copy still carries every internal page of the source file — scoping sheets with the sales read, the design
+process, working notes — and the sources of deck types this client doesn't need. A client who opens the file must not
+find any of it.
+
+1. Run `planCleanup({ built, service })` (`build-helpers.js`) — `built` is the deck types built so far, `service`
+   is what the client bought. It is read-only.
+2. Show the user exactly what it would delete and what it keeps, and wait for a yes. What it keeps is deliberate:
+   the Kickoff, Invoice and Workshop pages stay (this client still needs them later), trimmed to the service they
+   bought. Internal pages, the source page of the deck just built, and the intro slides go.
+3. Run `applyCleanup(plan)`. It refuses in any file with no `Deck — …` page, which is how it stays out of the
+   source file. Screenshot the page list afterwards.
+
+### 8. Hand over
+
+**Final step for the user:** switch `font/heading-family` to `Lastik` and `font/heading-style` to `Free`
+in the Typography variables — then ask you to run the scan again. After the switch, headings are wider:
+move text below headings with `stackBelow`; never try to resize Lastik text.
 
 ## Hard rules
 

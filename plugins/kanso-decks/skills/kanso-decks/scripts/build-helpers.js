@@ -370,3 +370,59 @@ function setPageNumbers(deckPage) {
 
 // Legacy helper for absolutely positioned text (UI v1 decks). Auto-layout slides don't need it.
 function stackBelow(above, below, gap = 32) { below.y = Math.round(above.y + above.height + gap); return below; }
+
+// ---------- Clean up the client's copy ----------
+// After the review, before the Lastik switch. The copy still carries every internal page of the source file —
+// scoping sheets (with the sales read), the design process, working notes — and the sources of deck types this
+// client doesn't need. None of that should reach a client who opens the file.
+//
+// planCleanup is read-only: call it, show the user what it returns, wait for a yes, then applyCleanup.
+//   built:   deck types built in this copy so far, e.g. ['proposal'] (keys of SOURCE_PAGES)
+//   service: 'Brand' | 'Mobile app' | 'End-to-end' | 'Website' — the service the client bought
+const INTERNAL_PAGE_KEYWORDS = ['discovery', 'design process', 'final check', 'direction'];
+function planCleanup({ built, service }) {
+  const plan = { deletePages: [], deleteSections: [], keep: [] };
+  const dash = n => dashless(n).toLowerCase();
+  for (const p of figma.root.children) {
+    const key = pageKey(p.name);
+    const keepAlways = p.name.startsWith('Deck —') || key.startsWith('thumbnail') || /^[-\s]+$/.test(p.name);
+    if (keepAlways) { plan.keep.push(p.name); continue; }
+    if (INTERNAL_PAGE_KEYWORDS.some(k => key.includes(k))) { plan.deletePages.push({ page: p.name, why: 'internal only' }); continue; }
+    const builtHere = built.find(t => key.includes(SOURCE_PAGES[t]));
+    if (builtHere) { plan.deletePages.push({ page: p.name, why: `${builtHere} is built — its source is no longer needed` }); continue; }
+    if (key.includes('introduction slide') && !built.includes('intro')) { plan.deletePages.push({ page: p.name, why: 'intro and case slides are not part of this deck set' }); continue; }
+    plan.keep.push(p.name + ' (needed for later deck types)');
+    // unsold services inside the pages we keep
+    for (const s of p.children.filter(n => n.type === 'SECTION')) {
+      const sn = dash(s.name);
+      if (key.includes('kickoff') && sn.startsWith('variant - ') && sn !== dash(`Variant - ${service}`))
+        plan.deleteSections.push({ page: p.name, section: s.name, why: 'a service this client did not buy' });
+      if (key.includes('workshop') && service !== 'End-to-end') {
+        const wantsBrand = service === 'Brand';
+        const isBrand = /brand/i.test(s.name), isProduct = /product/i.test(s.name);
+        if ((wantsBrand && isProduct) || (!wantsBrand && isBrand))
+          plan.deleteSections.push({ page: p.name, section: s.name, why: 'a service this client did not buy' });
+      }
+    }
+  }
+  return plan;
+}
+
+// Deletes what planCleanup returned. Refuses to run in a file with no "Deck — …" page: the source file never has
+// one (decks are never built inside it), so this keeps the source file safe from an accidental cleanup.
+async function applyCleanup(plan) {
+  const deck = figma.root.children.find(p => p.name.startsWith('Deck —'));
+  if (!deck) throw new Error('No "Deck — …" page in this file. This looks like the source file — cleanup refused.');
+  await figma.setCurrentPageAsync(deck);
+  const removed = [];
+  for (const { page, section } of plan.deleteSections) {
+    const p = figma.root.children.find(x => x.name === page);
+    const s = p && p.children.find(n => n.type === 'SECTION' && n.name === section);
+    if (s) { s.remove(); removed.push(`${page} › ${section}`); }
+  }
+  for (const { page } of plan.deletePages) {
+    const p = figma.root.children.find(x => x.name === page);
+    if (p && p !== deck) { p.remove(); removed.push(page); }
+  }
+  return removed;
+}

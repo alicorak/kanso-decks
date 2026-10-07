@@ -153,6 +153,12 @@ This document captures the decisions made in the 2026-09-14 Q&A rounds. The skil
 - Source pages get renamed often; `build-helpers.js` now falls back to a substring match on page name so a rename
   doesn't break a build.
 
+### Cleaning the client's copy (2026-10-07)
+- After the review and before the Lastik switch, the skill proposes a cleanup of the copy and waits for a yes:
+  internal pages (scoping with the sales read, design process, working notes), the source of the deck just built,
+  and the intro slides go; Kickoff, Invoice and Workshop stay for later deck types, trimmed to the service sold.
+- `applyCleanup` refuses in a file with no `Deck — …` page, so it cannot run in the source file.
+
 ## 5. Workflow
 
 1. **Brief** — required: client name / industry / website · meeting type and presenter · client goal / problem
