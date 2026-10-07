@@ -31,7 +31,7 @@ Layer names match `references/figma-system.md`. `[brackets]` = open items. **Hea
 - **Header:** Intro
 - **Eyebrow:** Clients
 - **Headline:** We partner with established brands…
-- **Image placeholder ×4:** Dataland · Chiliz · Derimod · [Client logo]
+- **Image placeholder ×3 (one row):** Dataland · Chiliz · Derimod — three for now; add a fourth placeholder only when a fourth published client is ready
 
 ## 06 — Clients · founders · `Layout / Logo wall`
 - **Header:** Intro
@@ -155,7 +155,7 @@ Layer names match `references/figma-system.md`. `[brackets]` = open items. **Hea
 5. **Dataland outcomes** (slide 15): the verified numbers describe the system's scale, not business results. If there are outcome figures (downloads, ratings, visitors, press), add them; otherwise these four stay.
 
 **Assets to add in Figma**
-6. Client logos: Dataland, Chiliz, Derimod, Pro Legacy — plus 4 empty `[Client logo]` slots (slides 05–06). Fill them or remove the empty slots.
+6. Client logos: Dataland, Chiliz, Derimod on slide 05 (one row of three); Pro Legacy and the empty `Founder name` slots on slide 06 — fill them or remove the empty slots.
 7. Photos and visuals: studio photo (07), Dataland hero (11), boot sequence, icon system, out-of-home (13).
 
 **After the build**
